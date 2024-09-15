@@ -15,6 +15,12 @@ class UserRequestCreateAndUpdate extends FormRequest
      */
     public function authorize()
     {
+        $userLogged = auth()->user();
+
+        checkUserLoggedVerified($userLogged);
+
+        checkUserLoggedAdm($userLogged);
+
         return true;
     }
 
@@ -30,7 +36,7 @@ class UserRequestCreateAndUpdate extends FormRequest
         if ($this->isMethod('put') || $this->isMethod('patch')) {
             $rules['name'] = 'nullable|string|max:255';
             $rules['email'] = 'nullable|email|max:255|unique:users,email,' . $this->user;
-            $rules['password'] = 'nullable|string|min:8|confirmed';
+            $rules['password'] = 'nullable';
             $rules['type'] = 'nullable|string|in:adm,librarian';
         }
 

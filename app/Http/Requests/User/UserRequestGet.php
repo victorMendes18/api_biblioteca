@@ -15,6 +15,12 @@ class UserRequestGet extends FormRequest
      */
     public function authorize()
     {
+        $userLogged = auth()->user();
+
+        checkUserLoggedVerified($userLogged);
+
+        checkUserLoggedAdm($userLogged);
+
         return true;
     }
 

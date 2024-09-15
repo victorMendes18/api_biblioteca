@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserRequestCreateAndUpdate;
 use App\Http\Requests\User\UserRequestGet;
+use App\Http\Requests\User\UserRequestGetIdAndDelete;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -83,8 +84,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(UserRequestGetIdAndDelete $request, $id)
     {
+        $validated = $request->validated();
+
         $user = User::find($id);
 
         if (!$user){
@@ -116,7 +119,6 @@ class UserController extends Controller
             'name' => !empty($validatedData['name']) ? $validatedData['name'] : $user->name,
             'email' => !empty($validatedData['email']) ? $validatedData['email'] : $user->email,
             'type' => !empty($validatedData['type']) ? $validatedData['type'] : $user->type,
-            'password' => !empty($validatedData['password']) ? Hash::make($validatedData['password']) : $user->password, // Atualiza a senha somente se fornecida
         ]);
 
         return response()->json([
@@ -125,8 +127,10 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function destroy($id)
+    public function destroy(UserRequestCreateAndUpdate $request, $id)
     {
+        $validated = $request->validated();
+
         $user = User::find($id);
 
         if (!$user){
