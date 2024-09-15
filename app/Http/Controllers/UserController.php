@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\UserRequestCreateAndUpdate;
 use App\Http\Requests\User\UserRequestGet;
 use App\Http\Requests\User\UserRequestGetIdAndDelete;
+use App\Http\Requests\User\UserRequestResetPassWord;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -144,6 +145,27 @@ class UserController extends Controller
         return response()->json([
             'message' => 'User deleted successfully.',
             'user' => $user
+        ], 200);
+    }
+
+    public function resetPassword(UserRequestResetPassWord $request)
+    {
+        $validated = $request->validated();
+
+        $user = auth()->user();
+
+        if (!Hash::check($validated['old_password'], $user->password)) {
+            return response()->json([
+                'message' => 'The current password was entered incorrectly.',
+            ], 400);
+        }
+
+        $user->update([
+            'password' => Hash::make($validated['new_password'])
+        ]);
+
+        return response()->json([
+            'message' => 'Password updated successfully.'
         ], 200);
     }
 }

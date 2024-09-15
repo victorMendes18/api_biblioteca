@@ -33,6 +33,8 @@ Route::middleware(['auth:api'])->group(function () {
         Route::put('/{id}', [UserController::class, 'update']);
         Route::get('/{id}', [UserController::class, 'show']);
         Route::delete('/{id}', [UserController::class, 'destroy']);
+        Route::patch('/reset_password', [UserController::class, 'resetPassword']);
+
     });
 
 });

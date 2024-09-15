@@ -24,6 +24,13 @@ class UserRequestCreateAndUpdate extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
+    }
+
     public function rules()
     {
         $rules = [
@@ -34,6 +41,7 @@ class UserRequestCreateAndUpdate extends FormRequest
         ];
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
+            $rules['id'] = 'required|integer';
             $rules['name'] = 'nullable|string|max:255';
             $rules['email'] = 'nullable|email|max:255|unique:users,email,' . $this->user;
             $rules['password'] = 'nullable';
@@ -62,6 +70,9 @@ class UserRequestCreateAndUpdate extends FormRequest
             'type.required' => 'The "type" field is required.',
             'type.string' => 'The "type" field must be a string.',
             'type.in' => 'The "type" field must be either "adm" or "librarian".',
+
+            'id.required' => 'The user ID is required.',
+            'id.integer' => 'The user ID must be an integer.',
         ];
     }
 
