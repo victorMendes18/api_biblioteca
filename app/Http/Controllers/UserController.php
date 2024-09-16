@@ -128,7 +128,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function destroy(UserRequestCreateAndUpdate $request, $id)
+    public function destroy(UserRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();
 

@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -47,7 +49,14 @@ Route::middleware(['auth:api'])->group(function () {
         Route::put('/{id}', [BookController::class, 'update']);
         Route::get('/{id}', [BookController::class, 'show']);
         Route::delete('/{id}', [BookController::class, 'destroy']);
+    });
 
+    Route::prefix('students')->group(function (){
+        Route::get('/', [StudentController::class, 'index']);
+        Route::post('/', [StudentController::class, 'store']);
+        Route::put('/{id}', [StudentController::class, 'update']);
+        Route::get('/{id}', [StudentController::class, 'show']);
+        Route::delete('/{id}', [StudentController::class, 'destroy']);
     });
 
 });
