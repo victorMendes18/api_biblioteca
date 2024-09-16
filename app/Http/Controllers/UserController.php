@@ -40,7 +40,7 @@ class UserController extends Controller
             ->when($validated['ordering'] ?? null, function ($q, $ordering) {
 
                 if ($ordering == 'created_at'){
-                    $q->orderBy($ordering, desc);
+                    $q->orderBy($ordering, 'desc');
                 } else {
                     $q->orderBy($ordering);
                 }
@@ -49,7 +49,7 @@ class UserController extends Controller
 
 
         $page = $validated['page'] ?? 1;
-        $pageSize = $validated['page_size'] ?? 10;
+        $pageSize = $validated['page_size'] ?? 50;
         $data = $query->paginate($pageSize, ['*'], 'page', $page);
 
         $response = [
