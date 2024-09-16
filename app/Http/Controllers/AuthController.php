@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\Auth\AuthRequestLogin;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -45,5 +46,22 @@ class AuthController extends Controller
         ]);
 
         return response()->json($user, 200);
+    }
+
+    public function logout(Request $request)
+    {
+        try {
+            // Invalida o token atual
+            JWTAuth::invalidate(JWTAuth::getToken());
+
+            return response()->json([
+                'message' => 'User successfully logged out.'
+            ], 200);
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json([
+                'message' => 'Failed to log out, please try again.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }
