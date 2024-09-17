@@ -20,4 +20,9 @@ class Book extends Model
         'number_of_pages',
         'public'
     ];
+
+    public function rents()
+    {
+        return $this->hasMany(Rent::class);
+    }
 }

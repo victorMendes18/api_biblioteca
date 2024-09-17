@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -57,6 +59,14 @@ Route::middleware(['auth:api'])->group(function () {
         Route::put('/{id}', [StudentController::class, 'update']);
         Route::get('/{id}', [StudentController::class, 'show']);
         Route::delete('/{id}', [StudentController::class, 'destroy']);
+    });
+
+    Route::prefix('rents')->group(function (){
+        Route::get('/', [RentController::class, 'index']);
+        Route::post('/', [RentController::class, 'store']);
+        Route::put('/{id}', [RentController::class, 'update']);
+        Route::get('/{id}', [RentController::class, 'show']);
+        Route::delete('/{id}', [RentController::class, 'destroy']);
     });
 
 });
