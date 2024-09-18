@@ -37,8 +37,8 @@ class RentRequestCreateAndUpdate extends FormRequest
         ];
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
-            $rules['book_id'] = 'nullable|exists:books,id';
-            $rules['student_id'] = 'nullable|exists:students,id';
+            $rules['book_id'] = 'nullable';
+            $rules['student_id'] = 'nullable';
             $rules['delivery_date'] = 'nullable|date|after:today';
         }
 

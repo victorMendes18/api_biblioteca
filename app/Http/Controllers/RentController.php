@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Rent\RentRequestCreateAndUpdate;
 use App\Http\Requests\Rent\RentRequestGet;
+use App\Http\Requests\Rent\RentRequestGetIdAndDelete;
 use App\Models\Book;
 use App\Models\Rent;
 use Illuminate\Http\Request;
@@ -17,6 +18,13 @@ class RentController extends Controller
         $query = Rent::with(['book', 'student']);
 
         $query
+            ->when(auth()->user()->type === 'librarian', function ($q) {
+
+                $q->whereHas('book', function ($query) {
+                    $query->where('public', true);
+                });
+
+            })
             ->when($validated['search'] ?? null, function ($q, $search) {
 
                 $q->whereHas('book', function ($query) use ($search) {
@@ -81,5 +89,86 @@ class RentController extends Controller
             'message' => 'Rent successfully created.',
             'rent' => $rent
         ], 201);
+    }
+
+    public function show(RentRequestGetIdAndDelete $request, $id)
+    {
+        $validated = $request->validated();
+
+        $rent = Rent::with(['book', 'student'])
+            ->where('id', $id)
+            ->when(auth()->user()->type === 'librarian', function ($q) {
+
+                $q->whereHas('book', function ($query) {
+                    $query->where('public', true);
+                });
+
+            })
+            ->first();
+
+        if (!$rent){
+            return response()->json([
+                'message' => 'Rent not found.',
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'Rent returned successfully.',
+            'rent' => $rent
+        ], 200);
+    }
+
+    public function update(RentRequestCreateAndUpdate $request, $id)
+    {
+
+        $rent = Rent::with(['book', 'student'])->where('id', $id)->first();
+
+        if (!$rent){
+            return response()->json([
+                'message' => 'Rent not found.',
+            ], 404);
+        }
+
+        if ($rent->book->public == false && auth()->user()->type == 'librarian'){
+            return response()->json([
+                'message' => 'The librarian user does not have access to edit Private Book Rentals.',
+            ], 401);
+        }
+
+        $validatedData = $request->validated();
+
+        $rent->update([
+            'delivery_date' => !empty($validatedData['delivery_date']) ? $validatedData['delivery_date'] : $rent->delivery_date,
+            'delivered' => array_key_exists('delivered', $validatedData) ? $validatedData['delivered'] : $rent->delivered
+        ]);
+
+        return response()->json([
+            'message' => 'Rent updated successfully.',
+            'rent' => $rent
+        ], 200);
+    }
+
+    public function destroy(RentRequestGetIdAndDelete $request, $id)
+    {
+        $rent = Rent::with(['book', 'student'])->where('id', $id)->first();
+
+        if (!$rent){
+            return response()->json([
+                'message' => 'Rent not found.',
+            ], 404);
+        }
+
+        if ($rent->book->public == false && auth()->user()->type == 'librarian'){
+            return response()->json([
+                'message' => 'The librarian user does not have access to delete Private Book Rentals.',
+            ], 401);
+        }
+
+        $rent->delete();
+
+        return response()->json([
+            'message' => 'Rent deleted successfully.',
+            'rent' => $rent
+        ], 200);
     }
 }
