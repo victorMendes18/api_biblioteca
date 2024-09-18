@@ -160,6 +160,12 @@ class BookController extends Controller
             ], 404);
         }
 
+        if ($book->rents()->where('delivered', false)->count()){
+            return response()->json([
+                'message' => 'Book cannot be deleted because it has open rentals.',
+            ], 400);
+        }
+
         $book->delete();
 
         return response()->json([

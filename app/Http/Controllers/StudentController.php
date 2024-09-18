@@ -128,6 +128,12 @@ class StudentController extends Controller
             ], 404);
         }
 
+        if ($student->rents()->where('delivered', false)->count()){
+            return response()->json([
+                'message' => 'Student cannot be deleted because it has open rentals.',
+            ], 400);
+        }
+
         $student->delete();
 
         return response()->json([
