@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserRequestConfirmationEmail;
 use App\Http\Requests\User\UserRequestCreateAndUpdate;
 use App\Http\Requests\User\UserRequestGet;
 use App\Http\Requests\User\UserRequestGetIdAndDelete;
 use App\Http\Requests\User\UserRequestResetPassWord;
+use App\Mail\SendEmailsClass;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
@@ -73,10 +77,30 @@ class UserController extends Controller
             'type' => $validatedData['type'],
         ]);
 
+        //Envia email de confirmação
+        $this->sendConfirmationEmail($validatedData['name'], $validatedData['email'], $validatedData['password']);
+
         return response()->json([
             'message' => 'User created successfully.',
             'user' => $user
         ], 201);
+    }
+
+    private function sendConfirmationEmail($nameUser, $emailUser, $passwordUser)
+    {
+        $credentials = [
+            'email' => $emailUser,
+            'password' => $passwordUser
+        ];
+
+        $token = auth('api')->attempt($credentials);
+
+        $details = [
+            'nameUser' => $nameUser,
+            'token' => $token,
+        ];
+
+        Mail::to($emailUser)->send(new SendEmailsClass($details));
     }
 
     /**
@@ -166,6 +190,24 @@ class UserController extends Controller
 
         return response()->json([
             'message' => 'Password updated successfully.'
+        ], 200);
+    }
+
+    public function confirmationEmail(UserRequestConfirmationEmail $request)
+    {
+        $validated = $request->validated();
+
+        $user = auth()->user();
+
+        // Marcar o e-mail como confirmado
+        $user->email_verified_at = now();
+        $user->save();
+
+        // Invalida o token atual
+        JWTAuth::invalidate(JWTAuth::getToken());
+
+        return response()->json([
+            'message' => 'Email confirmed successfully.'
         ], 200);
     }
 }
