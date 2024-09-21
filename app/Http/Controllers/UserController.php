@@ -17,9 +17,21 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @response 200 {
+     *   "id": 1,
+     *   "name": "John Doe",
+     *   "email": "john@example.com",
+     *   "created_at": "2024-09-18T12:34:56Z",
+     *   "updated_at": "2024-09-18T12:34:56Z"
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
      */
     public function index(UserRequestGet $request)
     {

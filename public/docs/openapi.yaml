@@ -1,0 +1,1176 @@
+openapi: 3.0.3
+info:
+  title: ApiBiblioteca
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: ktyvklelscfwshxwhvxdlxcjlslgvuqfbejmiupnmnjkorhhmgaerclaxtzsfkgfudiuwyttfu
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: q
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/users:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                  created_at: '2024-09-18T12:34:56Z'
+                  updated_at: '2024-09-18T12:34:56Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+                  created_at:
+                    type: string
+                    example: '2024-09-18T12:34:56Z'
+                  updated_at:
+                    type: string
+                    example: '2024-09-18T12:34:56Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                search:
+                  type: string
+                  description: ''
+                  example: voluptas
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: qcarroll@example.com
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+                  example: name
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: tfzmbcbnmptyoxzebncgrletggxmnkpcrqjilnkdhdzijizbfqgrsjbnxrnjboxdihpuswrmtadccvcqygvnieeb
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: dqufzenktrfzuneojrwuzfdvfexiqnarxlcbccipmijmpdscyfcgjinycamffisghbztpbfgsgwzzruquwzdszxadydycdithyznkoabunjggmo
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: hpsyccwr
+                type:
+                  type: string
+                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+                  example: librarian
+              required:
+                - name
+                - email
+                - password
+                - type
+      security: []
+  '/api/users/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uuzuxpnpgpqtpjammiunnxfzgdcjefdciigobxmiusrsjriyehuxoknrpiwjvvufjtavtd
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: wvhmkyyxcgpjoxamdmxxaxeixpopsloekzoyslshpyvdlafzinfpulgfhfqwvjjjohtnnshyvawrjmfyruaqkiqfniblktvrcrunfmpeqsylzvlsotetnjgxsnaeqptaezygas
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: srod
+                type:
+                  type: string
+                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+                  example: librarian
+              required:
+                - name
+                - email
+                - password
+                - type
+      security: []
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users/reset_password:
+    patch:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: uo
+                new_password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: wghgnsyk
+              required:
+                - old_password
+                - new_password
+      security: []
+  /api/users/confirmationEmail:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: pariatur
+              required:
+                - token
+      security: []
+  /api/books:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                search:
+                  type: string
+                  description: ''
+                  example: pariatur
+                isbn:
+                  type: string
+                  description: 'The value format is invalid. Must not be greater than 13 characters.'
+                  example: vtuqgxnizll
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>title</code> or <code>created_at</code>.'
+                  example: title
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fwnfkwesgdagtxegnccvketweoqevghpwkbsonovahxrngiyjyqykbqczkcymimgllegnnvunevisskdcqfpqrqwdxixyil
+                author:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pnbqiiwebqtvvwxfgghbdahfocobavjinwxxrtdqvxiquiigdnudigfiuccyykmijefmskgpujmkwpqokhskxlbunfyqukstxwvbznrjptbpiyapgsicqivdydxqpadmfhxwsvgtoruczsev
+                isbn:
+                  type: string
+                  description: 'The value format is invalid. Must not be greater than 13 characters.'
+                  example: lxzuhijj
+                year_of_publication:
+                  type: integer
+                  description: 'Must be at least 1000. Must not be greater than 2024.'
+                  example: 1277
+                number_of_pages:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                public:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - title
+                - author
+                - isbn
+                - year_of_publication
+                - number_of_pages
+                - public
+      security: []
+  '/api/books/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kfrxzcxwpkmbwhofqtokrvjaivagfextjnlmpdmszddeug
+                author:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fsjcobxdvlotyzmnnijaaboksxugdkdpgsbanswsillivqtoieyzigeqffammnqaszgghxtwmpkujiqzpmkqvzkztxyaamzdybgrghkmbsfpjfkbszmeqgppvbtbggoaagihxoyfdzynhauqjtcphjrtzskysnuhkmbortkfkegctkvnqmmtksavgywgkjlgzzffohiyypgswpemgtmzsmlpdasirczsyeodnqbgvzzeofj
+                isbn:
+                  type: string
+                  description: 'The value format is invalid. Must not be greater than 13 characters.'
+                  example: bvz
+                year_of_publication:
+                  type: integer
+                  description: 'Must be at least 1000. Must not be greater than 2024.'
+                  example: 359
+                number_of_pages:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                public:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - title
+                - author
+                - isbn
+                - year_of_publication
+                - number_of_pages
+                - public
+      security: []
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the book.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/students:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                search:
+                  type: string
+                  description: ''
+                  example: ipsa
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: jalen38@example.net
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+                  example: name
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: aqkybvqdfcestcraowoyyntnwbubtxhhxuokfkntaixbnffgmkw
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: ealoswgzxks
+                phone:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: bi
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vhlemphatojljhamrllheetlxyehwclrmxkqlznguqqaoutehzdwuscardwvh
+              required:
+                - name
+                - email
+      security: []
+  '/api/students/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uobpxoipsrlcacgplicyom
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: ffsticyzmckotvummiosqhedityacecgbwubboniihszhzashugtoqxgbtdrwzpsbzijywgcqfuyeknhfglldkplpwkqcdrgyvhlcuiaalixbqqtzajnsrnegqtjnwsmqzxnlfmnftgalhlxvaatyezycwzqwokwktvztngagybyngoibwtyeuzelrdscrjyainfhmvnbhyveulxcmdmozoutilscectrbqmcbxuexqvhuosifhqunnv
+                phone:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: nkymyq
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pyuqfejifzqahqhtfkmuinxagtwqzcaaoepoucbbznedkxnsbcyovamcnqotqobxgyhptojplirbufqu
+              required:
+                - name
+                - email
+      security: []
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the student.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/rents:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                search:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: aatxzzcumqwmoaonsurkbegnoqsxdjfxotutfjljwlelqalyubgnnwrwzqtjzsmuviljdlwnmqdozlbuvtpapiiupxesxeiveynunthexk
+                student:
+                  type: string
+                  description: ''
+                  example: consequatur
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
+                  example: created_at
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: string
+                  description: ''
+                  example: quo
+                student_id:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                delivery_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after <code>today</code>.'
+                  example: '2040-04-22'
+                delivered:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - book_id
+                - student_id
+                - delivery_date
+      security: []
+  '/api/rents/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: string
+                  description: ''
+                  example: quia
+                student_id:
+                  type: string
+                  description: ''
+                  example: occaecati
+                delivery_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after <code>today</code>.'
+                  example: '2051-12-30'
+                delivered:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - book_id
+                - student_id
+                - delivery_date
+      security: []
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the rent.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/oauth2-callback:
+    get:
+      summary: 'Display Oauth2 callback pages.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!doctype html>\n<html lang=\"en-US\">\n<head>\n    <title>Swagger UI: OAuth2 Redirect</title>\n</head>\n<body>\n<script>\n    'use strict';\n    function run () {\n        var oauth2 = window.opener.swaggerUIRedirectOauth2;\n        var sentState = oauth2.state;\n        var redirectUrl = oauth2.redirectUrl;\n        var isValid, qp, arr;\n\n        if (/code|token|error/.test(window.location.hash)) {\n            qp = window.location.hash.substring(1).replace('?', '&');\n        } else {\n            qp = location.search.substring(1);\n        }\n\n        arr = qp.split(\"&\");\n        arr.forEach(function (v,i,_arr) { _arr[i] = '\"' + v.replace('=', '\":\"') + '\"';});\n        qp = qp ? JSON.parse('{' + arr.join() + '}',\n                function (key, value) {\n                    return key === \"\" ? value : decodeURIComponent(value);\n                }\n        ) : {};\n\n        isValid = qp.state === sentState;\n\n        if ((\n          oauth2.auth.schema.get(\"flow\") === \"accessCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorizationCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorization_code\"\n        ) && !oauth2.auth.code) {\n            if (!isValid) {\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"warning\",\n                    message: \"Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server.\"\n                });\n            }\n\n            if (qp.code) {\n                delete oauth2.state;\n                oauth2.auth.code = qp.code;\n                oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});\n            } else {\n                let oauthErrorMsg;\n                if (qp.error) {\n                    oauthErrorMsg = \"[\"+qp.error+\"]: \" +\n                        (qp.error_description ? qp.error_description+ \". \" : \"no accessCode received from the server. \") +\n                        (qp.error_uri ? \"More info: \"+qp.error_uri : \"\");\n                }\n\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"error\",\n                    message: oauthErrorMsg || \"[Authorization failed]: no accessCode received from the server.\"\n                });\n            }\n        } else {\n            oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});\n        }\n        window.close();\n    }\n\n    if (document.readyState !== 'loading') {\n        run();\n    } else {\n        document.addEventListener('DOMContentLoaded', function () {\n            run();\n        });\n    }\n</script>\n</body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/documentation:
+    get:
+      summary: 'Display Swagger API page.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>L5 Swagger UI</title>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://localhost/docs/asset/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df\">\n    <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"/>\n    <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"/>\n    <style>\n    html\n    {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n    }\n    *,\n    *:before,\n    *:after\n    {\n        box-sizing: inherit;\n    }\n\n    body {\n      margin:0;\n      background: #fafafa;\n    }\n    </style>\n    </head>\n\n<body >\n<div id=\"swagger-ui\"></div>\n\n<script src=\"http://localhost/docs/asset/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7\"></script>\n<script src=\"http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5\"></script>\n<script>\n    window.onload = function() {\n        // Build a system\n        const ui = SwaggerUIBundle({\n            dom_id: '#swagger-ui',\n            url: \"http://localhost/docs/api-docs.json\",\n            operationsSorter: null,\n            configUrl: null,\n            validatorUrl: null,\n            oauth2RedirectUrl: \"http://localhost/api/oauth2-callback\",\n\n            requestInterceptor: function(request) {\n                request.headers['X-CSRF-TOKEN'] = '';\n                return request;\n            },\n\n            presets: [\n                SwaggerUIBundle.presets.apis,\n                SwaggerUIStandalonePreset\n            ],\n\n            plugins: [\n                SwaggerUIBundle.plugins.DownloadUrl\n            ],\n\n            layout: \"StandaloneLayout\",\n            docExpansion : \"none\",\n            deepLinking: true,\n            filter: true,\n            persistAuthorization: \"false\",\n\n        })\n\n        window.ui = ui\n\n            }\n</script>\n</body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

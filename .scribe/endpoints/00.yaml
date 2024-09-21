@@ -1,0 +1,1205 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: ktyvklelscfwshxwhvxdlxcjlslgvuqfbejmiupnmnjkorhhmgaerclaxtzsfkgfudiuwyttfu
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: q
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: ''
+        required: false
+        example: voluptas
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: qcarroll@example.com
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+        required: false
+        example: name
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "created_at": "2024-09-18T12:34:56Z",
+            "updated_at": "2024-09-18T12:34:56Z"
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: tfzmbcbnmptyoxzebncgrletggxmnkpcrqjilnkdhdzijizbfqgrsjbnxrnjboxdihpuswrmtadccvcqygvnieeb
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: dqufzenktrfzuneojrwuzfdvfexiqnarxlcbccipmijmpdscyfcgjinycamffisghbztpbfgsgwzzruquwzdszxadydycdithyznkoabunjggmo
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: hpsyccwr
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+        required: true
+        example: librarian
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/users/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: uuzuxpnpgpqtpjammiunnxfzgdcjefdciigobxmiusrsjriyehuxoknrpiwjvvufjtavtd
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: wvhmkyyxcgpjoxamdmxxaxeixpopsloekzoyslshpyvdlafzinfpulgfhfqwvjjjohtnnshyvawrjmfyruaqkiqfniblktvrcrunfmpeqsylzvlsotetnjgxsnaeqptaezygas
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: srod
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+        required: true
+        example: librarian
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PATCH
+    uri: api/users/reset_password
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      old_password:
+        name: old_password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: uo
+        type: string
+        custom: []
+      new_password:
+        name: new_password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: wghgnsyk
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users/confirmationEmail
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: ''
+        required: true
+        example: pariatur
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/books
+    metadata:
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: ''
+        required: false
+        example: pariatur
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: false
+        example: vtuqgxnizll
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>title</code> or <code>created_at</code>.'
+        required: false
+        example: title
+        type: string
+        custom: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/books
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: fwnfkwesgdagtxegnccvketweoqevghpwkbsonovahxrngiyjyqykbqczkcymimgllegnnvunevisskdcqfpqrqwdxixyil
+        type: string
+        custom: []
+      author:
+        name: author
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: pnbqiiwebqtvvwxfgghbdahfocobavjinwxxrtdqvxiquiigdnudigfiuccyykmijefmskgpujmkwpqokhskxlbunfyqukstxwvbznrjptbpiyapgsicqivdydxqpadmfhxwsvgtoruczsev
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: true
+        example: lxzuhijj
+        type: string
+        custom: []
+      year_of_publication:
+        name: year_of_publication
+        description: 'Must be at least 1000. Must not be greater than 2024.'
+        required: true
+        example: 1277
+        type: integer
+        custom: []
+      number_of_pages:
+        name: number_of_pages
+        description: 'Must be at least 1.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      public:
+        name: public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/books/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: kfrxzcxwpkmbwhofqtokrvjaivagfextjnlmpdmszddeug
+        type: string
+        custom: []
+      author:
+        name: author
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: fsjcobxdvlotyzmnnijaaboksxugdkdpgsbanswsillivqtoieyzigeqffammnqaszgghxtwmpkujiqzpmkqvzkztxyaamzdybgrghkmbsfpjfkbszmeqgppvbtbggoaagihxoyfdzynhauqjtcphjrtzskysnuhkmbortkfkegctkvnqmmtksavgywgkjlgzzffohiyypgswpemgtmzsmlpdasirczsyeodnqbgvzzeofj
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: true
+        example: bvz
+        type: string
+        custom: []
+      year_of_publication:
+        name: year_of_publication
+        description: 'Must be at least 1000. Must not be greater than 2024.'
+        required: true
+        example: 359
+        type: integer
+        custom: []
+      number_of_pages:
+        name: number_of_pages
+        description: 'Must be at least 1.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      public:
+        name: public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/books/{id}'
+    metadata:
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/books/{id}'
+    metadata:
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/students
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: ''
+        required: false
+        example: ipsa
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: jalen38@example.net
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+        required: false
+        example: name
+        type: string
+        custom: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/students
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: aqkybvqdfcestcraowoyyntnwbubtxhhxuokfkntaixbnffgmkw
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: ealoswgzxks
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'Must be at least 8 characters.'
+        required: false
+        example: bi
+        type: string
+        custom: []
+      address:
+        name: address
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: vhlemphatojljhamrllheetlxyehwclrmxkqlznguqqaoutehzdwuscardwvh
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/students/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the student.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: uobpxoipsrlcacgplicyom
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: ffsticyzmckotvummiosqhedityacecgbwubboniihszhzashugtoqxgbtdrwzpsbzijywgcqfuyeknhfglldkplpwkqcdrgyvhlcuiaalixbqqtzajnsrnegqtjnwsmqzxnlfmnftgalhlxvaatyezycwzqwokwktvztngagybyngoibwtyeuzelrdscrjyainfhmvnbhyveulxcmdmozoutilscectrbqmcbxuexqvhuosifhqunnv
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'Must be at least 8 characters.'
+        required: false
+        example: nkymyq
+        type: string
+        custom: []
+      address:
+        name: address
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: pyuqfejifzqahqhtfkmuinxagtwqzcaaoepoucbbznedkxnsbcyovamcnqotqobxgyhptojplirbufqu
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/students/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the student.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/students/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the student.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/rents
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: aatxzzcumqwmoaonsurkbegnoqsxdjfxotutfjljwlelqalyubgnnwrwzqtjzsmuviljdlwnmqdozlbuvtpapiiupxesxeiveynunthexk
+        type: string
+        custom: []
+      student:
+        name: student
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
+        required: false
+        example: created_at
+        type: string
+        custom: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/rents
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      book_id:
+        name: book_id
+        description: ''
+        required: true
+        example: quo
+        type: string
+        custom: []
+      student_id:
+        name: student_id
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+      delivery_date:
+        name: delivery_date
+        description: 'Must be a valid date. Must be a date after <code>today</code>.'
+        required: true
+        example: '2040-04-22'
+        type: string
+        custom: []
+      delivered:
+        name: delivered
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/rents/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      book_id:
+        name: book_id
+        description: ''
+        required: true
+        example: quia
+        type: string
+        custom: []
+      student_id:
+        name: student_id
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        custom: []
+      delivery_date:
+        name: delivery_date
+        description: 'Must be a valid date. Must be a date after <code>today</code>.'
+        required: true
+        example: '2051-12-30'
+        type: string
+        custom: []
+      delivered:
+        name: delivered
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/rents/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/rents/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/oauth2-callback
+    metadata:
+      title: 'Display Oauth2 callback pages.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          <!doctype html>
+          <html lang="en-US">
+          <head>
+              <title>Swagger UI: OAuth2 Redirect</title>
+          </head>
+          <body>
+          <script>
+              'use strict';
+              function run () {
+                  var oauth2 = window.opener.swaggerUIRedirectOauth2;
+                  var sentState = oauth2.state;
+                  var redirectUrl = oauth2.redirectUrl;
+                  var isValid, qp, arr;
+
+                  if (/code|token|error/.test(window.location.hash)) {
+                      qp = window.location.hash.substring(1).replace('?', '&');
+                  } else {
+                      qp = location.search.substring(1);
+                  }
+
+                  arr = qp.split("&");
+                  arr.forEach(function (v,i,_arr) { _arr[i] = '"' + v.replace('=', '":"') + '"';});
+                  qp = qp ? JSON.parse('{' + arr.join() + '}',
+                          function (key, value) {
+                              return key === "" ? value : decodeURIComponent(value);
+                          }
+                  ) : {};
+
+                  isValid = qp.state === sentState;
+
+                  if ((
+                    oauth2.auth.schema.get("flow") === "accessCode" ||
+                    oauth2.auth.schema.get("flow") === "authorizationCode" ||
+                    oauth2.auth.schema.get("flow") === "authorization_code"
+                  ) && !oauth2.auth.code) {
+                      if (!isValid) {
+                          oauth2.errCb({
+                              authId: oauth2.auth.name,
+                              source: "auth",
+                              level: "warning",
+                              message: "Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server."
+                          });
+                      }
+
+                      if (qp.code) {
+                          delete oauth2.state;
+                          oauth2.auth.code = qp.code;
+                          oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});
+                      } else {
+                          let oauthErrorMsg;
+                          if (qp.error) {
+                              oauthErrorMsg = "["+qp.error+"]: " +
+                                  (qp.error_description ? qp.error_description+ ". " : "no accessCode received from the server. ") +
+                                  (qp.error_uri ? "More info: "+qp.error_uri : "");
+                          }
+
+                          oauth2.errCb({
+                              authId: oauth2.auth.name,
+                              source: "auth",
+                              level: "error",
+                              message: oauthErrorMsg || "[Authorization failed]: no accessCode received from the server."
+                          });
+                      }
+                  } else {
+                      oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});
+                  }
+                  window.close();
+              }
+
+              if (document.readyState !== 'loading') {
+                  run();
+              } else {
+                  document.addEventListener('DOMContentLoaded', function () {
+                      run();
+                  });
+              }
+          </script>
+          </body>
+          </html>
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/documentation
+    metadata:
+      title: 'Display Swagger API page.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <title>L5 Swagger UI</title>
+              <link rel="stylesheet" type="text/css" href="http://localhost/docs/asset/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df">
+              <link rel="icon" type="image/png" href="http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6" sizes="32x32"/>
+              <link rel="icon" type="image/png" href="http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384" sizes="16x16"/>
+              <style>
+              html
+              {
+                  box-sizing: border-box;
+                  overflow: -moz-scrollbars-vertical;
+                  overflow-y: scroll;
+              }
+              *,
+              *:before,
+              *:after
+              {
+                  box-sizing: inherit;
+              }
+
+              body {
+                margin:0;
+                background: #fafafa;
+              }
+              </style>
+              </head>
+
+          <body >
+          <div id="swagger-ui"></div>
+
+          <script src="http://localhost/docs/asset/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7"></script>
+          <script src="http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5"></script>
+          <script>
+              window.onload = function() {
+                  // Build a system
+                  const ui = SwaggerUIBundle({
+                      dom_id: '#swagger-ui',
+                      url: "http://localhost/docs/api-docs.json",
+                      operationsSorter: null,
+                      configUrl: null,
+                      validatorUrl: null,
+                      oauth2RedirectUrl: "http://localhost/api/oauth2-callback",
+
+                      requestInterceptor: function(request) {
+                          request.headers['X-CSRF-TOKEN'] = '';
+                          return request;
+                      },
+
+                      presets: [
+                          SwaggerUIBundle.presets.apis,
+                          SwaggerUIStandalonePreset
+                      ],
+
+                      plugins: [
+                          SwaggerUIBundle.plugins.DownloadUrl
+                      ],
+
+                      layout: "StandaloneLayout",
+                      docExpansion : "none",
+                      deepLinking: true,
+                      filter: true,
+                      persistAuthorization: "false",
+
+                  })
+
+                  window.ui = ui
+
+                      }
+          </script>
+          </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
