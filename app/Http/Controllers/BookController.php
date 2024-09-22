@@ -11,10 +11,35 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     * @group Books
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Books returned successfully.",
+     *     "books": [
+     *         {
+     *             "id": 1,
+     *             "title": "Book",
+     *             "author": "User",
+     *             "isbn": "9792132370946",
+     *             "year_of_publication": 2002,
+     *             "number_of_pages": 123,
+     *             "public": 0,
+     *             "created_at": "2024-09-16T18:00:16.000000Z",
+     *             "updated_at": "2024-09-18T17:07:49.000000Z",
+     *             "deleted_at": null
+     *         }
+     *     ],
+     *     "total_books": 18
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function index(BookRequestGet $request)
     {
         $validated = $request->validated();
@@ -65,7 +90,32 @@ class BookController extends Controller
         return response()->json($response, 200);
     }
 
-
+    /**
+     * @group Books
+     * @header Authorization Bearer {token}
+     * @response 201 {
+     *     "message": "Book created successfully.",
+     *     "book": {
+     *         "title": "Book",
+     *         "author": "User",
+     *         "isbn": "9782932327286",
+     *         "year_of_publication": 2012,
+     *         "number_of_pages": 1256,
+     *         "public": true,
+     *         "updated_at": "2024-09-22T01:24:18.000000Z",
+     *         "created_at": "2024-09-22T01:24:18.000000Z",
+     *         "id": 23
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function store(BookRequestCreateAndUpdate $request)
     {
         $validatedData = $request->validated();
@@ -86,11 +136,32 @@ class BookController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     * @group Books
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Book returned successfully.",
+     *     "book": {
+     *         "id": 1,
+     *         "title": "Book",
+     *         "author": "User",
+     *         "isbn": "9782932327286",
+     *         "year_of_publication": 2012,
+     *         "number_of_pages": 1256,
+     *         "public": true,
+     *         "updated_at": "2024-09-22T01:24:18.000000Z",
+     *         "created_at": "2024-09-22T01:24:18.000000Z",
+     *         "id": 23
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function show(BookRequestGetIdAndDelete $request,$id)
     {
         $validated = $request->validated();
@@ -115,6 +186,33 @@ class BookController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Books
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Book updated successfully.",
+     *     "book": {
+     *         "id": 1,
+     *         "title": "Book",
+     *         "author": "User",
+     *         "isbn": "9782932327286",
+     *         "year_of_publication": 2012,
+     *         "number_of_pages": 1256,
+     *         "public": true,
+     *         "updated_at": "2024-09-22T01:24:18.000000Z",
+     *         "created_at": "2024-09-22T01:24:18.000000Z",
+     *         "id": 23
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function update(BookRequestCreateAndUpdate $request, $id)
     {
         $book = Book::find($id);
@@ -143,11 +241,32 @@ class BookController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     * @group Books
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Book deleted successfully.",
+     *     "book": {
+     *         "id": 1,
+     *         "title": "Book",
+     *         "author": "User",
+     *         "isbn": "9782932327286",
+     *         "year_of_publication": 2012,
+     *         "number_of_pages": 1256,
+     *         "public": true,
+     *         "updated_at": "2024-09-22T01:24:18.000000Z",
+     *         "created_at": "2024-09-22T01:24:18.000000Z",
+     *         "id": 23
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function destroy(BookRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();

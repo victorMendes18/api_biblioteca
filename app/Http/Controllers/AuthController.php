@@ -11,6 +11,22 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    /**
+     * @group Auth
+     * @unauthenticated
+     * @response 200 {
+     *     "email": "victorfran18@gmail.com",
+     *     "password": "12345678"
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function login(AuthRequestLogin $request)
     {
         $validated = $request->validated();
@@ -48,6 +64,21 @@ class AuthController extends Controller
         return response()->json($user, 200);
     }
 
+    /**
+     * @group Auth
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message" => "User successfully logged out."
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function logout(Request $request)
     {
         try {

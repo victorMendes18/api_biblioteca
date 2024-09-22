@@ -1,0 +1,400 @@
+name: Books
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/books
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: ''
+        required: false
+        example: corrupti
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: false
+        example: uytd
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>title</code> or <code>created_at</code>.'
+        required: false
+        example: title
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Books returned successfully.",
+              "books": [
+                  {
+                      "id": 1,
+                      "title": "Book",
+                      "author": "User",
+                      "isbn": "9792132370946",
+                      "year_of_publication": 2002,
+                      "number_of_pages": 123,
+                      "public": 0,
+                      "created_at": "2024-09-16T18:00:16.000000Z",
+                      "updated_at": "2024-09-18T17:07:49.000000Z",
+                      "deleted_at": null
+                  }
+              ],
+              "total_books": 18
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/books
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli
+        type: string
+        custom: []
+      author:
+        name: author
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: true
+        example: fl
+        type: string
+        custom: []
+      year_of_publication:
+        name: year_of_publication
+        description: 'Must be at least 1000. Must not be greater than 2024.'
+        required: true
+        example: 1269
+        type: integer
+        custom: []
+      number_of_pages:
+        name: number_of_pages
+        description: 'Must be at least 1.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      public:
+        name: public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+              "message": "Book created successfully.",
+              "book": {
+                  "title": "Book",
+                  "author": "User",
+                  "isbn": "9782932327286",
+                  "year_of_publication": 2012,
+                  "number_of_pages": 1256,
+                  "public": true,
+                  "updated_at": "2024-09-22T01:24:18.000000Z",
+                  "created_at": "2024-09-22T01:24:18.000000Z",
+                  "id": 23
+              }
+          }
+        headers: []
+        description: '201'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/books/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda
+        type: string
+        custom: []
+      author:
+        name: author
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The value format is invalid. Must not be greater than 13 characters.'
+        required: true
+        example: jclpsbc
+        type: string
+        custom: []
+      year_of_publication:
+        name: year_of_publication
+        description: 'Must be at least 1000. Must not be greater than 2024.'
+        required: true
+        example: 1352
+        type: integer
+        custom: []
+      number_of_pages:
+        name: number_of_pages
+        description: 'Must be at least 1.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      public:
+        name: public
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Book updated successfully.",
+              "book": {
+                  "id": 1,
+                  "title": "Book",
+                  "author": "User",
+                  "isbn": "9782932327286",
+                  "year_of_publication": 2012,
+                  "number_of_pages": 1256,
+                  "public": true,
+                  "updated_at": "2024-09-22T01:24:18.000000Z",
+                  "created_at": "2024-09-22T01:24:18.000000Z",
+                  "id": 23
+              }
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/books/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Book returned successfully.",
+              "book": {
+                  "id": 1,
+                  "title": "Book",
+                  "author": "User",
+                  "isbn": "9782932327286",
+                  "year_of_publication": 2012,
+                  "number_of_pages": 1256,
+                  "public": true,
+                  "updated_at": "2024-09-22T01:24:18.000000Z",
+                  "created_at": "2024-09-22T01:24:18.000000Z",
+                  "id": 23
+              }
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/books/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Book deleted successfully.",
+              "book": {
+                  "id": 1,
+                  "title": "Book",
+                  "author": "User",
+                  "isbn": "9782932327286",
+                  "year_of_publication": 2012,
+                  "number_of_pages": 1256,
+                  "public": true,
+                  "updated_at": "2024-09-22T01:24:18.000000Z",
+                  "created_at": "2024-09-22T01:24:18.000000Z",
+                  "id": 23
+              }
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []

@@ -10,344 +10,17 @@
     ],
     "info": {
         "name": "ApiBiblioteca",
-        "_postman_id": "b821bae4-a1ab-429c-ac1b-f0f3b34f7903",
+        "_postman_id": "6683981d-e403-47cf-b186-289efc96d0bb",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
+            "name": "Books",
             "description": "",
             "item": [
                 {
-                    "name": "api\/login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"ktyvklelscfwshxwhvxdlxcjlslgvuqfbejmiupnmnjkorhhmgaerclaxtzsfkgfudiuwyttfu\",\"password\":\"q\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/users",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"voluptas\",\"email\":\"qcarroll@example.com\",\"ordering\":\"name\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"id\": 1,\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"created_at\": \"2024-09-18T12:34:56Z\",\n  \"updated_at\": \"2024-09-18T12:34:56Z\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/users",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"tfzmbcbnmptyoxzebncgrletggxmnkpcrqjilnkdhdzijizbfqgrsjbnxrnjboxdihpuswrmtadccvcqygvnieeb\",\"email\":\"dqufzenktrfzuneojrwuzfdvfexiqnarxlcbccipmijmpdscyfcgjinycamffisghbztpbfgsgwzzruquwzdszxadydycdithyznkoabunjggmo\",\"password\":\"hpsyccwr\",\"type\":\"librarian\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/users\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"uuzuxpnpgpqtpjammiunnxfzgdcjefdciigobxmiusrsjriyehuxoknrpiwjvvufjtavtd\",\"email\":\"wvhmkyyxcgpjoxamdmxxaxeixpopsloekzoyslshpyvdlafzinfpulgfhfqwvjjjohtnnshyvawrjmfyruaqkiqfniblktvrcrunfmpeqsylzvlsotetnjgxsnaeqptaezygas\",\"password\":\"srod\",\"type\":\"librarian\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/users\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/users\/reset_password",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/reset_password",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/reset_password"
-                        },
-                        "method": "PATCH",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"old_password\":\"uo\",\"new_password\":\"wghgnsyk\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/users\/confirmationEmail",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/confirmationEmail",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/confirmationEmail"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"token\":\"pariatur\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display a listing of the resource.",
+                    "name": "api\/books",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -364,11 +37,15 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"pariatur\",\"isbn\":\"vtuqgxnizll\",\"ordering\":\"title\"}"
+                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"corrupti\",\"isbn\":\"uytd\",\"ordering\":\"title\"}"
                         },
                         "description": "",
                         "auth": {
@@ -377,22 +54,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Books returned successfully.\",\n    \"books\": [\n        {\n            \"id\": 1,\n            \"title\": \"Book\",\n            \"author\": \"User\",\n            \"isbn\": \"9792132370946\",\n            \"year_of_publication\": 2002,\n            \"number_of_pages\": 123,\n            \"public\": 0,\n            \"created_at\": \"2024-09-16T18:00:16.000000Z\",\n            \"updated_at\": \"2024-09-18T17:07:49.000000Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"total_books\": 18\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
@@ -415,18 +85,35 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"fwnfkwesgdagtxegnccvketweoqevghpwkbsonovahxrngiyjyqykbqczkcymimgllegnnvunevisskdcqfpqrqwdxixyil\",\"author\":\"pnbqiiwebqtvvwxfgghbdahfocobavjinwxxrtdqvxiquiigdnudigfiuccyykmijefmskgpujmkwpqokhskxlbunfyqukstxwvbznrjptbpiyapgsicqivdydxqpadmfhxwsvgtoruczsev\",\"isbn\":\"lxzuhijj\",\"year_of_publication\":1277,\"number_of_pages\":0,\"public\":false}"
+                            "raw": "{\"title\":\"eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli\",\"author\":\"cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq\",\"isbn\":\"fl\",\"year_of_publication\":1269,\"number_of_pages\":1,\"public\":false}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"Book created successfully.\",\n    \"book\": {\n        \"title\": \"Book\",\n        \"author\": \"User\",\n        \"isbn\": \"9782932327286\",\n        \"year_of_publication\": 2012,\n        \"number_of_pages\": 1256,\n        \"public\": true,\n        \"updated_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"created_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"id\": 23\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "api\/books\/{id}",
@@ -454,21 +141,38 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"kfrxzcxwpkmbwhofqtokrvjaivagfextjnlmpdmszddeug\",\"author\":\"fsjcobxdvlotyzmnnijaaboksxugdkdpgsbanswsillivqtoieyzigeqffammnqaszgghxtwmpkujiqzpmkqvzkztxyaamzdybgrghkmbsfpjfkbszmeqgppvbtbggoaagihxoyfdzynhauqjtcphjrtzskysnuhkmbortkfkegctkvnqmmtksavgywgkjlgzzffohiyypgswpemgtmzsmlpdasirczsyeodnqbgvzzeofj\",\"isbn\":\"bvz\",\"year_of_publication\":359,\"number_of_pages\":0,\"public\":false}"
+                            "raw": "{\"title\":\"tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda\",\"author\":\"otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq\",\"isbn\":\"jclpsbc\",\"year_of_publication\":1352,\"number_of_pages\":0,\"public\":true}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Book updated successfully.\",\n    \"book\": {\n        \"id\": 1,\n        \"title\": \"Book\",\n        \"author\": \"User\",\n        \"isbn\": \"9782932327286\",\n        \"year_of_publication\": 2012,\n        \"number_of_pages\": 1256,\n        \"public\": true,\n        \"updated_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"created_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"id\": 23\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "api\/books\/{id}",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -493,6 +197,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": null,
@@ -503,28 +211,21 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Book returned successfully.\",\n    \"book\": {\n        \"id\": 1,\n        \"title\": \"Book\",\n        \"author\": \"User\",\n        \"isbn\": \"9782932327286\",\n        \"year_of_publication\": 2012,\n        \"number_of_pages\": 1256,\n        \"public\": true,\n        \"updated_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"created_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"id\": 23\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Remove the specified resource from storage.",
+                    "name": "api\/books\/{id}",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -549,6 +250,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": null,
@@ -557,8 +262,291 @@
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Book deleted successfully.\",\n    \"book\": {\n        \"id\": 1,\n        \"title\": \"Book\",\n        \"author\": \"User\",\n        \"isbn\": \"9782932327286\",\n        \"year_of_publication\": 2012,\n        \"number_of_pages\": 1256,\n        \"public\": true,\n        \"updated_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"created_at\": \"2024-09-22T01:24:18.000000Z\",\n        \"id\": 23\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Rents",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/rents",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rents"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty\",\"student\":\"velit\",\"ordering\":\"delivery_date\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Rents returned successfully.\",\n    \"rents\": [\n        {\n            \"id\": 4,\n            \"book_id\": 15,\n            \"student_id\": 15,\n            \"delivery_date\": \"2024-10-02\",\n            \"delivered\": 0,\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-18T03:01:33.000000Z\",\n            \"deleted_at\": null,\n            \"book\": {\n                \"id\": 15,\n                \"title\": \"Book\",\n                \"author\": \"Author\",\n                \"isbn\": \"9785659568941\",\n                \"year_of_publication\": 1970,\n                \"number_of_pages\": 685,\n                \"public\": 1,\n                \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n                \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n                \"deleted_at\": null\n            },\n            \"student\": {\n                \"id\": 15,\n                \"name\": \"Student\",\n                \"email\": \"student@halvorson.com\",\n                \"phone\": \"5587999999999\",\n                \"address\": \"address\",\n                \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n                \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n                \"deleted_at\": null\n            }\n        }\n    ],\n    \"total_rents\": 29\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
+                {
+                    "name": "api\/rents",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rents"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":\"laudantium\",\"student_id\":\"dicta\",\"delivery_date\":\"2062-10-15\",\"delivered\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"Rent successfully created.\",\n    \"rent\": {\n        \"book_id\": 3,\n        \"student_id\": 2,\n        \"delivery_date\": \"2024-09-29\",\n        \"delivered\": false,\n        \"updated_at\": \"2024-09-22T01:50:58.000000Z\",\n        \"created_at\": \"2024-09-22T01:50:58.000000Z\",\n        \"id\": 13\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/rents\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the rent."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":\"ut\",\"student_id\":\"minima\",\"delivery_date\":\"2070-11-04\",\"delivered\":false}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Rent updated successfully.\",\n    \"rent\": {\n        \"id\": 4,\n        \"book_id\": 15,\n        \"student_id\": 15,\n        \"delivery_date\": \"2024-10-02\",\n        \"delivered\": 0,\n        \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n        \"updated_at\": \"2024-09-18T03:01:33.000000Z\",\n        \"deleted_at\": null,\n        \"book\": {\n            \"id\": 15,\n            \"title\": \"Book\",\n            \"author\": \"Author\",\n            \"isbn\": \"9785659568941\",\n            \"year_of_publication\": 1970,\n            \"number_of_pages\": 685,\n            \"public\": 1,\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        },\n        \"student\": {\n            \"id\": 15,\n            \"name\": \"Student\",\n            \"email\": \"student@halvorson.com\",\n            \"phone\": \"5587999999999\",\n            \"address\": \"address\",\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        }\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/rents\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the rent."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Rent returned successfully.\",\n    \"rent\": {\n        \"id\": 4,\n        \"book_id\": 15,\n        \"student_id\": 15,\n        \"delivery_date\": \"2024-10-02\",\n        \"delivered\": 0,\n        \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n        \"updated_at\": \"2024-09-18T03:01:33.000000Z\",\n        \"deleted_at\": null,\n        \"book\": {\n            \"id\": 15,\n            \"title\": \"Book\",\n            \"author\": \"Author\",\n            \"isbn\": \"9785659568941\",\n            \"year_of_publication\": 1970,\n            \"number_of_pages\": 685,\n            \"public\": 1,\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        },\n        \"student\": {\n            \"id\": 15,\n            \"name\": \"Student\",\n            \"email\": \"student@halvorson.com\",\n            \"phone\": \"5587999999999\",\n            \"address\": \"address\",\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        }\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/rents\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the rent."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Rent deleted successfully.\",\n    \"rent\": {\n        \"id\": 4,\n        \"book_id\": 15,\n        \"student_id\": 15,\n        \"delivery_date\": \"2024-10-02\",\n        \"delivered\": 0,\n        \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n        \"updated_at\": \"2024-09-18T03:01:33.000000Z\",\n        \"deleted_at\": null,\n        \"book\": {\n            \"id\": 15,\n            \"title\": \"Book\",\n            \"author\": \"Author\",\n            \"isbn\": \"9785659568941\",\n            \"year_of_publication\": 1970,\n            \"number_of_pages\": 685,\n            \"public\": 1,\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        },\n        \"student\": {\n            \"id\": 15,\n            \"name\": \"Student\",\n            \"email\": \"student@halvorson.com\",\n            \"phone\": \"5587999999999\",\n            \"address\": \"address\",\n            \"created_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"updated_at\": \"2024-09-17T00:46:45.000000Z\",\n            \"deleted_at\": null\n        }\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Students",
+            "description": "",
+            "item": [
                 {
                     "name": "api\/students",
                     "request": {
@@ -577,11 +565,15 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"ipsa\",\"email\":\"jalen38@example.net\",\"ordering\":\"name\"}"
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"facere\",\"email\":\"lyric83@example.com\",\"ordering\":\"name\"}"
                         },
                         "description": "",
                         "auth": {
@@ -590,22 +582,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Students returned successfully.\",\n    \"students\": [\n        {\n            \"id\": 1,\n            \"name\": \"Student\",\n            \"email\": \"Student@gmail.com\",\n            \"phone\": \"5587999999999\",\n            \"address\": \"address\",\n            \"created_at\": \"2024-09-16T19:47:50.000000Z\",\n            \"updated_at\": \"2024-09-16T19:47:50.000000Z\",\n            \"deleted_at\": null\n        }\n    ],\n    \"total_students\": 12\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
@@ -628,18 +613,35 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"aqkybvqdfcestcraowoyyntnwbubtxhhxuokfkntaixbnffgmkw\",\"email\":\"ealoswgzxks\",\"phone\":\"bi\",\"address\":\"vhlemphatojljhamrllheetlxyehwclrmxkqlznguqqaoutehzdwuscardwvh\"}"
+                            "raw": "{\"name\":\"dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt\",\"email\":\"kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb\",\"phone\":\"nbfgn\",\"address\":\"otidkrcytvuiozejtgchou\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"Student created successfully.\",\n    \"student\": {\n        \"name\": \"student\",\n        \"email\": \"student@gmail.com\",\n        \"phone\": \"5587999999999\",\n        \"address\": \"address\",\n        \"created_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"updated_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"id\": 22\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "api\/students\/{id}",
@@ -667,18 +669,35 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"uobpxoipsrlcacgplicyom\",\"email\":\"ffsticyzmckotvummiosqhedityacecgbwubboniihszhzashugtoqxgbtdrwzpsbzijywgcqfuyeknhfglldkplpwkqcdrgyvhlcuiaalixbqqtzajnsrnegqtjnwsmqzxnlfmnftgalhlxvaatyezycwzqwokwktvztngagybyngoibwtyeuzelrdscrjyainfhmvnbhyveulxcmdmozoutilscectrbqmcbxuexqvhuosifhqunnv\",\"phone\":\"nkymyq\",\"address\":\"pyuqfejifzqahqhtfkmuinxagtwqzcaaoepoucbbznedkxnsbcyovamcnqotqobxgyhptojplirbufqu\"}"
+                            "raw": "{\"name\":\"wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq\",\"email\":\"xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda\",\"phone\":\"owvhzm\",\"address\":\"pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Student updated successfully.\",\n    \"student\": {\n        \"id\": 11,\n        \"name\": \"student\",\n        \"email\": \"student@gmail.com\",\n        \"phone\": \"5587999999999\",\n        \"address\": \"address\",\n        \"created_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"updated_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "api\/students\/{id}",
@@ -706,6 +725,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": null,
@@ -716,22 +739,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Student returned successfully.\",\n    \"student\": {\n        \"id\": 11,\n        \"name\": \"student\",\n        \"email\": \"student@gmail.com\",\n        \"phone\": \"5587999999999\",\n        \"address\": \"address\",\n        \"created_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"updated_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
@@ -762,6 +778,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": null,
@@ -770,67 +790,35 @@
                             "type": "noauth"
                         }
                     },
-                    "response": []
-                },
-                {
-                    "name": "api\/rents",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/rents",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/rents"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"page\":0,\"page_size\":0,\"search\":\"aatxzzcumqwmoaonsurkbegnoqsxdjfxotutfjljwlelqalyubgnnwrwzqtjzsmuviljdlwnmqdozlbuvtpapiiupxesxeiveynunthexk\",\"student\":\"consequatur\",\"ordering\":\"created_at\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Student deleted successfully.\",\n    \"student\": {\n        \"id\": 11,\n        \"name\": \"student\",\n        \"email\": \"student@gmail.com\",\n        \"phone\": \"5587999999999\",\n        \"address\": \"address\",\n        \"created_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"updated_at\": \"2024-09-22T01:35:48.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
                 {
-                    "name": "api\/rents",
+                    "name": "api\/login",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/rents",
+                            "path": "api\/login",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/rents"
+                            "raw": "{{baseUrl}}\/api\/login"
                         },
                         "method": "POST",
                         "header": [
@@ -845,33 +833,38 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":\"quo\",\"student_id\":\"voluptatem\",\"delivery_date\":\"2040-04-22\",\"delivered\":false}"
+                            "raw": "{\"email\":\"oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa\",\"password\":\"wn\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"email\": \"victorfran18@gmail.com\",\n    \"password\": \"12345678\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/rents\/{id}",
+                    "name": "api\/logout",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/rents\/:id",
+                            "path": "api\/logout",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/rents\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "2",
-                                    "description": "The ID of the rent."
-                                }
-                            ]
+                            "raw": "{{baseUrl}}\/api\/logout"
                         },
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -880,45 +873,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"book_id\":\"quia\",\"student_id\":\"occaecati\",\"delivery_date\":\"2051-12-30\",\"delivered\":false}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/rents\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/rents\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/rents\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "2",
-                                    "description": "The ID of the rent."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
                             {
-                                "key": "Accept",
-                                "value": "application\/json"
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
                             }
                         ],
                         "body": null,
@@ -929,62 +887,25 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\" => \"User successfully logged out.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]
-                },
-                {
-                    "name": "api\/rents\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/rents\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/rents\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "2",
-                                    "description": "The ID of the rent."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
                 {
                     "name": "Display Oauth2 callback pages.",
                     "request": {
@@ -1077,6 +998,366 @@
                             ],
                             "code": 200,
                             "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>L5 Swagger UI<\/title>\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"http:\/\/localhost\/docs\/asset\/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df\">\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost\/docs\/asset\/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"\/>\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost\/docs\/asset\/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"\/>\n    <style>\n    html\n    {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n    }\n    *,\n    *:before,\n    *:after\n    {\n        box-sizing: inherit;\n    }\n\n    body {\n      margin:0;\n      background: #fafafa;\n    }\n    <\/style>\n    <\/head>\n\n<body >\n<div id=\"swagger-ui\"><\/div>\n\n<script src=\"http:\/\/localhost\/docs\/asset\/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7\"><\/script>\n<script src=\"http:\/\/localhost\/docs\/asset\/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5\"><\/script>\n<script>\n    window.onload = function() {\n        \/\/ Build a system\n        const ui = SwaggerUIBundle({\n            dom_id: '#swagger-ui',\n            url: \"http:\/\/localhost\/docs\/api-docs.json\",\n            operationsSorter: null,\n            configUrl: null,\n            validatorUrl: null,\n            oauth2RedirectUrl: \"http:\/\/localhost\/api\/oauth2-callback\",\n\n            requestInterceptor: function(request) {\n                request.headers['X-CSRF-TOKEN'] = '';\n                return request;\n            },\n\n            presets: [\n                SwaggerUIBundle.presets.apis,\n                SwaggerUIStandalonePreset\n            ],\n\n            plugins: [\n                SwaggerUIBundle.plugins.DownloadUrl\n            ],\n\n            layout: \"StandaloneLayout\",\n            docExpansion : \"none\",\n            deepLinking: true,\n            filter: true,\n            persistAuthorization: \"false\",\n\n        })\n\n        window.ui = ui\n\n            }\n<\/script>\n<\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"aut\",\"email\":\"king.mann@example.org\",\"ordering\":\"created_at\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n     \"message\": \"Users returned successfully.\",\n     \"users\": [\n         {\n             \"id\": 1,\n             \"name\": \"user\",\n             \"email\": \"user@gmail.com\",\n             \"type\": \"adm\",\n             \"email_verified_at\": \"2024-09-16T18:00:16.000000Z\",\n             \"avatar_url\": null,\n             \"created_at\": \"2024-09-16T18:00:16.000000Z\",\n             \"updated_at\": \"2024-09-16T18:00:16.000000Z\",\n             \"deleted_at\": null\n         }\n     ],\n     \"total_users\": 3\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu\",\"email\":\"cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox\",\"password\":\"cxb\",\"type\":\"adm\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"User created successfully.\",\n    \"user\": {\n        \"name\": \"user\",\n        \"email\": \"user@gmail.com\",\n        \"type\": \"adm\",\n        \"updated_at\": \"2024-09-22T00:30:29.000000Z\",\n        \"created_at\": \"2024-09-22T00:30:29.000000Z\",\n        \"id\": 16\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn\",\"email\":\"zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq\",\"password\":\"njggchc\",\"type\":\"librarian\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"User updated successfully.\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"user\",\n        \"email\": \"user@gmail.com\",\n        \"type\": \"librarian\",\n        \"email_verified_at\": \"2024-09-16T15:42:16.000000Z\",\n        \"avatar_url\": null,\n        \"created_at\": \"2024-09-18T16:57:05.000000Z\",\n        \"updated_at\": \"2024-09-18T17:01:00.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"User returned successfully.\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"user\",\n        \"email\": \"user@gmail.com\",\n        \"type\": \"librarian\",\n        \"email_verified_at\": \"2024-09-16T15:42:16.000000Z\",\n        \"avatar_url\": null,\n        \"created_at\": \"2024-09-18T16:57:05.000000Z\",\n        \"updated_at\": \"2024-09-18T17:01:00.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"User deleted successfully.\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"user\",\n        \"email\": \"user@gmail.com\",\n        \"type\": \"librarian\",\n        \"email_verified_at\": \"2024-09-16T15:42:16.000000Z\",\n        \"avatar_url\": null,\n        \"created_at\": \"2024-09-18T16:57:05.000000Z\",\n        \"updated_at\": \"2024-09-18T17:01:00.000000Z\",\n        \"deleted_at\": null\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users\/reset_password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/reset_password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/reset_password"
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"old_password\":\"kgcxuu\",\"new_password\":\"pm\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"old_password\": \"testesenha\",\n   \"new_password\": \"testesenha1\",\n   \"new_password_confirmation\": \"testesenha1\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/users\/confirmationEmail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/confirmationEmail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/confirmationEmail"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token\":\"neque\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"token\": \"token\",\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
                             "name": ""
                         }
                     ]

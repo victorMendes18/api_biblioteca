@@ -17,12 +17,24 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class UserController extends Controller
 {
     /**
+     * @group Users
+     * @header Authorization Bearer {token}
      * @response 200 {
-     *   "id": 1,
-     *   "name": "John Doe",
-     *   "email": "john@example.com",
-     *   "created_at": "2024-09-18T12:34:56Z",
-     *   "updated_at": "2024-09-18T12:34:56Z"
+     *      "message": "Users returned successfully.",
+     *      "users": [
+     *          {
+     *              "id": 1,
+     *              "name": "user",
+     *              "email": "user@gmail.com",
+     *              "type": "adm",
+     *              "email_verified_at": "2024-09-16T18:00:16.000000Z",
+     *              "avatar_url": null,
+     *              "created_at": "2024-09-16T18:00:16.000000Z",
+     *              "updated_at": "2024-09-16T18:00:16.000000Z",
+     *              "deleted_at": null
+     *          }
+     *      ],
+     *      "total_users": 3
      * }
      * @response 422 {
      *   "message": "Validation Error",
@@ -78,6 +90,29 @@ class UserController extends Controller
 
     }
 
+    /**
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 201 {
+     *     "message": "User created successfully.",
+     *     "user": {
+     *         "name": "user",
+     *         "email": "user@gmail.com",
+     *         "type": "adm",
+     *         "updated_at": "2024-09-22T00:30:29.000000Z",
+     *         "created_at": "2024-09-22T00:30:29.000000Z",
+     *         "id": 16
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function store(UserRequestCreateAndUpdate $request)
     {
         $validatedData = $request->validated();
@@ -116,11 +151,31 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 200{
+     *     "message": "User returned successfully.",
+     *     "user": {
+     *         "id": 3,
+     *         "name": "user",
+     *         "email": "user@gmail.com",
+     *         "type": "librarian",
+     *         "email_verified_at": "2024-09-16T15:42:16.000000Z",
+     *         "avatar_url": null,
+     *         "created_at": "2024-09-18T16:57:05.000000Z",
+     *         "updated_at": "2024-09-18T17:01:00.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function show(UserRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();
@@ -139,7 +194,32 @@ class UserController extends Controller
         ], 200);
     }
 
-
+    /**
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 200{
+     *     "message": "User updated successfully.",
+     *     "user": {
+     *         "id": 3,
+     *         "name": "user",
+     *         "email": "user@gmail.com",
+     *         "type": "librarian",
+     *         "email_verified_at": "2024-09-16T15:42:16.000000Z",
+     *         "avatar_url": null,
+     *         "created_at": "2024-09-18T16:57:05.000000Z",
+     *         "updated_at": "2024-09-18T17:01:00.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function update(UserRequestCreateAndUpdate $request, $id)
     {
         $user = User::find($id);
@@ -164,6 +244,32 @@ class UserController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 200{
+     *     "message": "User deleted successfully.",
+     *     "user": {
+     *         "id": 3,
+     *         "name": "user",
+     *         "email": "user@gmail.com",
+     *         "type": "librarian",
+     *         "email_verified_at": "2024-09-16T15:42:16.000000Z",
+     *         "avatar_url": null,
+     *         "created_at": "2024-09-18T16:57:05.000000Z",
+     *         "updated_at": "2024-09-18T17:01:00.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function destroy(UserRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();
@@ -184,6 +290,23 @@ class UserController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *    "old_password": "testesenha",
+     *    "new_password": "testesenha1",
+     *    "new_password_confirmation": "testesenha1"
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function resetPassword(UserRequestResetPassWord $request)
     {
         $validated = $request->validated();
@@ -205,6 +328,21 @@ class UserController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Users
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *    "token": "token",
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function confirmationEmail(UserRequestConfirmationEmail $request)
     {
         $validated = $request->validated();

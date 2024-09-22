@@ -10,6 +10,34 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    /**
+     * @group Students
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Students returned successfully.",
+     *     "students": [
+     *         {
+     *             "id": 1,
+     *             "name": "Student",
+     *             "email": "Student@gmail.com",
+     *             "phone": "5587999999999",
+     *             "address": "address",
+     *             "created_at": "2024-09-16T19:47:50.000000Z",
+     *             "updated_at": "2024-09-16T19:47:50.000000Z",
+     *             "deleted_at": null
+     *         }
+     *     ],
+     *     "total_students": 12
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function index(StudentRequestGet $request)
     {
         $validated = $request->validated();
@@ -54,7 +82,30 @@ class StudentController extends Controller
         return response()->json($response, 200);
     }
 
-
+    /**
+     * @group Students
+     * @header Authorization Bearer {token}
+     * @response 201 {
+     *     "message": "Student created successfully.",
+     *     "student": {
+     *         "name": "student",
+     *         "email": "student@gmail.com",
+     *         "phone": "5587999999999",
+     *         "address": "address",
+     *         "created_at": "2024-09-22T01:35:48.000000Z",
+     *         "updated_at": "2024-09-22T01:35:48.000000Z",
+     *         "id": 22
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function store(StudentRequestCreateAndUpdate $request)
     {
         $validatedData = $request->validated();
@@ -72,7 +123,31 @@ class StudentController extends Controller
         ], 201);
     }
 
-
+    /**
+     * @group Students
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Student returned successfully.",
+     *     "student": {
+     *         "id": 11,
+     *         "name": "student",
+     *         "email": "student@gmail.com",
+     *         "phone": "5587999999999",
+     *         "address": "address",
+     *         "created_at": "2024-09-22T01:35:48.000000Z",
+     *         "updated_at": "2024-09-22T01:35:48.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function show(StudentRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();
@@ -91,6 +166,31 @@ class StudentController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Students
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Student updated successfully.",
+     *     "student": {
+     *         "id": 11,
+     *         "name": "student",
+     *         "email": "student@gmail.com",
+     *         "phone": "5587999999999",
+     *         "address": "address",
+     *         "created_at": "2024-09-22T01:35:48.000000Z",
+     *         "updated_at": "2024-09-22T01:35:48.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function update(StudentRequestCreateAndUpdate $request, $id)
     {
         $student = Student::find($id);
@@ -116,6 +216,31 @@ class StudentController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Students
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Student deleted successfully.",
+     *     "student": {
+     *         "id": 11,
+     *         "name": "student",
+     *         "email": "student@gmail.com",
+     *         "phone": "5587999999999",
+     *         "address": "address",
+     *         "created_at": "2024-09-22T01:35:48.000000Z",
+     *         "updated_at": "2024-09-22T01:35:48.000000Z",
+     *         "deleted_at": null
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function destroy(StudentRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();

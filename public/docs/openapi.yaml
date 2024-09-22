@@ -7,71 +7,7 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/login:
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ktyvklelscfwshxwhvxdlxcjlslgvuqfbejmiupnmnjkorhhmgaerclaxtzsfkgfudiuwyttfu
-                password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: q
-              required:
-                - email
-                - password
-      security: []
-  /api/logout:
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-  /api/users:
+  /api/books:
     get:
       summary: ''
       description: ''
@@ -90,6 +26,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -98,27 +41,43 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 1
-                  name: 'John Doe'
-                  email: john@example.com
-                  created_at: '2024-09-18T12:34:56Z'
-                  updated_at: '2024-09-18T12:34:56Z'
+                  message: 'Books returned successfully.'
+                  books:
+                    -
+                      id: 1
+                      title: Book
+                      author: User
+                      isbn: '9792132370946'
+                      year_of_publication: 2002
+                      number_of_pages: 123
+                      public: 0
+                      created_at: '2024-09-16T18:00:16.000000Z'
+                      updated_at: '2024-09-18T17:07:49.000000Z'
+                      deleted_at: null
+                  total_books: 18
                 properties:
-                  id:
+                  message:
+                    type: string
+                    example: 'Books returned successfully.'
+                  books:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: Book
+                        author: User
+                        isbn: '9792132370946'
+                        year_of_publication: 2002
+                        number_of_pages: 123
+                        public: 0
+                        created_at: '2024-09-16T18:00:16.000000Z'
+                        updated_at: '2024-09-18T17:07:49.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                  total_books:
                     type: integer
-                    example: 1
-                  name:
-                    type: string
-                    example: 'John Doe'
-                  email:
-                    type: string
-                    example: john@example.com
-                  created_at:
-                    type: string
-                    example: '2024-09-18T12:34:56Z'
-                  updated_at:
-                    type: string
-                    example: '2024-09-18T12:34:56Z'
+                    example: 18
         422:
           description: ''
           content:
@@ -140,7 +99,7 @@ paths:
                       email:
                         - 'The email field is required.'
       tags:
-        - Endpoints
+        - Books
       requestBody:
         required: false
         content:
@@ -151,7 +110,7 @@ paths:
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 1
+                  example: 0
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
@@ -159,316 +118,11 @@ paths:
                 search:
                   type: string
                   description: ''
-                  example: voluptas
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: qcarroll@example.com
-                ordering:
-                  type: string
-                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
-                  example: name
-      security: []
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: tfzmbcbnmptyoxzebncgrletggxmnkpcrqjilnkdhdzijizbfqgrsjbnxrnjboxdihpuswrmtadccvcqygvnieeb
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: dqufzenktrfzuneojrwuzfdvfexiqnarxlcbccipmijmpdscyfcgjinycamffisghbztpbfgsgwzzruquwzdszxadydycdithyznkoabunjggmo
-                password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: hpsyccwr
-                type:
-                  type: string
-                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
-                  example: librarian
-              required:
-                - name
-                - email
-                - password
-                - type
-      security: []
-  '/api/users/{id}':
-    put:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uuzuxpnpgpqtpjammiunnxfzgdcjefdciigobxmiusrsjriyehuxoknrpiwjvvufjtavtd
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: wvhmkyyxcgpjoxamdmxxaxeixpopsloekzoyslshpyvdlafzinfpulgfhfqwvjjjohtnnshyvawrjmfyruaqkiqfniblktvrcrunfmpeqsylzvlsotetnjgxsnaeqptaezygas
-                password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: srod
-                type:
-                  type: string
-                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
-                  example: librarian
-              required:
-                - name
-                - email
-                - password
-                - type
-      security: []
-    get:
-      summary: 'Display the specified resource.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    delete:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  /api/users/reset_password:
-    patch:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                old_password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: uo
-                new_password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: wghgnsyk
-              required:
-                - old_password
-                - new_password
-      security: []
-  /api/users/confirmationEmail:
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                token:
-                  type: string
-                  description: ''
-                  example: pariatur
-              required:
-                - token
-      security: []
-  /api/books:
-    get:
-      summary: 'Display a listing of the resource.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                page:
-                  type: integer
-                  description: 'Must be at least 1.'
-                  example: 1
-                page_size:
-                  type: integer
-                  description: 'Must be at least 1.'
-                  example: 1
-                search:
-                  type: string
-                  description: ''
-                  example: pariatur
+                  example: corrupti
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: vtuqgxnizll
+                  example: uytd
                 ordering:
                   type: string
                   description: 'Must be one of <code>title</code> or <code>created_at</code>.'
@@ -492,9 +146,70 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Book created successfully.'
+                  book:
+                    title: Book
+                    author: User
+                    isbn: '9782932327286'
+                    year_of_publication: 2012
+                    number_of_pages: 1256
+                    public: true
+                    updated_at: '2024-09-22T01:24:18.000000Z'
+                    created_at: '2024-09-22T01:24:18.000000Z'
+                    id: 23
+                properties:
+                  message:
+                    type: string
+                    example: 'Book created successfully.'
+                  book:
+                    type: object
+                    example:
+                      title: Book
+                      author: User
+                      isbn: '9782932327286'
+                      year_of_publication: 2012
+                      number_of_pages: 1256
+                      public: true
+                      updated_at: '2024-09-22T01:24:18.000000Z'
+                      created_at: '2024-09-22T01:24:18.000000Z'
+                      id: 23
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Books
       requestBody:
         required: true
         content:
@@ -505,23 +220,23 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fwnfkwesgdagtxegnccvketweoqevghpwkbsonovahxrngiyjyqykbqczkcymimgllegnnvunevisskdcqfpqrqwdxixyil
+                  example: eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli
                 author:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: pnbqiiwebqtvvwxfgghbdahfocobavjinwxxrtdqvxiquiigdnudigfiuccyykmijefmskgpujmkwpqokhskxlbunfyqukstxwvbznrjptbpiyapgsicqivdydxqpadmfhxwsvgtoruczsev
+                  example: cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: lxzuhijj
+                  example: fl
                 year_of_publication:
                   type: integer
                   description: 'Must be at least 1000. Must not be greater than 2024.'
-                  example: 1277
+                  example: 1269
                 number_of_pages:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 public:
                   type: boolean
                   description: ''
@@ -553,9 +268,70 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Book updated successfully.'
+                  book:
+                    id: 23
+                    title: Book
+                    author: User
+                    isbn: '9782932327286'
+                    year_of_publication: 2012
+                    number_of_pages: 1256
+                    public: true
+                    updated_at: '2024-09-22T01:24:18.000000Z'
+                    created_at: '2024-09-22T01:24:18.000000Z'
+                properties:
+                  message:
+                    type: string
+                    example: 'Book updated successfully.'
+                  book:
+                    type: object
+                    example:
+                      id: 23
+                      title: Book
+                      author: User
+                      isbn: '9782932327286'
+                      year_of_publication: 2012
+                      number_of_pages: 1256
+                      public: true
+                      updated_at: '2024-09-22T01:24:18.000000Z'
+                      created_at: '2024-09-22T01:24:18.000000Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Books
       requestBody:
         required: true
         content:
@@ -566,19 +342,19 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: kfrxzcxwpkmbwhofqtokrvjaivagfextjnlmpdmszddeug
+                  example: tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda
                 author:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fsjcobxdvlotyzmnnijaaboksxugdkdpgsbanswsillivqtoieyzigeqffammnqaszgghxtwmpkujiqzpmkqvzkztxyaamzdybgrghkmbsfpjfkbszmeqgppvbtbggoaagihxoyfdzynhauqjtcphjrtzskysnuhkmbortkfkegctkvnqmmtksavgywgkjlgzzffohiyypgswpemgtmzsmlpdasirczsyeodnqbgvzzeofj
+                  example: otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: bvz
+                  example: jclpsbc
                 year_of_publication:
                   type: integer
                   description: 'Must be at least 1000. Must not be greater than 2024.'
-                  example: 359
+                  example: 1352
                 number_of_pages:
                   type: integer
                   description: 'Must be at least 1.'
@@ -586,7 +362,7 @@ paths:
                 public:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - title
                 - author
@@ -596,7 +372,7 @@ paths:
                 - public
       security: []
     get:
-      summary: 'Display the specified resource.'
+      summary: ''
       description: ''
       parameters:
         -
@@ -613,24 +389,73 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'Book returned successfully.'
+                  book:
+                    id: 23
+                    title: Book
+                    author: User
+                    isbn: '9782932327286'
+                    year_of_publication: 2012
+                    number_of_pages: 1256
+                    public: true
+                    updated_at: '2024-09-22T01:24:18.000000Z'
+                    created_at: '2024-09-22T01:24:18.000000Z'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'Book returned successfully.'
+                  book:
+                    type: object
+                    example:
+                      id: 23
+                      title: Book
+                      author: User
+                      isbn: '9782932327286'
+                      year_of_publication: 2012
+                      number_of_pages: 1256
+                      public: true
+                      updated_at: '2024-09-22T01:24:18.000000Z'
+                      created_at: '2024-09-22T01:24:18.000000Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Books
       security: []
     delete:
-      summary: 'Remove the specified resource from storage.'
+      summary: ''
       description: ''
       parameters:
         -
@@ -647,239 +472,76 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Book deleted successfully.'
+                  book:
+                    id: 23
+                    title: Book
+                    author: User
+                    isbn: '9782932327286'
+                    year_of_publication: 2012
+                    number_of_pages: 1256
+                    public: true
+                    updated_at: '2024-09-22T01:24:18.000000Z'
+                    created_at: '2024-09-22T01:24:18.000000Z'
+                properties:
+                  message:
+                    type: string
+                    example: 'Book deleted successfully.'
+                  book:
+                    type: object
+                    example:
+                      id: 23
+                      title: Book
+                      author: User
+                      isbn: '9782932327286'
+                      year_of_publication: 2012
+                      number_of_pages: 1256
+                      public: true
+                      updated_at: '2024-09-22T01:24:18.000000Z'
+                      created_at: '2024-09-22T01:24:18.000000Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Books
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the book.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  /api/students:
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                page:
-                  type: integer
-                  description: 'Must be at least 1.'
-                  example: 0
-                page_size:
-                  type: integer
-                  description: 'Must be at least 1.'
-                  example: 1
-                search:
-                  type: string
-                  description: ''
-                  example: ipsa
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: jalen38@example.net
-                ordering:
-                  type: string
-                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
-                  example: name
-      security: []
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: aqkybvqdfcestcraowoyyntnwbubtxhhxuokfkntaixbnffgmkw
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ealoswgzxks
-                phone:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: bi
-                address:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: vhlemphatojljhamrllheetlxyehwclrmxkqlznguqqaoutehzdwuscardwvh
-              required:
-                - name
-                - email
-      security: []
-  '/api/students/{id}':
-    put:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uobpxoipsrlcacgplicyom
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ffsticyzmckotvummiosqhedityacecgbwubboniihszhzashugtoqxgbtdrwzpsbzijywgcqfuyeknhfglldkplpwkqcdrgyvhlcuiaalixbqqtzajnsrnegqtjnwsmqzxnlfmnftgalhlxvaatyezycwzqwokwktvztngagybyngoibwtyeuzelrdscrjyainfhmvnbhyveulxcmdmozoutilscectrbqmcbxuexqvhuosifhqunnv
-                phone:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: nkymyq
-                address:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: pyuqfejifzqahqhtfkmuinxagtwqzcaaoepoucbbznedkxnsbcyovamcnqotqobxgyhptojplirbufqu
-              required:
-                - name
-                - email
-      security: []
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    delete:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the student.'
         example: 1
         required: true
         schema:
@@ -903,21 +565,116 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'Rents returned successfully.'
+                  rents:
+                    -
+                      id: 4
+                      book_id: 15
+                      student_id: 15
+                      delivery_date: '2024-10-02'
+                      delivered: 0
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-18T03:01:33.000000Z'
+                      deleted_at: null
+                      book:
+                        id: 15
+                        title: Book
+                        author: Author
+                        isbn: '9785659568941'
+                        year_of_publication: 1970
+                        number_of_pages: 685
+                        public: 1
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+                      student:
+                        id: 15
+                        name: Student
+                        email: student@halvorson.com
+                        phone: '5587999999999'
+                        address: address
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+                  total_rents: 29
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'Rents returned successfully.'
+                  rents:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        book_id: 15
+                        student_id: 15
+                        delivery_date: '2024-10-02'
+                        delivered: 0
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-18T03:01:33.000000Z'
+                        deleted_at: null
+                        book:
+                          id: 15
+                          title: Book
+                          author: Author
+                          isbn: '9785659568941'
+                          year_of_publication: 1970
+                          number_of_pages: 685
+                          public: 1
+                          created_at: '2024-09-17T00:46:45.000000Z'
+                          updated_at: '2024-09-17T00:46:45.000000Z'
+                          deleted_at: null
+                        student:
+                          id: 15
+                          name: Student
+                          email: student@halvorson.com
+                          phone: '5587999999999'
+                          address: address
+                          created_at: '2024-09-17T00:46:45.000000Z'
+                          updated_at: '2024-09-17T00:46:45.000000Z'
+                          deleted_at: null
+                    items:
+                      type: object
+                  total_rents:
+                    type: integer
+                    example: 29
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Rents
       requestBody:
         required: false
         content:
@@ -928,23 +685,23 @@ paths:
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 search:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: aatxzzcumqwmoaonsurkbegnoqsxdjfxotutfjljwlelqalyubgnnwrwzqtjzsmuviljdlwnmqdozlbuvtpapiiupxesxeiveynunthexk
+                  example: aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty
                 student:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: velit
                 ordering:
                   type: string
                   description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
-                  example: created_at
+                  example: delivery_date
       security: []
     post:
       summary: ''
@@ -964,9 +721,66 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Rent successfully created.'
+                  rent:
+                    book_id: 3
+                    student_id: 2
+                    delivery_date: '2024-09-29'
+                    delivered: false
+                    updated_at: '2024-09-22T01:50:58.000000Z'
+                    created_at: '2024-09-22T01:50:58.000000Z'
+                    id: 13
+                properties:
+                  message:
+                    type: string
+                    example: 'Rent successfully created.'
+                  rent:
+                    type: object
+                    example:
+                      book_id: 3
+                      student_id: 2
+                      delivery_date: '2024-09-29'
+                      delivered: false
+                      updated_at: '2024-09-22T01:50:58.000000Z'
+                      created_at: '2024-09-22T01:50:58.000000Z'
+                      id: 13
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Rents
       requestBody:
         required: true
         content:
@@ -977,19 +791,19 @@ paths:
                 book_id:
                   type: string
                   description: ''
-                  example: quo
+                  example: laudantium
                 student_id:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: dicta
                 delivery_date:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>today</code>.'
-                  example: '2040-04-22'
+                  example: '2062-10-15'
                 delivered:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - book_id
                 - student_id
@@ -1014,9 +828,108 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Rent updated successfully.'
+                  rent:
+                    id: 4
+                    book_id: 15
+                    student_id: 15
+                    delivery_date: '2024-10-02'
+                    delivered: 0
+                    created_at: '2024-09-17T00:46:45.000000Z'
+                    updated_at: '2024-09-18T03:01:33.000000Z'
+                    deleted_at: null
+                    book:
+                      id: 15
+                      title: Book
+                      author: Author
+                      isbn: '9785659568941'
+                      year_of_publication: 1970
+                      number_of_pages: 685
+                      public: 1
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
+                    student:
+                      id: 15
+                      name: Student
+                      email: student@halvorson.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Rent updated successfully.'
+                  rent:
+                    type: object
+                    example:
+                      id: 4
+                      book_id: 15
+                      student_id: 15
+                      delivery_date: '2024-10-02'
+                      delivered: 0
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-18T03:01:33.000000Z'
+                      deleted_at: null
+                      book:
+                        id: 15
+                        title: Book
+                        author: Author
+                        isbn: '9785659568941'
+                        year_of_publication: 1970
+                        number_of_pages: 685
+                        public: 1
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+                      student:
+                        id: 15
+                        name: Student
+                        email: student@halvorson.com
+                        phone: '5587999999999'
+                        address: address
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Rents
       requestBody:
         required: true
         content:
@@ -1027,15 +940,15 @@ paths:
                 book_id:
                   type: string
                   description: ''
-                  example: quia
+                  example: ut
                 student_id:
                   type: string
                   description: ''
-                  example: occaecati
+                  example: minima
                 delivery_date:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>today</code>.'
-                  example: '2051-12-30'
+                  example: '2070-11-04'
                 delivered:
                   type: boolean
                   description: ''
@@ -1063,21 +976,108 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'Rent returned successfully.'
+                  rent:
+                    id: 4
+                    book_id: 15
+                    student_id: 15
+                    delivery_date: '2024-10-02'
+                    delivered: 0
+                    created_at: '2024-09-17T00:46:45.000000Z'
+                    updated_at: '2024-09-18T03:01:33.000000Z'
+                    deleted_at: null
+                    book:
+                      id: 15
+                      title: Book
+                      author: Author
+                      isbn: '9785659568941'
+                      year_of_publication: 1970
+                      number_of_pages: 685
+                      public: 1
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
+                    student:
+                      id: 15
+                      name: Student
+                      email: student@halvorson.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'Rent returned successfully.'
+                  rent:
+                    type: object
+                    example:
+                      id: 4
+                      book_id: 15
+                      student_id: 15
+                      delivery_date: '2024-10-02'
+                      delivered: 0
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-18T03:01:33.000000Z'
+                      deleted_at: null
+                      book:
+                        id: 15
+                        title: Book
+                        author: Author
+                        isbn: '9785659568941'
+                        year_of_publication: 1970
+                        number_of_pages: 685
+                        public: 1
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+                      student:
+                        id: 15
+                        name: Student
+                        email: student@halvorson.com
+                        phone: '5587999999999'
+                        address: address
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Rents
       security: []
     delete:
       summary: ''
@@ -1097,19 +1097,753 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Rent deleted successfully.'
+                  rent:
+                    id: 4
+                    book_id: 15
+                    student_id: 15
+                    delivery_date: '2024-10-02'
+                    delivered: 0
+                    created_at: '2024-09-17T00:46:45.000000Z'
+                    updated_at: '2024-09-18T03:01:33.000000Z'
+                    deleted_at: null
+                    book:
+                      id: 15
+                      title: Book
+                      author: Author
+                      isbn: '9785659568941'
+                      year_of_publication: 1970
+                      number_of_pages: 685
+                      public: 1
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
+                    student:
+                      id: 15
+                      name: Student
+                      email: student@halvorson.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-17T00:46:45.000000Z'
+                      deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Rent deleted successfully.'
+                  rent:
+                    type: object
+                    example:
+                      id: 4
+                      book_id: 15
+                      student_id: 15
+                      delivery_date: '2024-10-02'
+                      delivered: 0
+                      created_at: '2024-09-17T00:46:45.000000Z'
+                      updated_at: '2024-09-18T03:01:33.000000Z'
+                      deleted_at: null
+                      book:
+                        id: 15
+                        title: Book
+                        author: Author
+                        isbn: '9785659568941'
+                        year_of_publication: 1970
+                        number_of_pages: 685
+                        public: 1
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+                      student:
+                        id: 15
+                        name: Student
+                        email: student@halvorson.com
+                        phone: '5587999999999'
+                        address: address
+                        created_at: '2024-09-17T00:46:45.000000Z'
+                        updated_at: '2024-09-17T00:46:45.000000Z'
+                        deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
       tags:
-        - Endpoints
+        - Rents
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the rent.'
-        example: 2
+        example: 4
         required: true
         schema:
           type: integer
+  /api/students:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Students returned successfully.'
+                  students:
+                    -
+                      id: 1
+                      name: Student
+                      email: Student@gmail.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-16T19:47:50.000000Z'
+                      updated_at: '2024-09-16T19:47:50.000000Z'
+                      deleted_at: null
+                  total_students: 12
+                properties:
+                  message:
+                    type: string
+                    example: 'Students returned successfully.'
+                  students:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Student
+                        email: Student@gmail.com
+                        phone: '5587999999999'
+                        address: address
+                        created_at: '2024-09-16T19:47:50.000000Z'
+                        updated_at: '2024-09-16T19:47:50.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                  total_students:
+                    type: integer
+                    example: 12
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Students
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                search:
+                  type: string
+                  description: ''
+                  example: facere
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: lyric83@example.com
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+                  example: name
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Student created successfully.'
+                  student:
+                    name: student
+                    email: student@gmail.com
+                    phone: '5587999999999'
+                    address: address
+                    created_at: '2024-09-22T01:35:48.000000Z'
+                    updated_at: '2024-09-22T01:35:48.000000Z'
+                    id: 22
+                properties:
+                  message:
+                    type: string
+                    example: 'Student created successfully.'
+                  student:
+                    type: object
+                    example:
+                      name: student
+                      email: student@gmail.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-22T01:35:48.000000Z'
+                      updated_at: '2024-09-22T01:35:48.000000Z'
+                      id: 22
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Students
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb
+                phone:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: nbfgn
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: otidkrcytvuiozejtgchou
+              required:
+                - name
+                - email
+      security: []
+  '/api/students/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Student updated successfully.'
+                  student:
+                    id: 11
+                    name: student
+                    email: student@gmail.com
+                    phone: '5587999999999'
+                    address: address
+                    created_at: '2024-09-22T01:35:48.000000Z'
+                    updated_at: '2024-09-22T01:35:48.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Student updated successfully.'
+                  student:
+                    type: object
+                    example:
+                      id: 11
+                      name: student
+                      email: student@gmail.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-22T01:35:48.000000Z'
+                      updated_at: '2024-09-22T01:35:48.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Students
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda
+                phone:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: owvhzm
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje
+              required:
+                - name
+                - email
+      security: []
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Student returned successfully.'
+                  student:
+                    id: 11
+                    name: student
+                    email: student@gmail.com
+                    phone: '5587999999999'
+                    address: address
+                    created_at: '2024-09-22T01:35:48.000000Z'
+                    updated_at: '2024-09-22T01:35:48.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Student returned successfully.'
+                  student:
+                    type: object
+                    example:
+                      id: 11
+                      name: student
+                      email: student@gmail.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-22T01:35:48.000000Z'
+                      updated_at: '2024-09-22T01:35:48.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Students
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Student deleted successfully.'
+                  student:
+                    id: 11
+                    name: student
+                    email: student@gmail.com
+                    phone: '5587999999999'
+                    address: address
+                    created_at: '2024-09-22T01:35:48.000000Z'
+                    updated_at: '2024-09-22T01:35:48.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Student deleted successfully.'
+                  student:
+                    type: object
+                    example:
+                      id: 11
+                      name: student
+                      email: student@gmail.com
+                      phone: '5587999999999'
+                      address: address
+                      created_at: '2024-09-22T01:35:48.000000Z'
+                      updated_at: '2024-09-22T01:35:48.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Students
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the student.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  email: victorfran18@gmail.com
+                  password: '12345678'
+                properties:
+                  email:
+                    type: string
+                    example: victorfran18@gmail.com
+                  password:
+                    type: string
+                    example: '12345678'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: wn
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\" => \"User successfully logged out.\"\n}"
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Auth
+      security: []
   /api/oauth2-callback:
     get:
       summary: 'Display Oauth2 callback pages.'
@@ -1170,7 +1904,691 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/users:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Users returned successfully.'
+                  users:
+                    -
+                      id: 1
+                      name: user
+                      email: user@gmail.com
+                      type: adm
+                      email_verified_at: '2024-09-16T18:00:16.000000Z'
+                      avatar_url: null
+                      created_at: '2024-09-16T18:00:16.000000Z'
+                      updated_at: '2024-09-16T18:00:16.000000Z'
+                      deleted_at: null
+                  total_users: 3
+                properties:
+                  message:
+                    type: string
+                    example: 'Users returned successfully.'
+                  users:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: user
+                        email: user@gmail.com
+                        type: adm
+                        email_verified_at: '2024-09-16T18:00:16.000000Z'
+                        avatar_url: null
+                        created_at: '2024-09-16T18:00:16.000000Z'
+                        updated_at: '2024-09-16T18:00:16.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                  total_users:
+                    type: integer
+                    example: 3
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 1
+                page_size:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 0
+                search:
+                  type: string
+                  description: ''
+                  example: aut
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: king.mann@example.org
+                ordering:
+                  type: string
+                  description: 'Must be one of <code>name</code> or <code>created_at</code>.'
+                  example: created_at
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User created successfully.'
+                  user:
+                    name: user
+                    email: user@gmail.com
+                    type: adm
+                    updated_at: '2024-09-22T00:30:29.000000Z'
+                    created_at: '2024-09-22T00:30:29.000000Z'
+                    id: 16
+                properties:
+                  message:
+                    type: string
+                    example: 'User created successfully.'
+                  user:
+                    type: object
+                    example:
+                      name: user
+                      email: user@gmail.com
+                      type: adm
+                      updated_at: '2024-09-22T00:30:29.000000Z'
+                      created_at: '2024-09-22T00:30:29.000000Z'
+                      id: 16
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: cxb
+                type:
+                  type: string
+                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+                  example: adm
+              required:
+                - name
+                - email
+                - password
+                - type
+      security: []
+  '/api/users/{id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User updated successfully.'
+                  user:
+                    id: 3
+                    name: user
+                    email: user@gmail.com
+                    type: librarian
+                    email_verified_at: '2024-09-16T15:42:16.000000Z'
+                    avatar_url: null
+                    created_at: '2024-09-18T16:57:05.000000Z'
+                    updated_at: '2024-09-18T17:01:00.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'User updated successfully.'
+                  user:
+                    type: object
+                    example:
+                      id: 3
+                      name: user
+                      email: user@gmail.com
+                      type: librarian
+                      email_verified_at: '2024-09-16T15:42:16.000000Z'
+                      avatar_url: null
+                      created_at: '2024-09-18T16:57:05.000000Z'
+                      updated_at: '2024-09-18T17:01:00.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: njggchc
+                type:
+                  type: string
+                  description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
+                  example: librarian
+              required:
+                - name
+                - email
+                - password
+                - type
+      security: []
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User returned successfully.'
+                  user:
+                    id: 3
+                    name: user
+                    email: user@gmail.com
+                    type: librarian
+                    email_verified_at: '2024-09-16T15:42:16.000000Z'
+                    avatar_url: null
+                    created_at: '2024-09-18T16:57:05.000000Z'
+                    updated_at: '2024-09-18T17:01:00.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'User returned successfully.'
+                  user:
+                    type: object
+                    example:
+                      id: 3
+                      name: user
+                      email: user@gmail.com
+                      type: librarian
+                      email_verified_at: '2024-09-16T15:42:16.000000Z'
+                      avatar_url: null
+                      created_at: '2024-09-18T16:57:05.000000Z'
+                      updated_at: '2024-09-18T17:01:00.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User deleted successfully.'
+                  user:
+                    id: 3
+                    name: user
+                    email: user@gmail.com
+                    type: librarian
+                    email_verified_at: '2024-09-16T15:42:16.000000Z'
+                    avatar_url: null
+                    created_at: '2024-09-18T16:57:05.000000Z'
+                    updated_at: '2024-09-18T17:01:00.000000Z'
+                    deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'User deleted successfully.'
+                  user:
+                    type: object
+                    example:
+                      id: 3
+                      name: user
+                      email: user@gmail.com
+                      type: librarian
+                      email_verified_at: '2024-09-16T15:42:16.000000Z'
+                      avatar_url: null
+                      created_at: '2024-09-18T16:57:05.000000Z'
+                      updated_at: '2024-09-18T17:01:00.000000Z'
+                      deleted_at: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users/reset_password:
+    patch:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  old_password: testesenha
+                  new_password: testesenha1
+                  new_password_confirmation: testesenha1
+                properties:
+                  old_password:
+                    type: string
+                    example: testesenha
+                  new_password:
+                    type: string
+                    example: testesenha1
+                  new_password_confirmation:
+                    type: string
+                    example: testesenha1
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: kgcxuu
+                new_password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: pm
+              required:
+                - old_password
+                - new_password
+      security: []
+  /api/users/confirmationEmail:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n   \"token\": \"token\",\n}"
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Validation Error'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Validation Error'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: neque
+              required:
+                - token
+      security: []
 tags:
   -
+    name: Books
+    description: ''
+  -
+    name: Rents
+    description: ''
+  -
+    name: Students
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
     name: Endpoints
+    description: ''
+  -
+    name: Users
     description: ''

@@ -11,6 +11,56 @@ use Illuminate\Http\Request;
 
 class RentController extends Controller
 {
+    /**
+     * @group Rents
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Rents returned successfully.",
+     *     "rents": [
+     *         {
+     *             "id": 4,
+     *             "book_id": 15,
+     *             "student_id": 15,
+     *             "delivery_date": "2024-10-02",
+     *             "delivered": 0,
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-18T03:01:33.000000Z",
+     *             "deleted_at": null,
+     *             "book": {
+     *                 "id": 15,
+     *                 "title": "Book",
+     *                 "author": "Author",
+     *                 "isbn": "9785659568941",
+     *                 "year_of_publication": 1970,
+     *                 "number_of_pages": 685,
+     *                 "public": 1,
+     *                 "created_at": "2024-09-17T00:46:45.000000Z",
+     *                 "updated_at": "2024-09-17T00:46:45.000000Z",
+     *                 "deleted_at": null
+     *             },
+     *             "student": {
+     *                 "id": 15,
+     *                 "name": "Student",
+     *                 "email": "student@halvorson.com",
+     *                 "phone": "5587999999999",
+     *                 "address": "address",
+     *                 "created_at": "2024-09-17T00:46:45.000000Z",
+     *                 "updated_at": "2024-09-17T00:46:45.000000Z",
+     *                 "deleted_at": null
+     *             }
+     *         }
+     *     ],
+     *     "total_rents": 29
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function index(RentRequestGet $request)
     {
         $validated = $request->validated();
@@ -66,6 +116,30 @@ class RentController extends Controller
         return response()->json($response, 200);
     }
 
+    /**
+     * @group Rents
+     * @header Authorization Bearer {token}
+     * @response 201 {
+     *     "message": "Rent successfully created.",
+     *     "rent": {
+     *         "book_id": 3,
+     *         "student_id": 2,
+     *         "delivery_date": "2024-09-29",
+     *         "delivered": false,
+     *         "updated_at": "2024-09-22T01:50:58.000000Z",
+     *         "created_at": "2024-09-22T01:50:58.000000Z",
+     *         "id": 13
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function store(RentRequestCreateAndUpdate $request)
     {
         $validated = $request->validated();
@@ -91,6 +165,53 @@ class RentController extends Controller
         ], 201);
     }
 
+    /**
+     * @group Rents
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Rent returned successfully.",
+     *     "rent": {
+     *         "id": 4,
+     *         "book_id": 15,
+     *         "student_id": 15,
+     *         "delivery_date": "2024-10-02",
+     *         "delivered": 0,
+     *         "created_at": "2024-09-17T00:46:45.000000Z",
+     *         "updated_at": "2024-09-18T03:01:33.000000Z",
+     *         "deleted_at": null,
+     *         "book": {
+     *             "id": 15,
+     *             "title": "Book",
+     *             "author": "Author",
+     *             "isbn": "9785659568941",
+     *             "year_of_publication": 1970,
+     *             "number_of_pages": 685,
+     *             "public": 1,
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         },
+     *         "student": {
+     *             "id": 15,
+     *             "name": "Student",
+     *             "email": "student@halvorson.com",
+     *             "phone": "5587999999999",
+     *             "address": "address",
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         }
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function show(RentRequestGetIdAndDelete $request, $id)
     {
         $validated = $request->validated();
@@ -118,6 +239,53 @@ class RentController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Rents
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Rent updated successfully.",
+     *     "rent": {
+     *         "id": 4,
+     *         "book_id": 15,
+     *         "student_id": 15,
+     *         "delivery_date": "2024-10-02",
+     *         "delivered": 0,
+     *         "created_at": "2024-09-17T00:46:45.000000Z",
+     *         "updated_at": "2024-09-18T03:01:33.000000Z",
+     *         "deleted_at": null,
+     *         "book": {
+     *             "id": 15,
+     *             "title": "Book",
+     *             "author": "Author",
+     *             "isbn": "9785659568941",
+     *             "year_of_publication": 1970,
+     *             "number_of_pages": 685,
+     *             "public": 1,
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         },
+     *         "student": {
+     *             "id": 15,
+     *             "name": "Student",
+     *             "email": "student@halvorson.com",
+     *             "phone": "5587999999999",
+     *             "address": "address",
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         }
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function update(RentRequestCreateAndUpdate $request, $id)
     {
 
@@ -148,6 +316,53 @@ class RentController extends Controller
         ], 200);
     }
 
+    /**
+     * @group Rents
+     * @header Authorization Bearer {token}
+     * @response 200 {
+     *     "message": "Rent deleted successfully.",
+     *     "rent": {
+     *         "id": 4,
+     *         "book_id": 15,
+     *         "student_id": 15,
+     *         "delivery_date": "2024-10-02",
+     *         "delivered": 0,
+     *         "created_at": "2024-09-17T00:46:45.000000Z",
+     *         "updated_at": "2024-09-18T03:01:33.000000Z",
+     *         "deleted_at": null,
+     *         "book": {
+     *             "id": 15,
+     *             "title": "Book",
+     *             "author": "Author",
+     *             "isbn": "9785659568941",
+     *             "year_of_publication": 1970,
+     *             "number_of_pages": 685,
+     *             "public": 1,
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         },
+     *         "student": {
+     *             "id": 15,
+     *             "name": "Student",
+     *             "email": "student@halvorson.com",
+     *             "phone": "5587999999999",
+     *             "address": "address",
+     *             "created_at": "2024-09-17T00:46:45.000000Z",
+     *             "updated_at": "2024-09-17T00:46:45.000000Z",
+     *             "deleted_at": null
+     *         }
+     *     }
+     * }
+     * @response 422 {
+     *   "message": "Validation Error",
+     *   "errors": {
+     *     "email": [
+     *       "The email field is required."
+     *     ]
+     *   }
+     * }
+     * */
     public function destroy(RentRequestGetIdAndDelete $request, $id)
     {
         $rent = Rent::with(['book', 'student'])->where('id', $id)->first();
