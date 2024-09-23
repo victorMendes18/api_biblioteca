@@ -1,4 +1,4 @@
-# api_biblioteca
+# ApiBiblioteca
 A API oferece um serviço completo para o gerenciamento de empréstimos de livros em bibliotecas. Permite o cadastro de dois tipos de usuários: administradores (ADM) e bibliotecários (librarian), que terão acesso às funcionalidades da API. Além disso, é possível gerenciar o acervo da biblioteca, cadastrar estudantes e controlar os empréstimos realizados por eles.
 
 # Instalação (Windows)
