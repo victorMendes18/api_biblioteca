@@ -23,7 +23,7 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 0
+        example: 1
         type: integer
         custom: []
       page_size:
@@ -37,14 +37,14 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: corrupti
+        example: et
         type: string
         custom: []
       isbn:
         name: isbn
         description: 'The value format is invalid. Must not be greater than 13 characters.'
         required: false
-        example: uytd
+        example: mwc
         type: string
         custom: []
       ordering:
@@ -112,28 +112,28 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli
+        example: jtcnvjwtkfimcohrhy
         type: string
         custom: []
       author:
         name: author
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq
+        example: lddulptmutnzdysoetzgglyxaymmocdtzrfwmnuidiwwcbbxgacujjvrwbgikpkzxllhf
         type: string
         custom: []
       isbn:
         name: isbn
         description: 'The value format is invalid. Must not be greater than 13 characters.'
         required: true
-        example: fl
+        example: ''
         type: string
         custom: []
       year_of_publication:
         name: year_of_publication
         description: 'Must be at least 1000. Must not be greater than 2024.'
         required: true
-        example: 1269
+        example: 84
         type: integer
         custom: []
       number_of_pages:
@@ -147,7 +147,7 @@ endpoints:
         name: public
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -211,35 +211,35 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda
+        example: scrvsfnnllgxoizgskrhekybsgnphmxoixyikadxeptxxlhgihuulzfcdiyszfeuvzedkgoqnrpjmvzkqgfgvlakinizyukrtynuadcrpgnqetrxrehohwuzkqitjgvdapdkazkbesnmihjtkyqixkpcuil
         type: string
         custom: []
       author:
         name: author
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq
+        example: fdeuepyroqlijwzhfedldxvkuhpgfxlfbwionjqbhvrmeprhjxbtowwelygltcosmjwbnflvwzboxfpxugxlzwxegfvvutxxgeuvekskjtbvxeowzvswhjcuswntdfnuxckbsknptuehinwhtyhxmpvngatshbphghadopdqqjjobaprjtcgyvwrovuxytrguorzwtwfcahtfviyftwmhemhgyumsdioznfnehumnxorpfft
         type: string
         custom: []
       isbn:
         name: isbn
         description: 'The value format is invalid. Must not be greater than 13 characters.'
         required: true
-        example: jclpsbc
+        example: ''
         type: string
         custom: []
       year_of_publication:
         name: year_of_publication
         description: 'Must be at least 1000. Must not be greater than 2024.'
         required: true
-        example: 1352
+        example: 883
         type: integer
         custom: []
       number_of_pages:
         name: number_of_pages
         description: 'Must be at least 1.'
         required: true
-        example: 0
+        example: 1
         type: integer
         custom: []
       public:

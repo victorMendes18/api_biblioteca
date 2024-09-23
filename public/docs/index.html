@@ -70,6 +70,19 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="auth">
+                    <a href="#auth">Auth</a>
+                </li>
+                                    <ul id="tocify-subheader-auth" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-login">
+                        <a href="#auth-POSTapi-login">POST api/login</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-logout">
+                        <a href="#auth-POSTapi-logout">POST api/logout</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="books">
                     <a href="#books">Books</a>
                 </li>
@@ -91,7 +104,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-3" class="tocify-header">
+                    <ul id="tocify-header-4" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="rents">
                     <a href="#rents">Rents</a>
                 </li>
@@ -113,7 +126,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-4" class="tocify-header">
+                    <ul id="tocify-header-5" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="students">
                     <a href="#students">Students</a>
                 </li>
@@ -135,33 +148,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-5" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="auth">
-                    <a href="#auth">Auth</a>
-                </li>
-                                    <ul id="tocify-subheader-auth" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-login">
-                        <a href="#auth-POSTapi-login">POST api/login</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-logout">
-                        <a href="#auth-POSTapi-logout">POST api/logout</a>
-                    </li>
-                                                    </ul>
-                            </ul>
                     <ul id="tocify-header-6" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
-                </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-oauth2-callback">
-                        <a href="#endpoints-GETapi-oauth2-callback">Display Oauth2 callback pages.</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-documentation">
-                        <a href="#endpoints-GETapi-documentation">Display Swagger API page.</a>
-                    </li>
-                                                    </ul>
-                            </ul>
-                    <ul id="tocify-header-7" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
                 </li>
@@ -199,7 +186,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 22 2024</li>
+        <li>Last updated: September 23 2024</li>
     </ul>
 </div>
 
@@ -207,6 +194,7 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>The API offers a complete service for managing library book loans. It allows the registration of two types of users: administrators (ADM) and librarians (librarian), who will have access to the API's functionalities. In addition, it is possible to manage the library's collection, register students and control loans made by them.</p>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
@@ -217,6 +205,247 @@ You can switch the language used with the tabs at the top right (or from the nav
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
+
+        <h1 id="auth">Auth</h1>
+
+    
+
+            <h2 id="auth-POSTapi-login">POST api/login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei\",
+    \"password\": \"wynnmpum\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei",
+    "password": "wynnmpum"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;email&quot;: &quot;victorfran18@gmail.com&quot;,
+    &quot;password&quot;: &quot;12345678&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Validation Error&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-login"
+                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-login"
+                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-login"
+               value="erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address. Must not be greater than 255 characters.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-login"
+               value="wynnmpum"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 8 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-logout">POST api/logout</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer {token}"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-logout">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot; =&gt; &quot;User successfully logged out.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Validation Error&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
+</span>
+<form id="form-POSTapi-logout" data-method="POST"
+      data-path="api/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer {token}"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-logout"
+                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-logout"
+                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/logout</code></b>
+        </p>
+                    </form>
 
         <h1 id="books">Books</h1>
 
@@ -240,10 +469,10 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"page\": 0,
+    \"page\": 1,
     \"page_size\": 1,
-    \"search\": \"corrupti\",
-    \"isbn\": \"uytd\",
+    \"search\": \"et\",
+    \"isbn\": \"mwc\",
     \"ordering\": \"title\"
 }"
 </code></pre></div>
@@ -261,10 +490,10 @@ const headers = {
 };
 
 let body = {
-    "page": 0,
+    "page": 1,
     "page_size": 1,
-    "search": "corrupti",
-    "isbn": "uytd",
+    "search": "et",
+    "isbn": "mwc",
     "ordering": "title"
 };
 
@@ -361,7 +590,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETapi-books"
-               value="0"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -381,7 +610,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-books"
-               value="corrupti"
+               value="et"
                data-component="body" hidden>
     <br>
 
@@ -391,7 +620,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="GETapi-books"
-               value="uytd"
+               value="mwc"
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -426,12 +655,12 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"title\": \"eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli\",
-    \"author\": \"cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq\",
-    \"isbn\": \"fl\",
-    \"year_of_publication\": 1269,
+    \"title\": \"jtcnvjwtkfimcohrhy\",
+    \"author\": \"lddulptmutnzdysoetzgglyxaymmocdtzrfwmnuidiwwcbbxgacujjvrwbgikpkzxllhf\",
+    \"isbn\": \"\",
+    \"year_of_publication\": 84,
     \"number_of_pages\": 1,
-    \"public\": false
+    \"public\": true
 }"
 </code></pre></div>
 
@@ -448,12 +677,12 @@ const headers = {
 };
 
 let body = {
-    "title": "eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli",
-    "author": "cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq",
-    "isbn": "fl",
-    "year_of_publication": 1269,
+    "title": "jtcnvjwtkfimcohrhy",
+    "author": "lddulptmutnzdysoetzgglyxaymmocdtzrfwmnuidiwwcbbxgacujjvrwbgikpkzxllhf",
+    "isbn": "",
+    "year_of_publication": 84,
     "number_of_pages": 1,
-    "public": false
+    "public": true
 };
 
 fetch(url, {
@@ -545,7 +774,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="POSTapi-books"
-               value="eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli"
+               value="jtcnvjwtkfimcohrhy"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -555,7 +784,7 @@ fetch(url, {
                 <input type="text"
                name="author"
                data-endpoint="POSTapi-books"
-               value="cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq"
+               value="lddulptmutnzdysoetzgglyxaymmocdtzrfwmnuidiwwcbbxgacujjvrwbgikpkzxllhf"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -565,7 +794,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="POSTapi-books"
-               value="fl"
+               value=""
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -575,7 +804,7 @@ fetch(url, {
                 <input type="number"
                name="year_of_publication"
                data-endpoint="POSTapi-books"
-               value="1269"
+               value="84"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1000. Must not be greater than 2024.</p>
@@ -631,11 +860,11 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"title\": \"tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda\",
-    \"author\": \"otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq\",
-    \"isbn\": \"jclpsbc\",
-    \"year_of_publication\": 1352,
-    \"number_of_pages\": 0,
+    \"title\": \"scrvsfnnllgxoizgskrhekybsgnphmxoixyikadxeptxxlhgihuulzfcdiyszfeuvzedkgoqnrpjmvzkqgfgvlakinizyukrtynuadcrpgnqetrxrehohwuzkqitjgvdapdkazkbesnmihjtkyqixkpcuil\",
+    \"author\": \"fdeuepyroqlijwzhfedldxvkuhpgfxlfbwionjqbhvrmeprhjxbtowwelygltcosmjwbnflvwzboxfpxugxlzwxegfvvutxxgeuvekskjtbvxeowzvswhjcuswntdfnuxckbsknptuehinwhtyhxmpvngatshbphghadopdqqjjobaprjtcgyvwrovuxytrguorzwtwfcahtfviyftwmhemhgyumsdioznfnehumnxorpfft\",
+    \"isbn\": \"\",
+    \"year_of_publication\": 883,
+    \"number_of_pages\": 1,
     \"public\": true
 }"
 </code></pre></div>
@@ -653,11 +882,11 @@ const headers = {
 };
 
 let body = {
-    "title": "tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda",
-    "author": "otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq",
-    "isbn": "jclpsbc",
-    "year_of_publication": 1352,
-    "number_of_pages": 0,
+    "title": "scrvsfnnllgxoizgskrhekybsgnphmxoixyikadxeptxxlhgihuulzfcdiyszfeuvzedkgoqnrpjmvzkqgfgvlakinizyukrtynuadcrpgnqetrxrehohwuzkqitjgvdapdkazkbesnmihjtkyqixkpcuil",
+    "author": "fdeuepyroqlijwzhfedldxvkuhpgfxlfbwionjqbhvrmeprhjxbtowwelygltcosmjwbnflvwzboxfpxugxlzwxegfvvutxxgeuvekskjtbvxeowzvswhjcuswntdfnuxckbsknptuehinwhtyhxmpvngatshbphghadopdqqjjobaprjtcgyvwrovuxytrguorzwtwfcahtfviyftwmhemhgyumsdioznfnehumnxorpfft",
+    "isbn": "",
+    "year_of_publication": 883,
+    "number_of_pages": 1,
     "public": true
 };
 
@@ -761,7 +990,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="PUTapi-books--id-"
-               value="tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda"
+               value="scrvsfnnllgxoizgskrhekybsgnphmxoixyikadxeptxxlhgihuulzfcdiyszfeuvzedkgoqnrpjmvzkqgfgvlakinizyukrtynuadcrpgnqetrxrehohwuzkqitjgvdapdkazkbesnmihjtkyqixkpcuil"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -771,7 +1000,7 @@ fetch(url, {
                 <input type="text"
                name="author"
                data-endpoint="PUTapi-books--id-"
-               value="otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq"
+               value="fdeuepyroqlijwzhfedldxvkuhpgfxlfbwionjqbhvrmeprhjxbtowwelygltcosmjwbnflvwzboxfpxugxlzwxegfvvutxxgeuvekskjtbvxeowzvswhjcuswntdfnuxckbsknptuehinwhtyhxmpvngatshbphghadopdqqjjobaprjtcgyvwrovuxytrguorzwtwfcahtfviyftwmhemhgyumsdioznfnehumnxorpfft"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -781,7 +1010,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="PUTapi-books--id-"
-               value="jclpsbc"
+               value=""
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -791,7 +1020,7 @@ fetch(url, {
                 <input type="number"
                name="year_of_publication"
                data-endpoint="PUTapi-books--id-"
-               value="1352"
+               value="883"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1000. Must not be greater than 2024.</p>
@@ -801,7 +1030,7 @@ fetch(url, {
                 <input type="number"
                name="number_of_pages"
                data-endpoint="PUTapi-books--id-"
-               value="0"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -1102,9 +1331,9 @@ fetch(url, {
     --header "Authorization: Bearer {token}" \
     --data "{
     \"page\": 1,
-    \"page_size\": 1,
-    \"search\": \"aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty\",
-    \"student\": \"velit\",
+    \"page_size\": 0,
+    \"search\": \"wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd\",
+    \"student\": \"doloremque\",
     \"ordering\": \"delivery_date\"
 }"
 </code></pre></div>
@@ -1123,9 +1352,9 @@ const headers = {
 
 let body = {
     "page": 1,
-    "page_size": 1,
-    "search": "aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty",
-    "student": "velit",
+    "page_size": 0,
+    "search": "wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd",
+    "student": "doloremque",
     "ordering": "delivery_date"
 };
 
@@ -1252,7 +1481,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETapi-rents"
-               value="1"
+               value="0"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -1262,7 +1491,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-rents"
-               value="aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty"
+               value="wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -1272,7 +1501,7 @@ fetch(url, {
                 <input type="text"
                name="student"
                data-endpoint="GETapi-rents"
-               value="velit"
+               value="doloremque"
                data-component="body" hidden>
     <br>
 
@@ -1307,10 +1536,10 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"book_id\": \"laudantium\",
-    \"student_id\": \"dicta\",
-    \"delivery_date\": \"2062-10-15\",
-    \"delivered\": true
+    \"book_id\": \"eos\",
+    \"student_id\": \"hic\",
+    \"delivery_date\": \"2082-08-17\",
+    \"delivered\": false
 }"
 </code></pre></div>
 
@@ -1327,10 +1556,10 @@ const headers = {
 };
 
 let body = {
-    "book_id": "laudantium",
-    "student_id": "dicta",
-    "delivery_date": "2062-10-15",
-    "delivered": true
+    "book_id": "eos",
+    "student_id": "hic",
+    "delivery_date": "2082-08-17",
+    "delivered": false
 };
 
 fetch(url, {
@@ -1420,7 +1649,7 @@ fetch(url, {
                 <input type="text"
                name="book_id"
                data-endpoint="POSTapi-rents"
-               value="laudantium"
+               value="eos"
                data-component="body" hidden>
     <br>
 
@@ -1430,7 +1659,7 @@ fetch(url, {
                 <input type="text"
                name="student_id"
                data-endpoint="POSTapi-rents"
-               value="dicta"
+               value="hic"
                data-component="body" hidden>
     <br>
 
@@ -1440,7 +1669,7 @@ fetch(url, {
                 <input type="text"
                name="delivery_date"
                data-endpoint="POSTapi-rents"
-               value="2062-10-15"
+               value="2082-08-17"
                data-component="body" hidden>
     <br>
 <p>Must be a valid date. Must be a date after <code>today</code>.</p>
@@ -1486,10 +1715,10 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"book_id\": \"ut\",
-    \"student_id\": \"minima\",
-    \"delivery_date\": \"2070-11-04\",
-    \"delivered\": false
+    \"book_id\": \"laboriosam\",
+    \"student_id\": \"unde\",
+    \"delivery_date\": \"2036-05-07\",
+    \"delivered\": true
 }"
 </code></pre></div>
 
@@ -1506,10 +1735,10 @@ const headers = {
 };
 
 let body = {
-    "book_id": "ut",
-    "student_id": "minima",
-    "delivery_date": "2070-11-04",
-    "delivered": false
+    "book_id": "laboriosam",
+    "student_id": "unde",
+    "delivery_date": "2036-05-07",
+    "delivered": true
 };
 
 fetch(url, {
@@ -1633,7 +1862,7 @@ fetch(url, {
                 <input type="text"
                name="book_id"
                data-endpoint="PUTapi-rents--id-"
-               value="ut"
+               value="laboriosam"
                data-component="body" hidden>
     <br>
 
@@ -1643,7 +1872,7 @@ fetch(url, {
                 <input type="text"
                name="student_id"
                data-endpoint="PUTapi-rents--id-"
-               value="minima"
+               value="unde"
                data-component="body" hidden>
     <br>
 
@@ -1653,7 +1882,7 @@ fetch(url, {
                 <input type="text"
                name="delivery_date"
                data-endpoint="PUTapi-rents--id-"
-               value="2070-11-04"
+               value="2036-05-07"
                data-component="body" hidden>
     <br>
 <p>Must be a valid date. Must be a date after <code>today</code>.</p>
@@ -1997,8 +2226,8 @@ fetch(url, {
     --data "{
     \"page\": 1,
     \"page_size\": 0,
-    \"search\": \"facere\",
-    \"email\": \"lyric83@example.com\",
+    \"search\": \"aspernatur\",
+    \"email\": \"kenna.bernhard@example.org\",
     \"ordering\": \"name\"
 }"
 </code></pre></div>
@@ -2018,8 +2247,8 @@ const headers = {
 let body = {
     "page": 1,
     "page_size": 0,
-    "search": "facere",
-    "email": "lyric83@example.com",
+    "search": "aspernatur",
+    "email": "kenna.bernhard@example.org",
     "ordering": "name"
 };
 
@@ -2134,7 +2363,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-students"
-               value="facere"
+               value="aspernatur"
                data-component="body" hidden>
     <br>
 
@@ -2144,7 +2373,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="GETapi-students"
-               value="lyric83@example.com"
+               value="kenna.bernhard@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -2179,10 +2408,10 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt\",
-    \"email\": \"kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb\",
-    \"phone\": \"nbfgn\",
-    \"address\": \"otidkrcytvuiozejtgchou\"
+    \"name\": \"zvqxyz\",
+    \"email\": \"ffwjmxyujntogvgbyrfppgtprlfqyfbtukyvcvhpdqrxefcvuehsrdhclwzugjaeirnjlldcolthmyqvvgsnebcknpuvquvonkdagkhqwanyzkdyogrkolkmstuykoynfktkberiwqvyiwpoohvkfknmlsghltvtazqbmmcdxmzritwtkyaspryabqslttagzjieezzudylngaypzemwpvigwswhfiuvb\",
+    \"phone\": \"lh\",
+    \"address\": \"xzrpzguqmuwreviganqhgxjrpfdrriornsiitkybejztayjcxdnjmwsnbwjkmpovvzjesccjaiiwaaurawufbmnbgqibsyuogzpjkrdswybbnmqcroteespdmefvfcrowskkxkvrdptzeivccaknuxgdxkkbbnqrzybkihtlsxqftetwdbvvhwespynfmedxflulnhej\"
 }"
 </code></pre></div>
 
@@ -2199,10 +2428,10 @@ const headers = {
 };
 
 let body = {
-    "name": "dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt",
-    "email": "kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb",
-    "phone": "nbfgn",
-    "address": "otidkrcytvuiozejtgchou"
+    "name": "zvqxyz",
+    "email": "ffwjmxyujntogvgbyrfppgtprlfqyfbtukyvcvhpdqrxefcvuehsrdhclwzugjaeirnjlldcolthmyqvvgsnebcknpuvquvonkdagkhqwanyzkdyogrkolkmstuykoynfktkberiwqvyiwpoohvkfknmlsghltvtazqbmmcdxmzritwtkyaspryabqslttagzjieezzudylngaypzemwpvigwswhfiuvb",
+    "phone": "lh",
+    "address": "xzrpzguqmuwreviganqhgxjrpfdrriornsiitkybejztayjcxdnjmwsnbwjkmpovvzjesccjaiiwaaurawufbmnbgqibsyuogzpjkrdswybbnmqcroteespdmefvfcrowskkxkvrdptzeivccaknuxgdxkkbbnqrzybkihtlsxqftetwdbvvhwespynfmedxflulnhej"
 };
 
 fetch(url, {
@@ -2292,7 +2521,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-students"
-               value="dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt"
+               value="zvqxyz"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2302,7 +2531,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-students"
-               value="kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb"
+               value="ffwjmxyujntogvgbyrfppgtprlfqyfbtukyvcvhpdqrxefcvuehsrdhclwzugjaeirnjlldcolthmyqvvgsnebcknpuvquvonkdagkhqwanyzkdyogrkolkmstuykoynfktkberiwqvyiwpoohvkfknmlsghltvtazqbmmcdxmzritwtkyaspryabqslttagzjieezzudylngaypzemwpvigwswhfiuvb"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -2312,7 +2541,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-students"
-               value="nbfgn"
+               value="lh"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -2322,7 +2551,7 @@ fetch(url, {
                 <input type="text"
                name="address"
                data-endpoint="POSTapi-students"
-               value="otidkrcytvuiozejtgchou"
+               value="xzrpzguqmuwreviganqhgxjrpfdrriornsiitkybejztayjcxdnjmwsnbwjkmpovvzjesccjaiiwaaurawufbmnbgqibsyuogzpjkrdswybbnmqcroteespdmefvfcrowskkxkvrdptzeivccaknuxgdxkkbbnqrzybkihtlsxqftetwdbvvhwespynfmedxflulnhej"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2347,10 +2576,10 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq\",
-    \"email\": \"xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda\",
-    \"phone\": \"owvhzm\",
-    \"address\": \"pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje\"
+    \"name\": \"ruwyjphaykldgqtoiqmppznclnpuaaqrgogpjyxazxzyqmqmaiqojdevdrtmifixvqtqatnidrwkrfcgecnjkykqycbguzwyluwnjbumnsmdqjghzmbmysaspvhnat\",
+    \"email\": \"aaoebtacpmtaaxziizihvjnt\",
+    \"phone\": \"vg\",
+    \"address\": \"tcxrbmmzykimagxcsfyukfurkbhigqbcwxrwcubuluewnitz\"
 }"
 </code></pre></div>
 
@@ -2367,10 +2596,10 @@ const headers = {
 };
 
 let body = {
-    "name": "wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq",
-    "email": "xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda",
-    "phone": "owvhzm",
-    "address": "pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje"
+    "name": "ruwyjphaykldgqtoiqmppznclnpuaaqrgogpjyxazxzyqmqmaiqojdevdrtmifixvqtqatnidrwkrfcgecnjkykqycbguzwyluwnjbumnsmdqjghzmbmysaspvhnat",
+    "email": "aaoebtacpmtaaxziizihvjnt",
+    "phone": "vg",
+    "address": "tcxrbmmzykimagxcsfyukfurkbhigqbcwxrwcubuluewnitz"
 };
 
 fetch(url, {
@@ -2472,7 +2701,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-students--id-"
-               value="wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq"
+               value="ruwyjphaykldgqtoiqmppznclnpuaaqrgogpjyxazxzyqmqmaiqojdevdrtmifixvqtqatnidrwkrfcgecnjkykqycbguzwyluwnjbumnsmdqjghzmbmysaspvhnat"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2482,7 +2711,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="PUTapi-students--id-"
-               value="xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda"
+               value="aaoebtacpmtaaxziizihvjnt"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -2492,7 +2721,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="PUTapi-students--id-"
-               value="owvhzm"
+               value="vg"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -2502,7 +2731,7 @@ fetch(url, {
                 <input type="text"
                name="address"
                data-endpoint="PUTapi-students--id-"
-               value="pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje"
+               value="tcxrbmmzykimagxcsfyukfurkbhigqbcwxrwcubuluewnitz"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2757,589 +2986,6 @@ fetch(url, {
             </p>
                     </form>
 
-        <h1 id="auth">Auth</h1>
-
-    
-
-            <h2 id="auth-POSTapi-login">POST api/login</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-login">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/login" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"email\": \"oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa\",
-    \"password\": \"wn\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa",
-    "password": "wn"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-login">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;email&quot;: &quot;victorfran18@gmail.com&quot;,
-    &quot;password&quot;: &quot;12345678&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (422):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Validation Error&quot;,
-    &quot;errors&quot;: {
-        &quot;email&quot;: [
-            &quot;The email field is required.&quot;
-        ]
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-login" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-login"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
-</span>
-<span id="execution-error-POSTapi-login" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
-</span>
-<form id="form-POSTapi-login" data-method="POST"
-      data-path="api/login"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-login"
-                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-login"
-                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-login" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/login</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="email"
-               data-endpoint="POSTapi-login"
-               value="oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa"
-               data-component="body" hidden>
-    <br>
-<p>Must be a valid email address. Must not be greater than 255 characters.</p>
-        </p>
-                <p>
-            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="password"
-               data-endpoint="POSTapi-login"
-               value="wn"
-               data-component="body" hidden>
-    <br>
-<p>Must be at least 8 characters.</p>
-        </p>
-        </form>
-
-            <h2 id="auth-POSTapi-logout">POST api/logout</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-logout">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/logout" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer {token}"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/logout"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-logout">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot; =&gt; &quot;User successfully logged out.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (422):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Validation Error&quot;,
-    &quot;errors&quot;: {
-        &quot;email&quot;: [
-            &quot;The email field is required.&quot;
-        ]
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-logout" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-logout"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
-</span>
-<span id="execution-error-POSTapi-logout" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
-</span>
-<form id="form-POSTapi-logout" data-method="POST"
-      data-path="api/logout"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer {token}"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-logout"
-                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-logout"
-                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-logout" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/logout</code></b>
-        </p>
-                    </form>
-
-        <h1 id="endpoints">Endpoints</h1>
-
-    
-
-            <h2 id="endpoints-GETapi-oauth2-callback">Display Oauth2 callback pages.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-oauth2-callback">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/oauth2-callback" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/oauth2-callback"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-oauth2-callback">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">content-type: text/html; charset=UTF-8
-cache-control: no-cache, private
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">&lt;!doctype html&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
-&lt;head&gt;
-    &lt;title&gt;Swagger UI: OAuth2 Redirect&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    'use strict';
-    function run () {
-        var oauth2 = window.opener.swaggerUIRedirectOauth2;
-        var sentState = oauth2.state;
-        var redirectUrl = oauth2.redirectUrl;
-        var isValid, qp, arr;
-
-        if (/code|token|error/.test(window.location.hash)) {
-            qp = window.location.hash.substring(1).replace('?', '&amp;');
-        } else {
-            qp = location.search.substring(1);
-        }
-
-        arr = qp.split(&quot;&amp;&quot;);
-        arr.forEach(function (v,i,_arr) { _arr[i] = '&quot;' + v.replace('=', '&quot;:&quot;') + '&quot;';});
-        qp = qp ? JSON.parse('{' + arr.join() + '}',
-                function (key, value) {
-                    return key === &quot;&quot; ? value : decodeURIComponent(value);
-                }
-        ) : {};
-
-        isValid = qp.state === sentState;
-
-        if ((
-          oauth2.auth.schema.get(&quot;flow&quot;) === &quot;accessCode&quot; ||
-          oauth2.auth.schema.get(&quot;flow&quot;) === &quot;authorizationCode&quot; ||
-          oauth2.auth.schema.get(&quot;flow&quot;) === &quot;authorization_code&quot;
-        ) &amp;&amp; !oauth2.auth.code) {
-            if (!isValid) {
-                oauth2.errCb({
-                    authId: oauth2.auth.name,
-                    source: &quot;auth&quot;,
-                    level: &quot;warning&quot;,
-                    message: &quot;Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server.&quot;
-                });
-            }
-
-            if (qp.code) {
-                delete oauth2.state;
-                oauth2.auth.code = qp.code;
-                oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});
-            } else {
-                let oauthErrorMsg;
-                if (qp.error) {
-                    oauthErrorMsg = &quot;[&quot;+qp.error+&quot;]: &quot; +
-                        (qp.error_description ? qp.error_description+ &quot;. &quot; : &quot;no accessCode received from the server. &quot;) +
-                        (qp.error_uri ? &quot;More info: &quot;+qp.error_uri : &quot;&quot;);
-                }
-
-                oauth2.errCb({
-                    authId: oauth2.auth.name,
-                    source: &quot;auth&quot;,
-                    level: &quot;error&quot;,
-                    message: oauthErrorMsg || &quot;[Authorization failed]: no accessCode received from the server.&quot;
-                });
-            }
-        } else {
-            oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});
-        }
-        window.close();
-    }
-
-    if (document.readyState !== 'loading') {
-        run();
-    } else {
-        document.addEventListener('DOMContentLoaded', function () {
-            run();
-        });
-    }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-oauth2-callback" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-oauth2-callback"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-oauth2-callback"></code></pre>
-</span>
-<span id="execution-error-GETapi-oauth2-callback" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-oauth2-callback"></code></pre>
-</span>
-<form id="form-GETapi-oauth2-callback" data-method="GET"
-      data-path="api/oauth2-callback"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-oauth2-callback', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-oauth2-callback"
-                    onclick="tryItOut('GETapi-oauth2-callback');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-oauth2-callback"
-                    onclick="cancelTryOut('GETapi-oauth2-callback');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-oauth2-callback" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/oauth2-callback</code></b>
-        </p>
-                    </form>
-
-            <h2 id="endpoints-GETapi-documentation">Display Swagger API page.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-documentation">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/documentation" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/documentation"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-documentation">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;L5 Swagger UI&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost/docs/asset/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df&quot;&gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6&quot; sizes=&quot;32x32&quot;/&gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384&quot; sizes=&quot;16x16&quot;/&gt;
-    &lt;style&gt;
-    html
-    {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
-    }
-    *,
-    *:before,
-    *:after
-    {
-        box-sizing: inherit;
-    }
-
-    body {
-      margin:0;
-      background: #fafafa;
-    }
-    &lt;/style&gt;
-    &lt;/head&gt;
-
-&lt;body &gt;
-&lt;div id=&quot;swagger-ui&quot;&gt;&lt;/div&gt;
-
-&lt;script src=&quot;http://localhost/docs/asset/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    window.onload = function() {
-        // Build a system
-        const ui = SwaggerUIBundle({
-            dom_id: '#swagger-ui',
-            url: &quot;http://localhost/docs/api-docs.json&quot;,
-            operationsSorter: null,
-            configUrl: null,
-            validatorUrl: null,
-            oauth2RedirectUrl: &quot;http://localhost/api/oauth2-callback&quot;,
-
-            requestInterceptor: function(request) {
-                request.headers['X-CSRF-TOKEN'] = '';
-                return request;
-            },
-
-            presets: [
-                SwaggerUIBundle.presets.apis,
-                SwaggerUIStandalonePreset
-            ],
-
-            plugins: [
-                SwaggerUIBundle.plugins.DownloadUrl
-            ],
-
-            layout: &quot;StandaloneLayout&quot;,
-            docExpansion : &quot;none&quot;,
-            deepLinking: true,
-            filter: true,
-            persistAuthorization: &quot;false&quot;,
-
-        })
-
-        window.ui = ui
-
-            }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-documentation" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-documentation"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-documentation"></code></pre>
-</span>
-<span id="execution-error-GETapi-documentation" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-documentation"></code></pre>
-</span>
-<form id="form-GETapi-documentation" data-method="GET"
-      data-path="api/documentation"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-documentation', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-documentation"
-                    onclick="tryItOut('GETapi-documentation');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-documentation"
-                    onclick="cancelTryOut('GETapi-documentation');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-documentation" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/documentation</code></b>
-        </p>
-                    </form>
-
         <h1 id="users">Users</h1>
 
     
@@ -3363,10 +3009,10 @@ access-control-allow-origin: *
     --header "Authorization: Bearer {token}" \
     --data "{
     \"page\": 1,
-    \"page_size\": 0,
-    \"search\": \"aut\",
-    \"email\": \"king.mann@example.org\",
-    \"ordering\": \"created_at\"
+    \"page_size\": 1,
+    \"search\": \"eius\",
+    \"email\": \"qheller@example.net\",
+    \"ordering\": \"name\"
 }"
 </code></pre></div>
 
@@ -3384,10 +3030,10 @@ const headers = {
 
 let body = {
     "page": 1,
-    "page_size": 0,
-    "search": "aut",
-    "email": "king.mann@example.org",
-    "ordering": "created_at"
+    "page_size": 1,
+    "search": "eius",
+    "email": "qheller@example.net",
+    "ordering": "name"
 };
 
 fetch(url, {
@@ -3492,7 +3138,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETapi-users"
-               value="0"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -3502,7 +3148,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-users"
-               value="aut"
+               value="eius"
                data-component="body" hidden>
     <br>
 
@@ -3512,7 +3158,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="GETapi-users"
-               value="king.mann@example.org"
+               value="qheller@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -3522,7 +3168,7 @@ fetch(url, {
                 <input type="text"
                name="ordering"
                data-endpoint="GETapi-users"
-               value="created_at"
+               value="name"
                data-component="body" hidden>
     <br>
 <p>Must be one of <code>name</code> or <code>created_at</code>.</p>
@@ -3547,9 +3193,9 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu\",
-    \"email\": \"cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox\",
-    \"password\": \"cxb\",
+    \"name\": \"rfnehkmd\",
+    \"email\": \"mmiyiepflfkdjhhbhkzhvvqqvxdjpdqjaekesckypbiovgfqmxhaxxzsilfghshyifhmlrcjgkwpitmxqnbrqgaixjbrwzywxrcrqhilyygnczlzydkbzthxhizgvrlikvencapohxleufsivwzobasqwinwikardysiwdzjhpoavpvurfhqshpgcffigavziinlbwlzjcmxqp\",
+    \"password\": \"jay\",
     \"type\": \"adm\"
 }"
 </code></pre></div>
@@ -3567,9 +3213,9 @@ const headers = {
 };
 
 let body = {
-    "name": "fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu",
-    "email": "cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox",
-    "password": "cxb",
+    "name": "rfnehkmd",
+    "email": "mmiyiepflfkdjhhbhkzhvvqqvxdjpdqjaekesckypbiovgfqmxhaxxzsilfghshyifhmlrcjgkwpitmxqnbrqgaixjbrwzywxrcrqhilyygnczlzydkbzthxhizgvrlikvencapohxleufsivwzobasqwinwikardysiwdzjhpoavpvurfhqshpgcffigavziinlbwlzjcmxqp",
+    "password": "jay",
     "type": "adm"
 };
 
@@ -3659,7 +3305,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-users"
-               value="fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu"
+               value="rfnehkmd"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -3669,7 +3315,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-users"
-               value="cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox"
+               value="mmiyiepflfkdjhhbhkzhvvqqvxdjpdqjaekesckypbiovgfqmxhaxxzsilfghshyifhmlrcjgkwpitmxqnbrqgaixjbrwzywxrcrqhilyygnczlzydkbzthxhizgvrlikvencapohxleufsivwzobasqwinwikardysiwdzjhpoavpvurfhqshpgcffigavziinlbwlzjcmxqp"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -3679,7 +3325,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-users"
-               value="cxb"
+               value="jay"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -3714,9 +3360,9 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn\",
-    \"email\": \"zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq\",
-    \"password\": \"njggchc\",
+    \"name\": \"bhvpchcgtgtjbhwutzwwyiarnvdycjmrljzadogggw\",
+    \"email\": \"vnspkdeskhyphdqyjudeknqcnugyznggctmvhtnsiuqzklyjukadmfaxsesrbwujzwnjlyncjzwkvfwceafjygkertdjuqhakixdkeldakrdyxoxtyngyzrutysawxbzqmuipmslgaecmmnsmoflpikuppqmwbhyehqyatkaykzqxolmtzzesstcicubvkoygcgotyixknnzjjg\",
+    \"password\": \"\",
     \"type\": \"librarian\"
 }"
 </code></pre></div>
@@ -3734,9 +3380,9 @@ const headers = {
 };
 
 let body = {
-    "name": "zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn",
-    "email": "zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq",
-    "password": "njggchc",
+    "name": "bhvpchcgtgtjbhwutzwwyiarnvdycjmrljzadogggw",
+    "email": "vnspkdeskhyphdqyjudeknqcnugyznggctmvhtnsiuqzklyjukadmfaxsesrbwujzwnjlyncjzwkvfwceafjygkertdjuqhakixdkeldakrdyxoxtyngyzrutysawxbzqmuipmslgaecmmnsmoflpikuppqmwbhyehqyatkaykzqxolmtzzesstcicubvkoygcgotyixknnzjjg",
+    "password": "",
     "type": "librarian"
 };
 
@@ -3840,7 +3486,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-users--id-"
-               value="zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn"
+               value="bhvpchcgtgtjbhwutzwwyiarnvdycjmrljzadogggw"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -3850,7 +3496,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="PUTapi-users--id-"
-               value="zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq"
+               value="vnspkdeskhyphdqyjudeknqcnugyznggctmvhtnsiuqzklyjukadmfaxsesrbwujzwnjlyncjzwkvfwceafjygkertdjuqhakixdkeldakrdyxoxtyngyzrutysawxbzqmuipmslgaecmmnsmoflpikuppqmwbhyehqyatkaykzqxolmtzzesstcicubvkoygcgotyixknnzjjg"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -3860,7 +3506,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="PUTapi-users--id-"
-               value="njggchc"
+               value=""
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -4145,8 +3791,8 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"old_password\": \"kgcxuu\",
-    \"new_password\": \"pm\"
+    \"old_password\": \"pugt\",
+    \"new_password\": \"sxq\"
 }"
 </code></pre></div>
 
@@ -4163,8 +3809,8 @@ const headers = {
 };
 
 let body = {
-    "old_password": "kgcxuu",
-    "new_password": "pm"
+    "old_password": "pugt",
+    "new_password": "sxq"
 };
 
 fetch(url, {
@@ -4247,7 +3893,7 @@ fetch(url, {
                 <input type="text"
                name="old_password"
                data-endpoint="PATCHapi-users-reset_password"
-               value="kgcxuu"
+               value="pugt"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -4257,7 +3903,7 @@ fetch(url, {
                 <input type="text"
                name="new_password"
                data-endpoint="PATCHapi-users-reset_password"
-               value="pm"
+               value="sxq"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -4282,7 +3928,7 @@ fetch(url, {
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"token\": \"neque\"
+    \"token\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -4299,7 +3945,7 @@ const headers = {
 };
 
 let body = {
-    "token": "neque"
+    "token": "consequatur"
 };
 
 fetch(url, {
@@ -4380,7 +4026,7 @@ fetch(url, {
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-users-confirmationEmail"
-               value="neque"
+               value="consequatur"
                data-component="body" hidden>
     <br>
 

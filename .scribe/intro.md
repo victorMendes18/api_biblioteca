@@ -1,6 +1,6 @@
 # Introduction
 
-
+The API offers a complete service for managing library book loans. It allows the registration of two types of users: administrators (ADM) and librarians (librarian), who will have access to the API's functionalities. In addition, it is possible to manage the library's collection, register students and control loans made by them.
 
 This documentation aims to provide all the information you need to work with our API.
 

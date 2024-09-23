@@ -20,14 +20,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa
+        example: erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: wn
+        example: wynnmpum
         type: string
         custom: []
     responses:

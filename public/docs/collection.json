@@ -10,11 +10,106 @@
     ],
     "info": {
         "name": "ApiBiblioteca",
-        "_postman_id": "6683981d-e403-47cf-b186-289efc96d0bb",
-        "description": "",
+        "_postman_id": "1f794ac7-681a-4616-a268-4519e7cada2d",
+        "description": "The API offers a complete service for managing library book loans. It allows the registration of two types of users: administrators (ADM) and librarians (librarian), who will have access to the API's functionalities. In addition, it is possible to manage the library's collection, register students and control loans made by them.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei\",\"password\":\"wynnmpum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"email\": \"victorfran18@gmail.com\",\n    \"password\": \"12345678\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\" => \"User successfully logged out.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Books",
             "description": "",
@@ -45,7 +140,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"corrupti\",\"isbn\":\"uytd\",\"ordering\":\"title\"}"
+                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"et\",\"isbn\":\"mwc\",\"ordering\":\"title\"}"
                         },
                         "description": "",
                         "auth": {
@@ -93,7 +188,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"eiztbqpxroswppjlzlfgqfqzofzfvmacxgyifvutbwlcdgiubrijnamtxynzdqutizajxyavptnbfrvlygjcayiuqibimngkjtpzxnmneagrjjsooirpcurmyftykli\",\"author\":\"cvwcoduiabqqvnkpwtryfqmrdqmkfrzffxsjyefmcurcakdxcauvrklmeeagvsbqmjgtmdhmwhekkfsdbyqcbhjqiinzyxjxckmytonlzfnntqdnlcycqjdjcnmdfxpjkdvdwrwbnnytfoqcojgmteygtsvurakbviskiscrjq\",\"isbn\":\"fl\",\"year_of_publication\":1269,\"number_of_pages\":1,\"public\":false}"
+                            "raw": "{\"title\":\"jtcnvjwtkfimcohrhy\",\"author\":\"lddulptmutnzdysoetzgglyxaymmocdtzrfwmnuidiwwcbbxgacujjvrwbgikpkzxllhf\",\"isbn\":\"\",\"year_of_publication\":84,\"number_of_pages\":1,\"public\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -149,7 +244,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"tyyqkcjhbzkcgczgytlyybaquujfbsyufoeicda\",\"author\":\"otrwuegeekjipyoxwmztfydbpxdnzoczqojxlbrmnpfjoiuhnraocfpfpekenpjiobgzpmcekfazrrtrmkyvnfcxogiktqjgjpdggywisxocmoewskatgxmtqwafwgxmmmtcdq\",\"isbn\":\"jclpsbc\",\"year_of_publication\":1352,\"number_of_pages\":0,\"public\":true}"
+                            "raw": "{\"title\":\"scrvsfnnllgxoizgskrhekybsgnphmxoixyikadxeptxxlhgihuulzfcdiyszfeuvzedkgoqnrpjmvzkqgfgvlakinizyukrtynuadcrpgnqetrxrehohwuzkqitjgvdapdkazkbesnmihjtkyqixkpcuil\",\"author\":\"fdeuepyroqlijwzhfedldxvkuhpgfxlfbwionjqbhvrmeprhjxbtowwelygltcosmjwbnflvwzboxfpxugxlzwxegfvvutxxgeuvekskjtbvxeowzvswhjcuswntdfnuxckbsknptuehinwhtyhxmpvngatshbphghadopdqqjjobaprjtcgyvwrovuxytrguorzwtwfcahtfviyftwmhemhgyumsdioznfnehumnxorpfft\",\"isbn\":\"\",\"year_of_publication\":883,\"number_of_pages\":1,\"public\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -309,7 +404,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"aykrqofeqilgcwemgcexeujktxoaaxvfspcsazagajqepugsfqctlkfvkvxwukilssmrzcyqyzkapwauyvjehugcikyavkivlgfzpomghwawlqwosaoqezgrqtehiotmpgylwczjpgxawoqcfkbfetolupocjolsttklfoeobpkttknpzbittnqnrcqnaqnccfplpzximmwaaagpzjamoyznjzizzahty\",\"student\":\"velit\",\"ordering\":\"delivery_date\"}"
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd\",\"student\":\"doloremque\",\"ordering\":\"delivery_date\"}"
                         },
                         "description": "",
                         "auth": {
@@ -357,7 +452,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":\"laudantium\",\"student_id\":\"dicta\",\"delivery_date\":\"2062-10-15\",\"delivered\":true}"
+                            "raw": "{\"book_id\":\"eos\",\"student_id\":\"hic\",\"delivery_date\":\"2082-08-17\",\"delivered\":false}"
                         },
                         "description": "",
                         "auth": {
@@ -413,7 +508,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":\"ut\",\"student_id\":\"minima\",\"delivery_date\":\"2070-11-04\",\"delivered\":false}"
+                            "raw": "{\"book_id\":\"laboriosam\",\"student_id\":\"unde\",\"delivery_date\":\"2036-05-07\",\"delivered\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -573,7 +668,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"facere\",\"email\":\"lyric83@example.com\",\"ordering\":\"name\"}"
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"aspernatur\",\"email\":\"kenna.bernhard@example.org\",\"ordering\":\"name\"}"
                         },
                         "description": "",
                         "auth": {
@@ -621,7 +716,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"dtdueobnleewbfmzbzmkzoshxlvwhrgroxgnkfshupbqkyzytyyrkascorryuypetinbhovmmawimvyeyorqnrcyromqspyjyewqwguvqjboqmdgmbsdppmdirslamsnjpuuinvbjqujbrtgundfnoqbhhyhewxnuyhgyaefybpnkbpoptmxojfzggt\",\"email\":\"kfddmoyiualekzqipbhpgnmiglqcahszvhdpgvhqjahdraiccb\",\"phone\":\"nbfgn\",\"address\":\"otidkrcytvuiozejtgchou\"}"
+                            "raw": "{\"name\":\"zvqxyz\",\"email\":\"ffwjmxyujntogvgbyrfppgtprlfqyfbtukyvcvhpdqrxefcvuehsrdhclwzugjaeirnjlldcolthmyqvvgsnebcknpuvquvonkdagkhqwanyzkdyogrkolkmstuykoynfktkberiwqvyiwpoohvkfknmlsghltvtazqbmmcdxmzritwtkyaspryabqslttagzjieezzudylngaypzemwpvigwswhfiuvb\",\"phone\":\"lh\",\"address\":\"xzrpzguqmuwreviganqhgxjrpfdrriornsiitkybejztayjcxdnjmwsnbwjkmpovvzjesccjaiiwaaurawufbmnbgqibsyuogzpjkrdswybbnmqcroteespdmefvfcrowskkxkvrdptzeivccaknuxgdxkkbbnqrzybkihtlsxqftetwdbvvhwespynfmedxflulnhej\"}"
                         },
                         "description": "",
                         "auth": {
@@ -677,7 +772,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"wvwnkfnrvgbfdfybfidapfemwayyjcyrdlyanghomefrblmkxfkwmcczqiousvzrddnzqrcavlpumyjhjq\",\"email\":\"xcrnyydcreemjjigdpffjqznzokkgesilhdafhvncvghaapculjixbdcrouamfofwuzvmaocoyrjubdjiugftsxtlmsccjjgqlybalpvhgrapnsketsmphribsvesvhbpjtwkxagvedeqovewrdjiwxlonuecsighfntgridqjaguisdyehtkzboakmcaxxkgnkypoeqkpdeqsffedsfiqymda\",\"phone\":\"owvhzm\",\"address\":\"pcvhhtrouhwotfdvdrsdclydsligcwhnojejiufcdnwwaaojcwltposrbxgbkuxjulje\"}"
+                            "raw": "{\"name\":\"ruwyjphaykldgqtoiqmppznclnpuaaqrgogpjyxazxzyqmqmaiqojdevdrtmifixvqtqatnidrwkrfcgecnjkykqycbguzwyluwnjbumnsmdqjghzmbmysaspvhnat\",\"email\":\"aaoebtacpmtaaxziizihvjnt\",\"phone\":\"vg\",\"address\":\"tcxrbmmzykimagxcsfyukfurkbhigqbcwxrwcubuluewnitz\"}"
                         },
                         "description": "",
                         "auth": {
@@ -808,203 +903,6 @@
             ]
         },
         {
-            "name": "Auth",
-            "description": "",
-            "item": [
-                {
-                    "name": "api\/login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"oedxkkxqntbwmzsufrwcbxlphvvacoooapgpafxlmkejrwtvprhotpgjwzkrkdjpqodowikbrdvgqkekfwosoavmxesigpdpoepjuodltwhceocsneqnjanuceqbbyksavfyqygzmolnnsoztsjukydlazehqpwagpycsloworndqkqdqkvtangwerpa\",\"password\":\"wn\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"email\": \"victorfran18@gmail.com\",\n    \"password\": \"12345678\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {token}"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"message\" => \"User successfully logged out.\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n  \"message\": \"Validation Error\",\n  \"errors\": {\n    \"email\": [\n      \"The email field is required.\"\n    ]\n  }\n}",
-                            "name": ""
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "Display Oauth2 callback pages.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/oauth2-callback",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/oauth2-callback"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "content-type",
-                                    "value": "text\/html; charset=UTF-8"
-                                },
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "<!doctype html>\n<html lang=\"en-US\">\n<head>\n    <title>Swagger UI: OAuth2 Redirect<\/title>\n<\/head>\n<body>\n<script>\n    'use strict';\n    function run () {\n        var oauth2 = window.opener.swaggerUIRedirectOauth2;\n        var sentState = oauth2.state;\n        var redirectUrl = oauth2.redirectUrl;\n        var isValid, qp, arr;\n\n        if (\/code|token|error\/.test(window.location.hash)) {\n            qp = window.location.hash.substring(1).replace('?', '&');\n        } else {\n            qp = location.search.substring(1);\n        }\n\n        arr = qp.split(\"&\");\n        arr.forEach(function (v,i,_arr) { _arr[i] = '\"' + v.replace('=', '\":\"') + '\"';});\n        qp = qp ? JSON.parse('{' + arr.join() + '}',\n                function (key, value) {\n                    return key === \"\" ? value : decodeURIComponent(value);\n                }\n        ) : {};\n\n        isValid = qp.state === sentState;\n\n        if ((\n          oauth2.auth.schema.get(\"flow\") === \"accessCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorizationCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorization_code\"\n        ) && !oauth2.auth.code) {\n            if (!isValid) {\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"warning\",\n                    message: \"Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server.\"\n                });\n            }\n\n            if (qp.code) {\n                delete oauth2.state;\n                oauth2.auth.code = qp.code;\n                oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});\n            } else {\n                let oauthErrorMsg;\n                if (qp.error) {\n                    oauthErrorMsg = \"[\"+qp.error+\"]: \" +\n                        (qp.error_description ? qp.error_description+ \". \" : \"no accessCode received from the server. \") +\n                        (qp.error_uri ? \"More info: \"+qp.error_uri : \"\");\n                }\n\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"error\",\n                    message: oauthErrorMsg || \"[Authorization failed]: no accessCode received from the server.\"\n                });\n            }\n        } else {\n            oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});\n        }\n        window.close();\n    }\n\n    if (document.readyState !== 'loading') {\n        run();\n    } else {\n        document.addEventListener('DOMContentLoaded', function () {\n            run();\n        });\n    }\n<\/script>\n<\/body>\n<\/html>\n",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display Swagger API page.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/documentation",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/documentation"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>L5 Swagger UI<\/title>\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"http:\/\/localhost\/docs\/asset\/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df\">\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost\/docs\/asset\/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"\/>\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost\/docs\/asset\/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"\/>\n    <style>\n    html\n    {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n    }\n    *,\n    *:before,\n    *:after\n    {\n        box-sizing: inherit;\n    }\n\n    body {\n      margin:0;\n      background: #fafafa;\n    }\n    <\/style>\n    <\/head>\n\n<body >\n<div id=\"swagger-ui\"><\/div>\n\n<script src=\"http:\/\/localhost\/docs\/asset\/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7\"><\/script>\n<script src=\"http:\/\/localhost\/docs\/asset\/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5\"><\/script>\n<script>\n    window.onload = function() {\n        \/\/ Build a system\n        const ui = SwaggerUIBundle({\n            dom_id: '#swagger-ui',\n            url: \"http:\/\/localhost\/docs\/api-docs.json\",\n            operationsSorter: null,\n            configUrl: null,\n            validatorUrl: null,\n            oauth2RedirectUrl: \"http:\/\/localhost\/api\/oauth2-callback\",\n\n            requestInterceptor: function(request) {\n                request.headers['X-CSRF-TOKEN'] = '';\n                return request;\n            },\n\n            presets: [\n                SwaggerUIBundle.presets.apis,\n                SwaggerUIStandalonePreset\n            ],\n\n            plugins: [\n                SwaggerUIBundle.plugins.DownloadUrl\n            ],\n\n            layout: \"StandaloneLayout\",\n            docExpansion : \"none\",\n            deepLinking: true,\n            filter: true,\n            persistAuthorization: \"false\",\n\n        })\n\n        window.ui = ui\n\n            }\n<\/script>\n<\/body>\n<\/html>\n",
-                            "name": ""
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Users",
             "description": "",
             "item": [
@@ -1034,7 +932,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"aut\",\"email\":\"king.mann@example.org\",\"ordering\":\"created_at\"}"
+                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"eius\",\"email\":\"qheller@example.net\",\"ordering\":\"name\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1082,7 +980,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"fvdzjggkqwhxkfxppovmrmnmfenncpgdusyyzhlujqwlqwzspbxvyjyubkkvijvoxsjvkknancvpghfkvpkyocioobdyipkayehbdrxcobvzvxvilhqvmlifxvrsnxxijpdqnfmsyewcxouqvcibhhvqnwrydxntgabcgjvruzmoiu\",\"email\":\"cuqizingncfsbqqgmoiqjhcuvmhdmwknpfhdlgjmmahyafokghuvetohbxqdjtwxmbrlvrqxqmuitbmxdhkdkfstsbymdrsqsdyimxpjefqmhbksxkeqrbwkpgvjzgrofzalhxgquvoxtyexynxrzffplznqviumcfxdglpeubiubadywpcigfzoqgtkqzxfwvntooveceqbyiobnynehxrhxiuthkaxkcqywqpporzyox\",\"password\":\"cxb\",\"type\":\"adm\"}"
+                            "raw": "{\"name\":\"rfnehkmd\",\"email\":\"mmiyiepflfkdjhhbhkzhvvqqvxdjpdqjaekesckypbiovgfqmxhaxxzsilfghshyifhmlrcjgkwpitmxqnbrqgaixjbrwzywxrcrqhilyygnczlzydkbzthxhizgvrlikvencapohxleufsivwzobasqwinwikardysiwdzjhpoavpvurfhqshpgcffigavziinlbwlzjcmxqp\",\"password\":\"jay\",\"type\":\"adm\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1138,7 +1036,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zlzyjwzktehleihaqqaxfbvqwtvturmkfmsixweatndyzecfwaorsfdygidzxzn\",\"email\":\"zomimyosgjphgryvvcscgldzkjvaosodhwvbypzygindcdyivkstogzaiyokjtkmojtnarmbmpgrzfwfnqfcrrpcpeggmpmzgzoxrculxktbmjjahdnoqauhuwzhjyq\",\"password\":\"njggchc\",\"type\":\"librarian\"}"
+                            "raw": "{\"name\":\"bhvpchcgtgtjbhwutzwwyiarnvdycjmrljzadogggw\",\"email\":\"vnspkdeskhyphdqyjudeknqcnugyznggctmvhtnsiuqzklyjukadmfaxsesrbwujzwnjlyncjzwkvfwceafjygkertdjuqhakixdkeldakrdyxoxtyngyzrutysawxbzqmuipmslgaecmmnsmoflpikuppqmwbhyehqyatkaykzqxolmtzzesstcicubvkoygcgotyixknnzjjg\",\"password\":\"\",\"type\":\"librarian\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1292,7 +1190,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"old_password\":\"kgcxuu\",\"new_password\":\"pm\"}"
+                            "raw": "{\"old_password\":\"pugt\",\"new_password\":\"sxq\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1340,7 +1238,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"neque\"}"
+                            "raw": "{\"token\":\"consequatur\"}"
                         },
                         "description": "",
                         "auth": {

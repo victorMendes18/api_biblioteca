@@ -1,205 +1,450 @@
-name: Endpoints
+name: Rents
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/oauth2-callback
+    uri: api/rents
     metadata:
-      title: 'Display Oauth2 callback pages.'
+      title: ''
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer {token}'
     urlParameters: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      page_size:
+        name: page_size
+        description: 'Must be at least 1.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd
+        type: string
+        custom: []
+      student:
+        name: student
+        description: ''
+        required: false
+        example: doloremque
+        type: string
+        custom: []
+      ordering:
+        name: ordering
+        description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
+        required: false
+        example: delivery_date
+        type: string
+        custom: []
     responses:
       -
         status: 200
-        content: |
-          <!doctype html>
-          <html lang="en-US">
-          <head>
-              <title>Swagger UI: OAuth2 Redirect</title>
-          </head>
-          <body>
-          <script>
-              'use strict';
-              function run () {
-                  var oauth2 = window.opener.swaggerUIRedirectOauth2;
-                  var sentState = oauth2.state;
-                  var redirectUrl = oauth2.redirectUrl;
-                  var isValid, qp, arr;
-
-                  if (/code|token|error/.test(window.location.hash)) {
-                      qp = window.location.hash.substring(1).replace('?', '&');
-                  } else {
-                      qp = location.search.substring(1);
-                  }
-
-                  arr = qp.split("&");
-                  arr.forEach(function (v,i,_arr) { _arr[i] = '"' + v.replace('=', '":"') + '"';});
-                  qp = qp ? JSON.parse('{' + arr.join() + '}',
-                          function (key, value) {
-                              return key === "" ? value : decodeURIComponent(value);
-                          }
-                  ) : {};
-
-                  isValid = qp.state === sentState;
-
-                  if ((
-                    oauth2.auth.schema.get("flow") === "accessCode" ||
-                    oauth2.auth.schema.get("flow") === "authorizationCode" ||
-                    oauth2.auth.schema.get("flow") === "authorization_code"
-                  ) && !oauth2.auth.code) {
-                      if (!isValid) {
-                          oauth2.errCb({
-                              authId: oauth2.auth.name,
-                              source: "auth",
-                              level: "warning",
-                              message: "Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server."
-                          });
+        content: |-
+          {
+              "message": "Rents returned successfully.",
+              "rents": [
+                  {
+                      "id": 4,
+                      "book_id": 15,
+                      "student_id": 15,
+                      "delivery_date": "2024-10-02",
+                      "delivered": 0,
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-18T03:01:33.000000Z",
+                      "deleted_at": null,
+                      "book": {
+                          "id": 15,
+                          "title": "Book",
+                          "author": "Author",
+                          "isbn": "9785659568941",
+                          "year_of_publication": 1970,
+                          "number_of_pages": 685,
+                          "public": 1,
+                          "created_at": "2024-09-17T00:46:45.000000Z",
+                          "updated_at": "2024-09-17T00:46:45.000000Z",
+                          "deleted_at": null
+                      },
+                      "student": {
+                          "id": 15,
+                          "name": "Student",
+                          "email": "student@halvorson.com",
+                          "phone": "5587999999999",
+                          "address": "address",
+                          "created_at": "2024-09-17T00:46:45.000000Z",
+                          "updated_at": "2024-09-17T00:46:45.000000Z",
+                          "deleted_at": null
                       }
-
-                      if (qp.code) {
-                          delete oauth2.state;
-                          oauth2.auth.code = qp.code;
-                          oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});
-                      } else {
-                          let oauthErrorMsg;
-                          if (qp.error) {
-                              oauthErrorMsg = "["+qp.error+"]: " +
-                                  (qp.error_description ? qp.error_description+ ". " : "no accessCode received from the server. ") +
-                                  (qp.error_uri ? "More info: "+qp.error_uri : "");
-                          }
-
-                          oauth2.errCb({
-                              authId: oauth2.auth.name,
-                              source: "auth",
-                              level: "error",
-                              message: oauthErrorMsg || "[Authorization failed]: no accessCode received from the server."
-                          });
-                      }
-                  } else {
-                      oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});
                   }
-                  window.close();
+              ],
+              "total_rents": 29
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/rents
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      book_id:
+        name: book_id
+        description: ''
+        required: true
+        example: eos
+        type: string
+        custom: []
+      student_id:
+        name: student_id
+        description: ''
+        required: true
+        example: hic
+        type: string
+        custom: []
+      delivery_date:
+        name: delivery_date
+        description: 'Must be a valid date. Must be a date after <code>today</code>.'
+        required: true
+        example: '2082-08-17'
+        type: string
+        custom: []
+      delivered:
+        name: delivered
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+              "message": "Rent successfully created.",
+              "rent": {
+                  "book_id": 3,
+                  "student_id": 2,
+                  "delivery_date": "2024-09-29",
+                  "delivered": false,
+                  "updated_at": "2024-09-22T01:50:58.000000Z",
+                  "created_at": "2024-09-22T01:50:58.000000Z",
+                  "id": 13
               }
-
-              if (document.readyState !== 'loading') {
-                  run();
-              } else {
-                  document.addEventListener('DOMContentLoaded', function () {
-                      run();
-                  });
+          }
+        headers: []
+        description: '201'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/rents/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 4
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      book_id:
+        name: book_id
+        description: ''
+        required: true
+        example: laboriosam
+        type: string
+        custom: []
+      student_id:
+        name: student_id
+        description: ''
+        required: true
+        example: unde
+        type: string
+        custom: []
+      delivery_date:
+        name: delivery_date
+        description: 'Must be a valid date. Must be a date after <code>today</code>.'
+        required: true
+        example: '2036-05-07'
+        type: string
+        custom: []
+      delivered:
+        name: delivered
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Rent updated successfully.",
+              "rent": {
+                  "id": 4,
+                  "book_id": 15,
+                  "student_id": 15,
+                  "delivery_date": "2024-10-02",
+                  "delivered": 0,
+                  "created_at": "2024-09-17T00:46:45.000000Z",
+                  "updated_at": "2024-09-18T03:01:33.000000Z",
+                  "deleted_at": null,
+                  "book": {
+                      "id": 15,
+                      "title": "Book",
+                      "author": "Author",
+                      "isbn": "9785659568941",
+                      "year_of_publication": 1970,
+                      "number_of_pages": 685,
+                      "public": 1,
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  },
+                  "student": {
+                      "id": 15,
+                      "name": "Student",
+                      "email": "student@halvorson.com",
+                      "phone": "5587999999999",
+                      "address": "address",
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  }
               }
-          </script>
-          </body>
-          </html>
-        headers:
-          content-type: 'text/html; charset=UTF-8'
-          cache-control: 'no-cache, private'
-          access-control-allow-origin: '*'
-        description: null
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
     responseFields: []
   -
     httpMethods:
       - GET
-    uri: api/documentation
+    uri: 'api/rents/{id}'
     metadata:
-      title: 'Display Swagger API page.'
+      title: ''
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 4
+        type: integer
+        custom: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: |
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <title>L5 Swagger UI</title>
-              <link rel="stylesheet" type="text/css" href="http://localhost/docs/asset/swagger-ui.css?v=fd5df98cfc0e58ed507042cd86a1f1df">
-              <link rel="icon" type="image/png" href="http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6" sizes="32x32"/>
-              <link rel="icon" type="image/png" href="http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384" sizes="16x16"/>
-              <style>
-              html
-              {
-                  box-sizing: border-box;
-                  overflow: -moz-scrollbars-vertical;
-                  overflow-y: scroll;
+        content: |-
+          {
+              "message": "Rent returned successfully.",
+              "rent": {
+                  "id": 4,
+                  "book_id": 15,
+                  "student_id": 15,
+                  "delivery_date": "2024-10-02",
+                  "delivered": 0,
+                  "created_at": "2024-09-17T00:46:45.000000Z",
+                  "updated_at": "2024-09-18T03:01:33.000000Z",
+                  "deleted_at": null,
+                  "book": {
+                      "id": 15,
+                      "title": "Book",
+                      "author": "Author",
+                      "isbn": "9785659568941",
+                      "year_of_publication": 1970,
+                      "number_of_pages": 685,
+                      "public": 1,
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  },
+                  "student": {
+                      "id": 15,
+                      "name": "Student",
+                      "email": "student@halvorson.com",
+                      "phone": "5587999999999",
+                      "address": "address",
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  }
               }
-              *,
-              *:before,
-              *:after
-              {
-                  box-sizing: inherit;
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/rents/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the rent.'
+        required: true
+        example: 4
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Rent deleted successfully.",
+              "rent": {
+                  "id": 4,
+                  "book_id": 15,
+                  "student_id": 15,
+                  "delivery_date": "2024-10-02",
+                  "delivered": 0,
+                  "created_at": "2024-09-17T00:46:45.000000Z",
+                  "updated_at": "2024-09-18T03:01:33.000000Z",
+                  "deleted_at": null,
+                  "book": {
+                      "id": 15,
+                      "title": "Book",
+                      "author": "Author",
+                      "isbn": "9785659568941",
+                      "year_of_publication": 1970,
+                      "number_of_pages": 685,
+                      "public": 1,
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  },
+                  "student": {
+                      "id": 15,
+                      "name": "Student",
+                      "email": "student@halvorson.com",
+                      "phone": "5587999999999",
+                      "address": "address",
+                      "created_at": "2024-09-17T00:46:45.000000Z",
+                      "updated_at": "2024-09-17T00:46:45.000000Z",
+                      "deleted_at": null
+                  }
               }
-
-              body {
-                margin:0;
-                background: #fafafa;
-              }
-              </style>
-              </head>
-
-          <body >
-          <div id="swagger-ui"></div>
-
-          <script src="http://localhost/docs/asset/swagger-ui-bundle.js?v=bccc97f77bdb8edc590ae3abdf83b9a7"></script>
-          <script src="http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=861c3618a16aefc88e19a052836718e5"></script>
-          <script>
-              window.onload = function() {
-                  // Build a system
-                  const ui = SwaggerUIBundle({
-                      dom_id: '#swagger-ui',
-                      url: "http://localhost/docs/api-docs.json",
-                      operationsSorter: null,
-                      configUrl: null,
-                      validatorUrl: null,
-                      oauth2RedirectUrl: "http://localhost/api/oauth2-callback",
-
-                      requestInterceptor: function(request) {
-                          request.headers['X-CSRF-TOKEN'] = '';
-                          return request;
-                      },
-
-                      presets: [
-                          SwaggerUIBundle.presets.apis,
-                          SwaggerUIStandalonePreset
-                      ],
-
-                      plugins: [
-                          SwaggerUIBundle.plugins.DownloadUrl
-                      ],
-
-                      layout: "StandaloneLayout",
-                      docExpansion : "none",
-                      deepLinking: true,
-                      filter: true,
-                      persistAuthorization: "false",
-
-                  })
-
-                  window.ui = ui
-
-                      }
-          </script>
-          </body>
-          </html>
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+            "message": "Validation Error",
+            "errors": {
+              "email": [
+                "The email field is required."
+              ]
+            }
+          }
+        headers: []
+        description: '422'
     responseFields: []
