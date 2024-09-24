@@ -223,19 +223,19 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login" \
+    "http://localhost/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw\",
-    \"password\": \"fhpomgh\"
+    \"email\": \"gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh\",
+    \"password\": \"tshvsoe\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login"
+    "http://localhost/api/login"
 );
 
 const headers = {
@@ -244,8 +244,8 @@ const headers = {
 };
 
 let body = {
-    "email": "etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw",
-    "password": "fhpomgh"
+    "email": "gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh",
+    "password": "tshvsoe"
 };
 
 fetch(url, {
@@ -329,7 +329,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-login"
-               value="etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw"
+               value="gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -339,7 +339,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-login"
-               value="fhpomgh"
+               value="tshvsoe"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -359,7 +359,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/logout" \
+    "http://localhost/api/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -367,7 +367,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logout"
+    "http://localhost/api/logout"
 );
 
 const headers = {
@@ -466,15 +466,15 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/books" \
+    --get "http://localhost/api/books" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
     \"page\": 1,
     \"page_size\": 0,
-    \"search\": \"quis\",
-    \"isbn\": \"zcekflnz\",
+    \"search\": \"architecto\",
+    \"isbn\": \"mmwyehzoace\",
     \"ordering\": \"title\"
 }"
 </code></pre></div>
@@ -482,7 +482,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/books"
+    "http://localhost/api/books"
 );
 
 const headers = {
@@ -494,8 +494,8 @@ const headers = {
 let body = {
     "page": 1,
     "page_size": 0,
-    "search": "quis",
-    "isbn": "zcekflnz",
+    "search": "architecto",
+    "isbn": "mmwyehzoace",
     "ordering": "title"
 };
 
@@ -612,7 +612,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-books"
-               value="quis"
+               value="architecto"
                data-component="body" hidden>
     <br>
 
@@ -622,7 +622,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="GETapi-books"
-               value="zcekflnz"
+               value="mmwyehzoace"
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -652,15 +652,15 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/books" \
+    "http://localhost/api/books" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"title\": \"zdvqpkjpedyuzpywtchrzpopbgzlqpufuxlncqjazharplnjkchznhxamwympytikyiyzfgklescwnxdcfbngngbteofofgzqatorrjzrci\",
-    \"author\": \"spkhxjqtnpgcsoqulmofzuwyhdcgoorhkqjl\",
-    \"isbn\": \"lealjrm\",
-    \"year_of_publication\": 1557,
+    \"title\": \"nhhgmtytfppdzfmsbgptqscpjgekgjzkgtswyfdnslqyykdjibfwnmvrcbocrxskxxqwyjtlgemrdqjvpiwctzqixt\",
+    \"author\": \"bnvvovlfyspzgyfvkmdejdptuommbgehdwyfbnubkroeffhgeoaeamyimktlndeocxzrmhbxqyeftwvgpgheaixakcbrvhxgnfgiimzxnwdtoxftuyyferyeihkjdjwrxg\",
+    \"isbn\": \"iulvk\",
+    \"year_of_publication\": 1898,
     \"number_of_pages\": 1,
     \"public\": false
 }"
@@ -669,7 +669,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/books"
+    "http://localhost/api/books"
 );
 
 const headers = {
@@ -679,10 +679,10 @@ const headers = {
 };
 
 let body = {
-    "title": "zdvqpkjpedyuzpywtchrzpopbgzlqpufuxlncqjazharplnjkchznhxamwympytikyiyzfgklescwnxdcfbngngbteofofgzqatorrjzrci",
-    "author": "spkhxjqtnpgcsoqulmofzuwyhdcgoorhkqjl",
-    "isbn": "lealjrm",
-    "year_of_publication": 1557,
+    "title": "nhhgmtytfppdzfmsbgptqscpjgekgjzkgtswyfdnslqyykdjibfwnmvrcbocrxskxxqwyjtlgemrdqjvpiwctzqixt",
+    "author": "bnvvovlfyspzgyfvkmdejdptuommbgehdwyfbnubkroeffhgeoaeamyimktlndeocxzrmhbxqyeftwvgpgheaixakcbrvhxgnfgiimzxnwdtoxftuyyferyeihkjdjwrxg",
+    "isbn": "iulvk",
+    "year_of_publication": 1898,
     "number_of_pages": 1,
     "public": false
 };
@@ -776,7 +776,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="POSTapi-books"
-               value="zdvqpkjpedyuzpywtchrzpopbgzlqpufuxlncqjazharplnjkchznhxamwympytikyiyzfgklescwnxdcfbngngbteofofgzqatorrjzrci"
+               value="nhhgmtytfppdzfmsbgptqscpjgekgjzkgtswyfdnslqyykdjibfwnmvrcbocrxskxxqwyjtlgemrdqjvpiwctzqixt"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -786,7 +786,7 @@ fetch(url, {
                 <input type="text"
                name="author"
                data-endpoint="POSTapi-books"
-               value="spkhxjqtnpgcsoqulmofzuwyhdcgoorhkqjl"
+               value="bnvvovlfyspzgyfvkmdejdptuommbgehdwyfbnubkroeffhgeoaeamyimktlndeocxzrmhbxqyeftwvgpgheaixakcbrvhxgnfgiimzxnwdtoxftuyyferyeihkjdjwrxg"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -796,7 +796,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="POSTapi-books"
-               value="lealjrm"
+               value="iulvk"
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -806,7 +806,7 @@ fetch(url, {
                 <input type="number"
                name="year_of_publication"
                data-endpoint="POSTapi-books"
-               value="1557"
+               value="1898"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1000. Must not be greater than 2024.</p>
@@ -857,24 +857,24 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/books/1" \
+    "http://localhost/api/books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"title\": \"aarkrnsn\",
-    \"author\": \"eabsjvwenvdyfrgamwplkpzcrhntcayqdtvlkqhfiblugqiciumigigmwajyybqubzdtinuposvasqtnptmhpwadbdmoyyyptqsjhzvfuitodvrivqncpijypldwgauvg\",
-    \"isbn\": \"r\",
-    \"year_of_publication\": 1770,
-    \"number_of_pages\": 0,
-    \"public\": true
+    \"title\": \"erynonqafthbtqcgxgedvkkgvmsivzibetfeirqyzvmkzbynbbcdqshwumtsjkcdawihmhvkymwaemmbbvieiwykv\",
+    \"author\": \"fewjgsidwrhlyxttaxnsofkkneokugehiankwfgcmzbfimtveqouostwnthcpxprworzilgrbiajpoyvnugvcsrqrtiwmgcdlxpunraccoolodlamsnark\",
+    \"isbn\": \"rydfqd\",
+    \"year_of_publication\": 1494,
+    \"number_of_pages\": 1,
+    \"public\": false
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/books/1"
+    "http://localhost/api/books/1"
 );
 
 const headers = {
@@ -884,12 +884,12 @@ const headers = {
 };
 
 let body = {
-    "title": "aarkrnsn",
-    "author": "eabsjvwenvdyfrgamwplkpzcrhntcayqdtvlkqhfiblugqiciumigigmwajyybqubzdtinuposvasqtnptmhpwadbdmoyyyptqsjhzvfuitodvrivqncpijypldwgauvg",
-    "isbn": "r",
-    "year_of_publication": 1770,
-    "number_of_pages": 0,
-    "public": true
+    "title": "erynonqafthbtqcgxgedvkkgvmsivzibetfeirqyzvmkzbynbbcdqshwumtsjkcdawihmhvkymwaemmbbvieiwykv",
+    "author": "fewjgsidwrhlyxttaxnsofkkneokugehiankwfgcmzbfimtveqouostwnthcpxprworzilgrbiajpoyvnugvcsrqrtiwmgcdlxpunraccoolodlamsnark",
+    "isbn": "rydfqd",
+    "year_of_publication": 1494,
+    "number_of_pages": 1,
+    "public": false
 };
 
 fetch(url, {
@@ -992,7 +992,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="PUTapi-books--id-"
-               value="aarkrnsn"
+               value="erynonqafthbtqcgxgedvkkgvmsivzibetfeirqyzvmkzbynbbcdqshwumtsjkcdawihmhvkymwaemmbbvieiwykv"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -1002,7 +1002,7 @@ fetch(url, {
                 <input type="text"
                name="author"
                data-endpoint="PUTapi-books--id-"
-               value="eabsjvwenvdyfrgamwplkpzcrhntcayqdtvlkqhfiblugqiciumigigmwajyybqubzdtinuposvasqtnptmhpwadbdmoyyyptqsjhzvfuitodvrivqncpijypldwgauvg"
+               value="fewjgsidwrhlyxttaxnsofkkneokugehiankwfgcmzbfimtveqouostwnthcpxprworzilgrbiajpoyvnugvcsrqrtiwmgcdlxpunraccoolodlamsnark"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -1012,7 +1012,7 @@ fetch(url, {
                 <input type="text"
                name="isbn"
                data-endpoint="PUTapi-books--id-"
-               value="r"
+               value="rydfqd"
                data-component="body" hidden>
     <br>
 <p>The value format is invalid. Must not be greater than 13 characters.</p>
@@ -1022,7 +1022,7 @@ fetch(url, {
                 <input type="number"
                name="year_of_publication"
                data-endpoint="PUTapi-books--id-"
-               value="1770"
+               value="1494"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1000. Must not be greater than 2024.</p>
@@ -1032,7 +1032,7 @@ fetch(url, {
                 <input type="number"
                name="number_of_pages"
                data-endpoint="PUTapi-books--id-"
-               value="0"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -1073,7 +1073,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/books/1" \
+    --get "http://localhost/api/books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -1081,7 +1081,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/books/1"
+    "http://localhost/api/books/1"
 );
 
 const headers = {
@@ -1198,7 +1198,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/books/1" \
+    "http://localhost/api/books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -1206,7 +1206,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/books/1"
+    "http://localhost/api/books/1"
 );
 
 const headers = {
@@ -1327,15 +1327,15 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/rents" \
+    --get "http://localhost/api/rents" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
     \"page\": 1,
     \"page_size\": 1,
-    \"search\": \"azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw\",
-    \"student\": \"sequi\",
+    \"search\": \"ztvjoewbntzgyieyxgygq\",
+    \"student\": \"magnam\",
     \"ordering\": \"delivery_date\"
 }"
 </code></pre></div>
@@ -1343,7 +1343,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/rents"
+    "http://localhost/api/rents"
 );
 
 const headers = {
@@ -1355,8 +1355,8 @@ const headers = {
 let body = {
     "page": 1,
     "page_size": 1,
-    "search": "azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw",
-    "student": "sequi",
+    "search": "ztvjoewbntzgyieyxgygq",
+    "student": "magnam",
     "ordering": "delivery_date"
 };
 
@@ -1493,7 +1493,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-rents"
-               value="azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw"
+               value="ztvjoewbntzgyieyxgygq"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -1503,7 +1503,7 @@ fetch(url, {
                 <input type="text"
                name="student"
                data-endpoint="GETapi-rents"
-               value="sequi"
+               value="magnam"
                data-component="body" hidden>
     <br>
 
@@ -1533,22 +1533,22 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/rents" \
+    "http://localhost/api/rents" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"book_id\": \"quia\",
-    \"student_id\": \"dolorem\",
-    \"delivery_date\": \"2036-09-15\",
-    \"delivered\": false
+    \"book_id\": \"quae\",
+    \"student_id\": \"aspernatur\",
+    \"delivery_date\": \"2046-05-30\",
+    \"delivered\": true
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/rents"
+    "http://localhost/api/rents"
 );
 
 const headers = {
@@ -1558,10 +1558,10 @@ const headers = {
 };
 
 let body = {
-    "book_id": "quia",
-    "student_id": "dolorem",
-    "delivery_date": "2036-09-15",
-    "delivered": false
+    "book_id": "quae",
+    "student_id": "aspernatur",
+    "delivery_date": "2046-05-30",
+    "delivered": true
 };
 
 fetch(url, {
@@ -1651,7 +1651,7 @@ fetch(url, {
                 <input type="text"
                name="book_id"
                data-endpoint="POSTapi-rents"
-               value="quia"
+               value="quae"
                data-component="body" hidden>
     <br>
 
@@ -1661,7 +1661,7 @@ fetch(url, {
                 <input type="text"
                name="student_id"
                data-endpoint="POSTapi-rents"
-               value="dolorem"
+               value="aspernatur"
                data-component="body" hidden>
     <br>
 
@@ -1671,7 +1671,7 @@ fetch(url, {
                 <input type="text"
                name="delivery_date"
                data-endpoint="POSTapi-rents"
-               value="2036-09-15"
+               value="2046-05-30"
                data-component="body" hidden>
     <br>
 <p>Must be a valid date. Must be a date after <code>today</code>.</p>
@@ -1712,14 +1712,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/rents/1" \
+    "http://localhost/api/rents/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"book_id\": \"est\",
-    \"student_id\": \"dolore\",
-    \"delivery_date\": \"2113-02-28\",
+    \"book_id\": \"qui\",
+    \"student_id\": \"ipsum\",
+    \"delivery_date\": \"2084-11-05\",
     \"delivered\": true
 }"
 </code></pre></div>
@@ -1727,7 +1727,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/rents/1"
+    "http://localhost/api/rents/1"
 );
 
 const headers = {
@@ -1737,9 +1737,9 @@ const headers = {
 };
 
 let body = {
-    "book_id": "est",
-    "student_id": "dolore",
-    "delivery_date": "2113-02-28",
+    "book_id": "qui",
+    "student_id": "ipsum",
+    "delivery_date": "2084-11-05",
     "delivered": true
 };
 
@@ -1864,7 +1864,7 @@ fetch(url, {
                 <input type="text"
                name="book_id"
                data-endpoint="PUTapi-rents--id-"
-               value="est"
+               value="qui"
                data-component="body" hidden>
     <br>
 
@@ -1874,7 +1874,7 @@ fetch(url, {
                 <input type="text"
                name="student_id"
                data-endpoint="PUTapi-rents--id-"
-               value="dolore"
+               value="ipsum"
                data-component="body" hidden>
     <br>
 
@@ -1884,7 +1884,7 @@ fetch(url, {
                 <input type="text"
                name="delivery_date"
                data-endpoint="PUTapi-rents--id-"
-               value="2113-02-28"
+               value="2084-11-05"
                data-component="body" hidden>
     <br>
 <p>Must be a valid date. Must be a date after <code>today</code>.</p>
@@ -1925,7 +1925,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/rents/1" \
+    --get "http://localhost/api/rents/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -1933,7 +1933,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/rents/1"
+    "http://localhost/api/rents/1"
 );
 
 const headers = {
@@ -2071,7 +2071,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/rents/1" \
+    "http://localhost/api/rents/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -2079,7 +2079,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/rents/1"
+    "http://localhost/api/rents/1"
 );
 
 const headers = {
@@ -2221,15 +2221,15 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/students" \
+    --get "http://localhost/api/students" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"page\": 0,
-    \"page_size\": 1,
-    \"search\": \"cum\",
-    \"email\": \"upton.jamel@example.org\",
+    \"page\": 1,
+    \"page_size\": 0,
+    \"search\": \"enim\",
+    \"email\": \"bednar.leda@example.net\",
     \"ordering\": \"created_at\"
 }"
 </code></pre></div>
@@ -2237,7 +2237,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/students"
+    "http://localhost/api/students"
 );
 
 const headers = {
@@ -2247,10 +2247,10 @@ const headers = {
 };
 
 let body = {
-    "page": 0,
-    "page_size": 1,
-    "search": "cum",
-    "email": "upton.jamel@example.org",
+    "page": 1,
+    "page_size": 0,
+    "search": "enim",
+    "email": "bednar.leda@example.net",
     "ordering": "created_at"
 };
 
@@ -2345,7 +2345,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETapi-students"
-               value="0"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -2355,7 +2355,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETapi-students"
-               value="1"
+               value="0"
                data-component="body" hidden>
     <br>
 <p>Must be at least 1.</p>
@@ -2365,7 +2365,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-students"
-               value="cum"
+               value="enim"
                data-component="body" hidden>
     <br>
 
@@ -2375,7 +2375,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="GETapi-students"
-               value="upton.jamel@example.org"
+               value="bednar.leda@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -2405,22 +2405,22 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/students" \
+    "http://localhost/api/students" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"qrcqsiszcgmmzzqpggzq\",
-    \"email\": \"kznnfeqvukyqizavczgystgkeimbnwdakohieiwavnkwoywecvfryavpbrwtaffkaqgxhvcwnxmvzqnathmidtwxvvroaiktmyvzqvxtigvgaplirhmrtqmiwmlm\",
-    \"phone\": \"nff\",
-    \"address\": \"sqdpylziiyjbajieppomqvyqstnloknonjucdrwglmllqipqsanpbwmvbbgormehwwbcemeonetnryidbzbnssfowseawxxooltbrzjilvzhc\"
+    \"name\": \"fgfxvxexebjzxhxclmyngmxvagftvkcgnndwnkvamoyapycntbuvevhdjvjqahunbepmchapcpafdnlimktdiohxizpcxhzggcopfvmebvraje\",
+    \"email\": \"uyhoyilcf\",
+    \"phone\": \"erjyg\",
+    \"address\": \"lvkldadfyvfoojgvgeatqguijifzjsszogmqrqbiwqilrijiapamexocmmeuwguijqeevxlumucdfqxfxdhqrkhhap\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/students"
+    "http://localhost/api/students"
 );
 
 const headers = {
@@ -2430,10 +2430,10 @@ const headers = {
 };
 
 let body = {
-    "name": "qrcqsiszcgmmzzqpggzq",
-    "email": "kznnfeqvukyqizavczgystgkeimbnwdakohieiwavnkwoywecvfryavpbrwtaffkaqgxhvcwnxmvzqnathmidtwxvvroaiktmyvzqvxtigvgaplirhmrtqmiwmlm",
-    "phone": "nff",
-    "address": "sqdpylziiyjbajieppomqvyqstnloknonjucdrwglmllqipqsanpbwmvbbgormehwwbcemeonetnryidbzbnssfowseawxxooltbrzjilvzhc"
+    "name": "fgfxvxexebjzxhxclmyngmxvagftvkcgnndwnkvamoyapycntbuvevhdjvjqahunbepmchapcpafdnlimktdiohxizpcxhzggcopfvmebvraje",
+    "email": "uyhoyilcf",
+    "phone": "erjyg",
+    "address": "lvkldadfyvfoojgvgeatqguijifzjsszogmqrqbiwqilrijiapamexocmmeuwguijqeevxlumucdfqxfxdhqrkhhap"
 };
 
 fetch(url, {
@@ -2523,7 +2523,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-students"
-               value="qrcqsiszcgmmzzqpggzq"
+               value="fgfxvxexebjzxhxclmyngmxvagftvkcgnndwnkvamoyapycntbuvevhdjvjqahunbepmchapcpafdnlimktdiohxizpcxhzggcopfvmebvraje"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2533,7 +2533,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-students"
-               value="kznnfeqvukyqizavczgystgkeimbnwdakohieiwavnkwoywecvfryavpbrwtaffkaqgxhvcwnxmvzqnathmidtwxvvroaiktmyvzqvxtigvgaplirhmrtqmiwmlm"
+               value="uyhoyilcf"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -2543,7 +2543,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-students"
-               value="nff"
+               value="erjyg"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -2553,7 +2553,7 @@ fetch(url, {
                 <input type="text"
                name="address"
                data-endpoint="POSTapi-students"
-               value="sqdpylziiyjbajieppomqvyqstnloknonjucdrwglmllqipqsanpbwmvbbgormehwwbcemeonetnryidbzbnssfowseawxxooltbrzjilvzhc"
+               value="lvkldadfyvfoojgvgeatqguijifzjsszogmqrqbiwqilrijiapamexocmmeuwguijqeevxlumucdfqxfxdhqrkhhap"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2573,22 +2573,22 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/students/1" \
+    "http://localhost/api/students/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"qulschdmpwenfcjjhybzjhuahsiahfmjefsovmwmsoqbsvieawseqkgszqehxuifzhdcvpyumfsilxswsgindvjivbpjuwxfydtrerzzojhpidcaygiitnpabzfotwexmficqfjzlgoxilxebqkblsunrntlhmdudxhak\",
-    \"email\": \"zcexdqfjazzzeivrltu\",
-    \"phone\": \"ufworuxw\",
-    \"address\": \"elyhufuuehkrjuqgpkwifxmxlipkmidmcxpirhxwxrwuyuaqexhywienacespg\"
+    \"name\": \"zsjlnaxfaqbdvbsxlclfdtljcgslhaazwtsqilrjwodpkqpiyjzmswwtcvhusmhyibohhfhyieqmajjjwmgtenpqzejonvzduplrwcwisjzlpgymfgcqisnwzmutstuhlbuiysykwuvqwytielvhqjxytevlqkfbvrigrvnmcmxolxqdggvmkjlopsdwcgaixxcwaveepbbiyortlommqfhtojrwmcqhtilrzssdjcchsddogosdt\",
+    \"email\": \"qzolpmtbvqxczqhqmajpmsgvsxsufkrnlavxpbwsdtpmmfsnbamsfqdaayooeazxlkxikpfmeqxzdtrctkgardpdudhwgryzwwferfkgqpcambbdcqyopuwiwnlefubiacynpchaoplcxikuvrubmzftcmwapycolj\",
+    \"phone\": \"dpcadk\",
+    \"address\": \"eocqdjobldgebafnzlltsmkklksnkhmiaxskjlhpiihpqvzmhnxoyicyeteivuukymidkraqqnxozdsqrumthedftzlfbjufkijadvppbjyeormoenqlnjzkrnpuqkwqeswzlxnavjnerrompgqcfmwzinuvqjbqfvrrzhqcrxibolwlspjjdkrgiqchxaw\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/students/1"
+    "http://localhost/api/students/1"
 );
 
 const headers = {
@@ -2598,10 +2598,10 @@ const headers = {
 };
 
 let body = {
-    "name": "qulschdmpwenfcjjhybzjhuahsiahfmjefsovmwmsoqbsvieawseqkgszqehxuifzhdcvpyumfsilxswsgindvjivbpjuwxfydtrerzzojhpidcaygiitnpabzfotwexmficqfjzlgoxilxebqkblsunrntlhmdudxhak",
-    "email": "zcexdqfjazzzeivrltu",
-    "phone": "ufworuxw",
-    "address": "elyhufuuehkrjuqgpkwifxmxlipkmidmcxpirhxwxrwuyuaqexhywienacespg"
+    "name": "zsjlnaxfaqbdvbsxlclfdtljcgslhaazwtsqilrjwodpkqpiyjzmswwtcvhusmhyibohhfhyieqmajjjwmgtenpqzejonvzduplrwcwisjzlpgymfgcqisnwzmutstuhlbuiysykwuvqwytielvhqjxytevlqkfbvrigrvnmcmxolxqdggvmkjlopsdwcgaixxcwaveepbbiyortlommqfhtojrwmcqhtilrzssdjcchsddogosdt",
+    "email": "qzolpmtbvqxczqhqmajpmsgvsxsufkrnlavxpbwsdtpmmfsnbamsfqdaayooeazxlkxikpfmeqxzdtrctkgardpdudhwgryzwwferfkgqpcambbdcqyopuwiwnlefubiacynpchaoplcxikuvrubmzftcmwapycolj",
+    "phone": "dpcadk",
+    "address": "eocqdjobldgebafnzlltsmkklksnkhmiaxskjlhpiihpqvzmhnxoyicyeteivuukymidkraqqnxozdsqrumthedftzlfbjufkijadvppbjyeormoenqlnjzkrnpuqkwqeswzlxnavjnerrompgqcfmwzinuvqjbqfvrrzhqcrxibolwlspjjdkrgiqchxaw"
 };
 
 fetch(url, {
@@ -2703,7 +2703,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-students--id-"
-               value="qulschdmpwenfcjjhybzjhuahsiahfmjefsovmwmsoqbsvieawseqkgszqehxuifzhdcvpyumfsilxswsgindvjivbpjuwxfydtrerzzojhpidcaygiitnpabzfotwexmficqfjzlgoxilxebqkblsunrntlhmdudxhak"
+               value="zsjlnaxfaqbdvbsxlclfdtljcgslhaazwtsqilrjwodpkqpiyjzmswwtcvhusmhyibohhfhyieqmajjjwmgtenpqzejonvzduplrwcwisjzlpgymfgcqisnwzmutstuhlbuiysykwuvqwytielvhqjxytevlqkfbvrigrvnmcmxolxqdggvmkjlopsdwcgaixxcwaveepbbiyortlommqfhtojrwmcqhtilrzssdjcchsddogosdt"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2713,7 +2713,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="PUTapi-students--id-"
-               value="zcexdqfjazzzeivrltu"
+               value="qzolpmtbvqxczqhqmajpmsgvsxsufkrnlavxpbwsdtpmmfsnbamsfqdaayooeazxlkxikpfmeqxzdtrctkgardpdudhwgryzwwferfkgqpcambbdcqyopuwiwnlefubiacynpchaoplcxikuvrubmzftcmwapycolj"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -2723,7 +2723,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="PUTapi-students--id-"
-               value="ufworuxw"
+               value="dpcadk"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -2733,7 +2733,7 @@ fetch(url, {
                 <input type="text"
                name="address"
                data-endpoint="PUTapi-students--id-"
-               value="elyhufuuehkrjuqgpkwifxmxlipkmidmcxpirhxwxrwuyuaqexhywienacespg"
+               value="eocqdjobldgebafnzlltsmkklksnkhmiaxskjlhpiihpqvzmhnxoyicyeteivuukymidkraqqnxozdsqrumthedftzlfbjufkijadvppbjyeormoenqlnjzkrnpuqkwqeswzlxnavjnerrompgqcfmwzinuvqjbqfvrrzhqcrxibolwlspjjdkrgiqchxaw"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -2753,7 +2753,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/students/1" \
+    --get "http://localhost/api/students/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -2761,7 +2761,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/students/1"
+    "http://localhost/api/students/1"
 );
 
 const headers = {
@@ -2877,7 +2877,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/students/1" \
+    "http://localhost/api/students/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -2885,7 +2885,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/students/1"
+    "http://localhost/api/students/1"
 );
 
 const headers = {
@@ -3005,15 +3005,15 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/users" \
+    --get "http://localhost/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
     \"page\": 0,
     \"page_size\": 1,
-    \"search\": \"natus\",
-    \"email\": \"schristiansen@example.com\",
+    \"search\": \"perferendis\",
+    \"email\": \"reynolds.lera@example.org\",
     \"ordering\": \"created_at\"
 }"
 </code></pre></div>
@@ -3021,7 +3021,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users"
+    "http://localhost/api/users"
 );
 
 const headers = {
@@ -3033,8 +3033,8 @@ const headers = {
 let body = {
     "page": 0,
     "page_size": 1,
-    "search": "natus",
-    "email": "schristiansen@example.com",
+    "search": "perferendis",
+    "email": "reynolds.lera@example.org",
     "ordering": "created_at"
 };
 
@@ -3150,7 +3150,7 @@ fetch(url, {
                 <input type="text"
                name="search"
                data-endpoint="GETapi-users"
-               value="natus"
+               value="perferendis"
                data-component="body" hidden>
     <br>
 
@@ -3160,7 +3160,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="GETapi-users"
-               value="schristiansen@example.com"
+               value="reynolds.lera@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -3190,14 +3190,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/users" \
+    "http://localhost/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg\",
-    \"email\": \"tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq\",
-    \"password\": \"dtyokzpb\",
+    \"name\": \"hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk\",
+    \"email\": \"ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid\",
+    \"password\": \"ekpyabeh\",
     \"type\": \"librarian\"
 }"
 </code></pre></div>
@@ -3205,7 +3205,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users"
+    "http://localhost/api/users"
 );
 
 const headers = {
@@ -3215,9 +3215,9 @@ const headers = {
 };
 
 let body = {
-    "name": "ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg",
-    "email": "tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq",
-    "password": "dtyokzpb",
+    "name": "hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk",
+    "email": "ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid",
+    "password": "ekpyabeh",
     "type": "librarian"
 };
 
@@ -3307,7 +3307,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-users"
-               value="ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg"
+               value="hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -3317,7 +3317,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-users"
-               value="tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq"
+               value="ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -3327,7 +3327,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-users"
-               value="dtyokzpb"
+               value="ekpyabeh"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -3357,22 +3357,22 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/users/1" \
+    "http://localhost/api/users/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"name\": \"zgrrgerpyaakn\",
-    \"email\": \"osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir\",
-    \"password\": \"jnw\",
-    \"type\": \"adm\"
+    \"name\": \"gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx\",
+    \"email\": \"ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd\",
+    \"password\": \"\",
+    \"type\": \"librarian\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users/1"
+    "http://localhost/api/users/1"
 );
 
 const headers = {
@@ -3382,10 +3382,10 @@ const headers = {
 };
 
 let body = {
-    "name": "zgrrgerpyaakn",
-    "email": "osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir",
-    "password": "jnw",
-    "type": "adm"
+    "name": "gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx",
+    "email": "ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd",
+    "password": "",
+    "type": "librarian"
 };
 
 fetch(url, {
@@ -3488,7 +3488,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-users--id-"
-               value="zgrrgerpyaakn"
+               value="gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 255 characters.</p>
@@ -3498,7 +3498,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="PUTapi-users--id-"
-               value="osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir"
+               value="ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address. Must not be greater than 255 characters.</p>
@@ -3508,7 +3508,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="PUTapi-users--id-"
-               value="jnw"
+               value=""
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -3518,7 +3518,7 @@ fetch(url, {
                 <input type="text"
                name="type"
                data-endpoint="PUTapi-users--id-"
-               value="adm"
+               value="librarian"
                data-component="body" hidden>
     <br>
 <p>Must be one of <code>adm</code> or <code>librarian</code>.</p>
@@ -3538,7 +3538,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/users/1" \
+    --get "http://localhost/api/users/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -3546,7 +3546,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users/1"
+    "http://localhost/api/users/1"
 );
 
 const headers = {
@@ -3663,7 +3663,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/users/1" \
+    "http://localhost/api/users/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}"</code></pre></div>
@@ -3671,7 +3671,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users/1"
+    "http://localhost/api/users/1"
 );
 
 const headers = {
@@ -3788,20 +3788,20 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://localhost:8000/api/users/reset_password" \
+    "http://localhost/api/users/reset_password" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"old_password\": \"\",
-    \"new_password\": \"odu\"
+    \"old_password\": \"jzdflwfz\",
+    \"new_password\": \"hzq\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users/reset_password"
+    "http://localhost/api/users/reset_password"
 );
 
 const headers = {
@@ -3811,8 +3811,8 @@ const headers = {
 };
 
 let body = {
-    "old_password": "",
-    "new_password": "odu"
+    "old_password": "jzdflwfz",
+    "new_password": "hzq"
 };
 
 fetch(url, {
@@ -3895,7 +3895,7 @@ fetch(url, {
                 <input type="text"
                name="old_password"
                data-endpoint="PATCHapi-users-reset_password"
-               value=""
+               value="jzdflwfz"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -3905,7 +3905,7 @@ fetch(url, {
                 <input type="text"
                name="new_password"
                data-endpoint="PATCHapi-users-reset_password"
-               value="odu"
+               value="hzq"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -3925,19 +3925,19 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/users/confirmationEmail" \
+    "http://localhost/api/users/confirmationEmail" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {token}" \
     --data "{
-    \"token\": \"rerum\"
+    \"token\": \"voluptatem\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/users/confirmationEmail"
+    "http://localhost/api/users/confirmationEmail"
 );
 
 const headers = {
@@ -3947,7 +3947,7 @@ const headers = {
 };
 
 let body = {
-    "token": "rerum"
+    "token": "voluptatem"
 };
 
 fetch(url, {
@@ -4028,7 +4028,7 @@ fetch(url, {
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-users-confirmationEmail"
-               value="rerum"
+               value="voluptatem"
                data-component="body" hidden>
     <br>
 

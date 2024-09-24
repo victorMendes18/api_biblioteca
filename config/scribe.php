@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://localhost:8000',
+    'base_url' => null,
 
     /*
      * Tell Scribe what routes to generate documentation for.

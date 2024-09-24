@@ -47,7 +47,7 @@ O projeto pode ser executado de duas maneiras: utilizando o Apache e MySQL do [X
      php artisan serve
      ```
 
-Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e usar todas as rotas disponíveis.
+Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e usar todas as rotas disponíveis. A documentação com todas as rotas estaram dispinível na rota **http://localhost:8000/docs**.
 
 ## Docker
 
@@ -83,4 +83,4 @@ Com todos esses passos concluídos, a aplicação estará rodando no servidor lo
      docker exec -it api_biblioteca php artisan db:seed
      ```
 
-Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e utilizar todas as rotas disponíveis.
+Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e utilizar todas as rotas disponíveis. A documentação com todas as rotas estaram dispinível na rota **http://localhost:8000/docs**.

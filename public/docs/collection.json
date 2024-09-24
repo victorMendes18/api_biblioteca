@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost:8000"
+            "value": "http:\/\/localhost"
         }
     ],
     "info": {
         "name": "ApiBiblioteca",
-        "_postman_id": "93f5e656-4cd8-4129-a0a7-05d5be62a256",
+        "_postman_id": "d32fc1bd-1363-491a-9635-4565b409bd52",
         "description": "The API offers a complete service for managing library book loans. It allows the registration of two types of users: administrators (ADM) and librarians (librarian), who will have access to the API's functionalities. In addition, it is possible to manage the library's collection, register students and control loans made by them.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw\",\"password\":\"fhpomgh\"}"
+                            "raw": "{\"email\":\"gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh\",\"password\":\"tshvsoe\"}"
                         },
                         "description": "",
                         "auth": {
@@ -140,7 +140,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"quis\",\"isbn\":\"zcekflnz\",\"ordering\":\"title\"}"
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"architecto\",\"isbn\":\"mmwyehzoace\",\"ordering\":\"title\"}"
                         },
                         "description": "",
                         "auth": {
@@ -188,7 +188,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"zdvqpkjpedyuzpywtchrzpopbgzlqpufuxlncqjazharplnjkchznhxamwympytikyiyzfgklescwnxdcfbngngbteofofgzqatorrjzrci\",\"author\":\"spkhxjqtnpgcsoqulmofzuwyhdcgoorhkqjl\",\"isbn\":\"lealjrm\",\"year_of_publication\":1557,\"number_of_pages\":1,\"public\":false}"
+                            "raw": "{\"title\":\"nhhgmtytfppdzfmsbgptqscpjgekgjzkgtswyfdnslqyykdjibfwnmvrcbocrxskxxqwyjtlgemrdqjvpiwctzqixt\",\"author\":\"bnvvovlfyspzgyfvkmdejdptuommbgehdwyfbnubkroeffhgeoaeamyimktlndeocxzrmhbxqyeftwvgpgheaixakcbrvhxgnfgiimzxnwdtoxftuyyferyeihkjdjwrxg\",\"isbn\":\"iulvk\",\"year_of_publication\":1898,\"number_of_pages\":1,\"public\":false}"
                         },
                         "description": "",
                         "auth": {
@@ -244,7 +244,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"aarkrnsn\",\"author\":\"eabsjvwenvdyfrgamwplkpzcrhntcayqdtvlkqhfiblugqiciumigigmwajyybqubzdtinuposvasqtnptmhpwadbdmoyyyptqsjhzvfuitodvrivqncpijypldwgauvg\",\"isbn\":\"r\",\"year_of_publication\":1770,\"number_of_pages\":0,\"public\":true}"
+                            "raw": "{\"title\":\"erynonqafthbtqcgxgedvkkgvmsivzibetfeirqyzvmkzbynbbcdqshwumtsjkcdawihmhvkymwaemmbbvieiwykv\",\"author\":\"fewjgsidwrhlyxttaxnsofkkneokugehiankwfgcmzbfimtveqouostwnthcpxprworzilgrbiajpoyvnugvcsrqrtiwmgcdlxpunraccoolodlamsnark\",\"isbn\":\"rydfqd\",\"year_of_publication\":1494,\"number_of_pages\":1,\"public\":false}"
                         },
                         "description": "",
                         "auth": {
@@ -404,7 +404,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw\",\"student\":\"sequi\",\"ordering\":\"delivery_date\"}"
+                            "raw": "{\"page\":1,\"page_size\":1,\"search\":\"ztvjoewbntzgyieyxgygq\",\"student\":\"magnam\",\"ordering\":\"delivery_date\"}"
                         },
                         "description": "",
                         "auth": {
@@ -452,7 +452,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":\"quia\",\"student_id\":\"dolorem\",\"delivery_date\":\"2036-09-15\",\"delivered\":false}"
+                            "raw": "{\"book_id\":\"quae\",\"student_id\":\"aspernatur\",\"delivery_date\":\"2046-05-30\",\"delivered\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -508,7 +508,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":\"est\",\"student_id\":\"dolore\",\"delivery_date\":\"2113-02-28\",\"delivered\":true}"
+                            "raw": "{\"book_id\":\"qui\",\"student_id\":\"ipsum\",\"delivery_date\":\"2084-11-05\",\"delivered\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -668,7 +668,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"cum\",\"email\":\"upton.jamel@example.org\",\"ordering\":\"created_at\"}"
+                            "raw": "{\"page\":1,\"page_size\":0,\"search\":\"enim\",\"email\":\"bednar.leda@example.net\",\"ordering\":\"created_at\"}"
                         },
                         "description": "",
                         "auth": {
@@ -716,7 +716,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"qrcqsiszcgmmzzqpggzq\",\"email\":\"kznnfeqvukyqizavczgystgkeimbnwdakohieiwavnkwoywecvfryavpbrwtaffkaqgxhvcwnxmvzqnathmidtwxvvroaiktmyvzqvxtigvgaplirhmrtqmiwmlm\",\"phone\":\"nff\",\"address\":\"sqdpylziiyjbajieppomqvyqstnloknonjucdrwglmllqipqsanpbwmvbbgormehwwbcemeonetnryidbzbnssfowseawxxooltbrzjilvzhc\"}"
+                            "raw": "{\"name\":\"fgfxvxexebjzxhxclmyngmxvagftvkcgnndwnkvamoyapycntbuvevhdjvjqahunbepmchapcpafdnlimktdiohxizpcxhzggcopfvmebvraje\",\"email\":\"uyhoyilcf\",\"phone\":\"erjyg\",\"address\":\"lvkldadfyvfoojgvgeatqguijifzjsszogmqrqbiwqilrijiapamexocmmeuwguijqeevxlumucdfqxfxdhqrkhhap\"}"
                         },
                         "description": "",
                         "auth": {
@@ -772,7 +772,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"qulschdmpwenfcjjhybzjhuahsiahfmjefsovmwmsoqbsvieawseqkgszqehxuifzhdcvpyumfsilxswsgindvjivbpjuwxfydtrerzzojhpidcaygiitnpabzfotwexmficqfjzlgoxilxebqkblsunrntlhmdudxhak\",\"email\":\"zcexdqfjazzzeivrltu\",\"phone\":\"ufworuxw\",\"address\":\"elyhufuuehkrjuqgpkwifxmxlipkmidmcxpirhxwxrwuyuaqexhywienacespg\"}"
+                            "raw": "{\"name\":\"zsjlnaxfaqbdvbsxlclfdtljcgslhaazwtsqilrjwodpkqpiyjzmswwtcvhusmhyibohhfhyieqmajjjwmgtenpqzejonvzduplrwcwisjzlpgymfgcqisnwzmutstuhlbuiysykwuvqwytielvhqjxytevlqkfbvrigrvnmcmxolxqdggvmkjlopsdwcgaixxcwaveepbbiyortlommqfhtojrwmcqhtilrzssdjcchsddogosdt\",\"email\":\"qzolpmtbvqxczqhqmajpmsgvsxsufkrnlavxpbwsdtpmmfsnbamsfqdaayooeazxlkxikpfmeqxzdtrctkgardpdudhwgryzwwferfkgqpcambbdcqyopuwiwnlefubiacynpchaoplcxikuvrubmzftcmwapycolj\",\"phone\":\"dpcadk\",\"address\":\"eocqdjobldgebafnzlltsmkklksnkhmiaxskjlhpiihpqvzmhnxoyicyeteivuukymidkraqqnxozdsqrumthedftzlfbjufkijadvppbjyeormoenqlnjzkrnpuqkwqeswzlxnavjnerrompgqcfmwzinuvqjbqfvrrzhqcrxibolwlspjjdkrgiqchxaw\"}"
                         },
                         "description": "",
                         "auth": {
@@ -932,7 +932,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"natus\",\"email\":\"schristiansen@example.com\",\"ordering\":\"created_at\"}"
+                            "raw": "{\"page\":0,\"page_size\":1,\"search\":\"perferendis\",\"email\":\"reynolds.lera@example.org\",\"ordering\":\"created_at\"}"
                         },
                         "description": "",
                         "auth": {
@@ -980,7 +980,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg\",\"email\":\"tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq\",\"password\":\"dtyokzpb\",\"type\":\"librarian\"}"
+                            "raw": "{\"name\":\"hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk\",\"email\":\"ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid\",\"password\":\"ekpyabeh\",\"type\":\"librarian\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1036,7 +1036,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zgrrgerpyaakn\",\"email\":\"osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir\",\"password\":\"jnw\",\"type\":\"adm\"}"
+                            "raw": "{\"name\":\"gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx\",\"email\":\"ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd\",\"password\":\"\",\"type\":\"librarian\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1190,7 +1190,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"old_password\":\"\",\"new_password\":\"odu\"}"
+                            "raw": "{\"old_password\":\"jzdflwfz\",\"new_password\":\"hzq\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1238,7 +1238,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"rerum\"}"
+                            "raw": "{\"token\":\"voluptatem\"}"
                         },
                         "description": "",
                         "auth": {

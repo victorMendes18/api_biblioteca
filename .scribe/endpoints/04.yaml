@@ -35,14 +35,14 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: natus
+        example: perferendis
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: schristiansen@example.com
+        example: reynolds.lera@example.org
         type: string
         custom: []
       ordering:
@@ -109,21 +109,21 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg
+        example: hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq
+        example: ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: dtyokzpb
+        example: ekpyabeh
         type: string
         custom: []
       type:
@@ -191,28 +191,28 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: zgrrgerpyaakn
+        example: gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir
+        example: ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: jnw
+        example: ''
         type: string
         custom: []
       type:
         name: type
         description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
         required: true
-        example: adm
+        example: librarian
         type: string
         custom: []
     responses:
@@ -383,14 +383,14 @@ endpoints:
         name: old_password
         description: 'Must be at least 8 characters.'
         required: true
-        example: ''
+        example: jzdflwfz
         type: string
         custom: []
       new_password:
         name: new_password
         description: 'Must be at least 8 characters.'
         required: true
-        example: odu
+        example: hzq
         type: string
         custom: []
     responses:
@@ -438,7 +438,7 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: rerum
+        example: voluptatem
         type: string
         custom: []
     responses:

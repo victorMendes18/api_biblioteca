@@ -20,14 +20,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw
+        example: gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: fhpomgh
+        example: tshvsoe
         type: string
         custom: []
     responses:

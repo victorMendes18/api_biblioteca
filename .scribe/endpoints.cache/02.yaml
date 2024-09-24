@@ -37,14 +37,14 @@ endpoints:
         name: search
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw
+        example: ztvjoewbntzgyieyxgygq
         type: string
         custom: []
       student:
         name: student
         description: ''
         required: false
-        example: sequi
+        example: magnam
         type: string
         custom: []
       ordering:
@@ -132,28 +132,28 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: quia
+        example: quae
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: dolorem
+        example: aspernatur
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2036-09-15'
+        example: '2046-05-30'
         type: string
         custom: []
       delivered:
         name: delivered
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -215,21 +215,21 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: est
+        example: qui
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: dolore
+        example: ipsum
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2113-02-28'
+        example: '2084-11-05'
         type: string
         custom: []
       delivered:
