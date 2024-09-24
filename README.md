@@ -79,8 +79,8 @@ Com todos esses passos concluídos, a aplicação estará rodando no servidor lo
 
 5. No terminal, execute os seguintes comandos para rodar as migrações e seeders do projeto:
      ```bash
-     php artisan migrate
-     php artisan db:seed
+     docker exec -it api_biblioteca php artisan migrate
+     docker exec -it api_biblioteca php artisan db:seed
      ```
 
 Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e utilizar todas as rotas disponíveis.
