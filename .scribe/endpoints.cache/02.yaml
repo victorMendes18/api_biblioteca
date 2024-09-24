@@ -30,28 +30,28 @@ endpoints:
         name: page_size
         description: 'Must be at least 1.'
         required: false
-        example: 1
+        example: 0
         type: integer
         custom: []
       search:
         name: search
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: ztvjoewbntzgyieyxgygq
+        example: cdybwmrcmaavdydoliqgdzonherdksxounnjjqktebmnqkeiistevbyinnjaducrquejrkyyiwtqocenljwxyobhikdyhrxdamuumfmifozzpkmzcjqdcxknrrxsgzingnhpgrgzbyqnzurpahqdsmfopbtcugcljezuxjypehxsqonzctpcrkftyaxq
         type: string
         custom: []
       student:
         name: student
         description: ''
         required: false
-        example: magnam
+        example: non
         type: string
         custom: []
       ordering:
         name: ordering
         description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
         required: false
-        example: delivery_date
+        example: created_at
         type: string
         custom: []
     responses:
@@ -132,28 +132,28 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: quae
+        example: similique
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: aspernatur
+        example: alias
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2046-05-30'
+        example: '2080-05-03'
         type: string
         custom: []
       delivered:
         name: delivered
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         custom: []
     responses:
@@ -215,21 +215,21 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: qui
+        example: et
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: ipsum
+        example: aut
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2084-11-05'
+        example: '2050-03-08'
         type: string
         custom: []
       delivered:

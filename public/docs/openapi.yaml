@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'http://localhost:8000'
 paths:
   /api/login:
     post:
@@ -83,11 +83,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: gmnvazjmzipzgfioumruvkvzgiaiotlnjywdykqfafabbxjhznnimvfosscqpzecluvcboptavhzbtgwjeaamebmsvduxvzfhtkdfoorjtvjgwpwzvxoqgmasfylufmxgmbtaqgtzfklmmmzmwjljpuumhpixhszkniarkqdhmdcftpmlaaxarfsonaacxndpfmhxquhgivydzwigqrh
+                  example: vbzxifhisgkwpwskvbiqwpclhwcrksuljpiosfnnwisenopjujgskmwxwyswsydfucwqemcrbshlbobzkbsudsmgvjwupmjzyjmlelxuraarcrhnwawxbeoztbproeggnrdqrzmmldltbdmfmcatrykxdtbfnuhazjmijetdwjeurchugqgzibnxnmamwhhzbuipwlrhbtokdqeblavhtgfhtrovl
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: tshvsoe
+                  example: nhxok
               required:
                 - email
                 - password
@@ -252,23 +252,23 @@ paths:
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 1
+                  example: 0
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 search:
                   type: string
                   description: ''
-                  example: architecto
+                  example: aperiam
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: mmwyehzoace
+                  example: uviwfi
                 ordering:
                   type: string
                   description: 'Must be one of <code>title</code> or <code>created_at</code>.'
-                  example: title
+                  example: created_at
       security: []
     post:
       summary: ''
@@ -362,19 +362,19 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: nhhgmtytfppdzfmsbgptqscpjgekgjzkgtswyfdnslqyykdjibfwnmvrcbocrxskxxqwyjtlgemrdqjvpiwctzqixt
+                  example: wasanmgyzzmnqqxjyzfbfqrtiyemmsdcywlpodzpppyemoshuezvubvuxzzfudgibwubasgdzaqiafvqunvoweuqhtzlhqlcbfjlwvrkigdsoyalfksveynxuvhgpwhnmfdrotflrm
                 author:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: bnvvovlfyspzgyfvkmdejdptuommbgehdwyfbnubkroeffhgeoaeamyimktlndeocxzrmhbxqyeftwvgpgheaixakcbrvhxgnfgiimzxnwdtoxftuyyferyeihkjdjwrxg
+                  example: pveqdkgsrpphrosjhgffuahwhwcjeugupkclhguazmlurmmzbxhlisnxefujvenqsdbzwgpkqxqennvohtkcjcvanpemtpixxgquetwirlqofcjiqeumlkzmfxrjiwixfyxqbmuukarmsgpkjcyhcsdbdiuowzcvqgfabilidrxhwbtrtagcowtttxcdtdbkpjrnvhgk
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: iulvk
+                  example: ''
                 year_of_publication:
                   type: integer
                   description: 'Must be at least 1000. Must not be greater than 2024.'
-                  example: 1898
+                  example: 353
                 number_of_pages:
                   type: integer
                   description: 'Must be at least 1.'
@@ -382,7 +382,7 @@ paths:
                 public:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - title
                 - author
@@ -484,27 +484,27 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: erynonqafthbtqcgxgedvkkgvmsivzibetfeirqyzvmkzbynbbcdqshwumtsjkcdawihmhvkymwaemmbbvieiwykv
+                  example: pzkahicunrsjtswbehlpvgvfwedxenoaxjrizpgmrjnqjbcyzzeomkksqrfialujigegfzvfzxmfbcmqzfosszhhnadfsenszyqwsdjairtvjubkrzxljqbqxvfpvjnvdftziimxufwgmhlfugskmrfobxuggte
                 author:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fewjgsidwrhlyxttaxnsofkkneokugehiankwfgcmzbfimtveqouostwnthcpxprworzilgrbiajpoyvnugvcsrqrtiwmgcdlxpunraccoolodlamsnark
+                  example: bwnxvkfmxgdcsncgjxnxnmsssycewdcnrczenxezqjiuucbafbntmlmvaudtvuhicvmzgryvtnbhoaniqfaqmmcgmsmvvtfjsskpdhexjujblhlfxpyvrisyfamskxadflzyef
                 isbn:
                   type: string
                   description: 'The value format is invalid. Must not be greater than 13 characters.'
-                  example: rydfqd
+                  example: d
                 year_of_publication:
                   type: integer
                   description: 'Must be at least 1000. Must not be greater than 2024.'
-                  example: 1494
+                  example: 1439
                 number_of_pages:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 1
+                  example: 0
                 public:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - title
                 - author
@@ -831,19 +831,19 @@ paths:
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 1
+                  example: 0
                 search:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ztvjoewbntzgyieyxgygq
+                  example: cdybwmrcmaavdydoliqgdzonherdksxounnjjqktebmnqkeiistevbyinnjaducrquejrkyyiwtqocenljwxyobhikdyhrxdamuumfmifozzpkmzcjqdcxknrrxsgzingnhpgrgzbyqnzurpahqdsmfopbtcugcljezuxjypehxsqonzctpcrkftyaxq
                 student:
                   type: string
                   description: ''
-                  example: magnam
+                  example: non
                 ordering:
                   type: string
                   description: 'Must be one of <code>delivery_date</code> or <code>created_at</code>.'
-                  example: delivery_date
+                  example: created_at
       security: []
     post:
       summary: ''
@@ -933,19 +933,19 @@ paths:
                 book_id:
                   type: string
                   description: ''
-                  example: quae
+                  example: similique
                 student_id:
                   type: string
                   description: ''
-                  example: aspernatur
+                  example: alias
                 delivery_date:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>today</code>.'
-                  example: '2046-05-30'
+                  example: '2080-05-03'
                 delivered:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
               required:
                 - book_id
                 - student_id
@@ -1082,15 +1082,15 @@ paths:
                 book_id:
                   type: string
                   description: ''
-                  example: qui
+                  example: et
                 student_id:
                   type: string
                   description: ''
-                  example: ipsum
+                  example: aut
                 delivery_date:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>today</code>.'
-                  example: '2084-11-05'
+                  example: '2050-03-08'
                 delivered:
                   type: boolean
                   description: ''
@@ -1454,15 +1454,15 @@ paths:
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 search:
                   type: string
                   description: ''
-                  example: enim
+                  example: est
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: bednar.leda@example.net
+                  example: cremin.brad@example.com
                 ordering:
                   type: string
                   description: 'Must be one of <code>name</code> or <code>created_at</code>.'
@@ -1556,19 +1556,19 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fgfxvxexebjzxhxclmyngmxvagftvkcgnndwnkvamoyapycntbuvevhdjvjqahunbepmchapcpafdnlimktdiohxizpcxhzggcopfvmebvraje
+                  example: ldrwmwetxfthmkojlfeonybpacxudzzmnmtwkeeiayvxmdtrqrtalegafnpsyznwwdxgnchtqmikcozohicvmhsxfcuh
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: uyhoyilcf
+                  example: mzwnbidahahrekarnccwthrmzrspndcpyntkhdastxjpitbzhwmcyltczqpdegyfpnddtkvcjutjuctzfqujkfbsdklylfxxcyruubzdtyabgvyvvpeqacaieyjzflwgdhwshvmwedwwnuecseeteoqgusnaiojnktjwknkadlduqsoefmbnvdpfzilozcsxqyrdlvjpxnvuiailzmagnzcwykoapyqegffxyalpycpczcahxjei
                 phone:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: erjyg
+                  example: b
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: lvkldadfyvfoojgvgeatqguijifzjsszogmqrqbiwqilrijiapamexocmmeuwguijqeevxlumucdfqxfxdhqrkhhap
+                  example: nxsbnzcqqrgyhddofpwaysxngrbpipttumrmxcmhiqxkqktwsxetrbfzmcinrba
               required:
                 - name
                 - email
@@ -1664,19 +1664,19 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zsjlnaxfaqbdvbsxlclfdtljcgslhaazwtsqilrjwodpkqpiyjzmswwtcvhusmhyibohhfhyieqmajjjwmgtenpqzejonvzduplrwcwisjzlpgymfgcqisnwzmutstuhlbuiysykwuvqwytielvhqjxytevlqkfbvrigrvnmcmxolxqdggvmkjlopsdwcgaixxcwaveepbbiyortlommqfhtojrwmcqhtilrzssdjcchsddogosdt
+                  example: enuluanxcrbpenxkcntmjejflwboyktxlheomzupbxbscpnwhefuxrzaglrbjeajtguscwbrnftrvrsimrxklacvoxfarwym
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: qzolpmtbvqxczqhqmajpmsgvsxsufkrnlavxpbwsdtpmmfsnbamsfqdaayooeazxlkxikpfmeqxzdtrctkgardpdudhwgryzwwferfkgqpcambbdcqyopuwiwnlefubiacynpchaoplcxikuvrubmzftcmwapycolj
+                  example: wkulzrjidekgscbxdybadmntopqgksriixawicoegtmkizarllamotjankfqzbxydpwazqefzwlmynznvuxgiwkmjuobqsvoiazawiupiszwsiqizlulpvqbobgmbaclyxbbqv
                 phone:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: dpcadk
+                  example: ivmxl
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: eocqdjobldgebafnzlltsmkklksnkhmiaxskjlhpiihpqvzmhnxoyicyeteivuukymidkraqqnxozdsqrumthedftzlfbjufkijadvppbjyeormoenqlnjzkrnpuqkwqeswzlxnavjnerrompgqcfmwzinuvqjbqfvrrzhqcrxibolwlspjjdkrgiqchxaw
+                  example: rtborifzzlvdwdruvgmydjzcftkjxiumxliusfohkwbrxlyprekevshuntpghonijcijzaqhskyzfzlokgwdlwcdwwjmnjhxoubfepsvvykfhmhchgazyexjpzfztpulmitcujndktptk
               required:
                 - name
                 - email
@@ -1953,19 +1953,19 @@ paths:
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 0
+                  example: 1
                 page_size:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 1
+                  example: 0
                 search:
                   type: string
                   description: ''
-                  example: perferendis
+                  example: id
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: reynolds.lera@example.org
+                  example: tyrique70@example.net
                 ordering:
                   type: string
                   description: 'Must be one of <code>name</code> or <code>created_at</code>.'
@@ -2057,19 +2057,19 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: hliifegeyustvoweydbpjfhrfcsqxwtnebdnhdsivhanwrdsrhqqirmnxcobgwmvbtykxavdykpasyplyrutaihnnwufervrezarjpsksfmdbeurwsdoyffzxwdslnupqytaleoftyadxk
+                  example: xbhjyntosktklpvrafpkwnmluawnlvjxasskfiuqyawpbnjejxurgukkddxsfymzaabikbkejmkvswozvqzopxhbgzmkssnpbtetlunrwxquiquwpgsdadsesuvdzybdmxbfkhzzzszrcaucyawbjohbdyuuoidmyseqxkpmfcuyiauklvwoymsupqnzkxyoqdkyqvxjgjnsnhhkysjkpgfnaawxtutuifmhbxawgowopqehzu
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ichrtghpmveddlqsvbmjpuoinijiwmburbiktlniprybwcirojoaxtjzhbxecjvwhvhekcrnwixtslpuipkosasspghtjurrzmenlmuwxsjuhjvkrmuxuhkynvtosxdlbgmkrdmgabywnlgyilolywdzdgxmjgbuowkocayztndljfeopgsbtehuyficolkuwlkzsphsjfevqizhlmwtpegtdyhzuvtygjformfgid
+                  example: xjtcuvpjtoyajjnouxsfjpzvurghjxsomorsjniyoxutfdidewsittgrlflnjfvdytejxzuuasnwrzbbgomvhewuluz
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: ekpyabeh
+                  example: ''
                 type:
                   type: string
                   description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
-                  example: librarian
+                  example: adm
               required:
                 - name
                 - email
@@ -2169,11 +2169,11 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: gfuhbditqqdjqskgbvoydzwlfunoufsydavdlsbsrfibhrezgzhtinhyqlxlykswweejpfbnrotvxpwleazmqxudrtuywicuwhuwrychwheiiekiorrtegqfjqymxqctaypktoicffvuclqzohybumoyttoyhhowgrizapxptskwdqyobxrurvhuiwgtzfpofnarrvcjpwzjfvnyzoidtxncshskjaekxqlnffgx
+                  example: qmgsmjcxspkyfeijkgetdkjcigd
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ivwdaimdtfttqfhibbwmykxwmgbtamphcrqxabmkdemnjmukknrpfydcelrmjkdkautbzupshomxzsmlxztawjiosofxnrmnwtrd
+                  example: xgqjpfjzopqbbdgztvvrkshswbynuzdvblgdpiinzziabauwvrluialusmzxwqrjgpruylmumcsytzuytxauyrh
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
@@ -2181,7 +2181,7 @@ paths:
                 type:
                   type: string
                   description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
-                  example: librarian
+                  example: adm
               required:
                 - name
                 - email
@@ -2442,11 +2442,11 @@ paths:
                 old_password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: jzdflwfz
+                  example: dqqc
                 new_password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: hzq
+                  example: lxxaw
               required:
                 - old_password
                 - new_password
@@ -2517,7 +2517,7 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: officia
               required:
                 - token
       security: []
