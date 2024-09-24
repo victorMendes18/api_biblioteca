@@ -21,7 +21,7 @@ endpoints:
         name: page
         description: 'Must be at least 1.'
         required: false
-        example: 1
+        example: 0
         type: integer
         custom: []
       page_size:
@@ -35,21 +35,21 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: eius
+        example: natus
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: qheller@example.net
+        example: schristiansen@example.com
         type: string
         custom: []
       ordering:
         name: ordering
         description: 'Must be one of <code>name</code> or <code>created_at</code>.'
         required: false
-        example: name
+        example: created_at
         type: string
         custom: []
     responses:
@@ -109,28 +109,28 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: rfnehkmd
+        example: ingqbqgomfaykkwcvgmziclfbwpskqonhnrfaenusfvxxburlwantutacfwodwiowhpfqxnjskwkjucpnmbfbozfwxabonyfsciiirlpotwaowqyalgguebgisvknncfpraqlvytekweuxg
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: mmiyiepflfkdjhhbhkzhvvqqvxdjpdqjaekesckypbiovgfqmxhaxxzsilfghshyifhmlrcjgkwpitmxqnbrqgaixjbrwzywxrcrqhilyygnczlzydkbzthxhizgvrlikvencapohxleufsivwzobasqwinwikardysiwdzjhpoavpvurfhqshpgcffigavziinlbwlzjcmxqp
+        example: tveercizhhxxybifgkbzbccsswblgpxvewutbvibfwlabiejscyidbxnafsnubicdqipvwhxlnhbbiczownjxrjudvaejnhpjrmlkmdjbiggadpvvdvldniytrgbeswyhblynsebefflhnnaeqtzdyytjhugvdcozqgezcxhegmbautkqpkqehpgcphmmezvanjcvvpddukmzflfpgoqxjolhpq
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: jay
+        example: dtyokzpb
         type: string
         custom: []
       type:
         name: type
         description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
         required: true
-        example: adm
+        example: librarian
         type: string
         custom: []
     responses:
@@ -191,28 +191,28 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: bhvpchcgtgtjbhwutzwwyiarnvdycjmrljzadogggw
+        example: zgrrgerpyaakn
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: vnspkdeskhyphdqyjudeknqcnugyznggctmvhtnsiuqzklyjukadmfaxsesrbwujzwnjlyncjzwkvfwceafjygkertdjuqhakixdkeldakrdyxoxtyngyzrutysawxbzqmuipmslgaecmmnsmoflpikuppqmwbhyehqyatkaykzqxolmtzzesstcicubvkoygcgotyixknnzjjg
+        example: osystkangfotsfjidxsvtgfgnuxkyginicbjjipkkqsoodmudqssfqvkudojaopnlbeunfgqwlldauxnsfcifhqymjtealjzyhxbxhspbiyucvmkuqptduhfpoyabbexfnirtnlpwwigqdtbyyuyqlglbwyhrzlbjgrbtdyssir
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: ''
+        example: jnw
         type: string
         custom: []
       type:
         name: type
         description: 'Must be one of <code>adm</code> or <code>librarian</code>.'
         required: true
-        example: librarian
+        example: adm
         type: string
         custom: []
     responses:
@@ -383,14 +383,14 @@ endpoints:
         name: old_password
         description: 'Must be at least 8 characters.'
         required: true
-        example: pugt
+        example: ''
         type: string
         custom: []
       new_password:
         name: new_password
         description: 'Must be at least 8 characters.'
         required: true
-        example: sxq
+        example: odu
         type: string
         custom: []
     responses:
@@ -438,7 +438,7 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: consequatur
+        example: rerum
         type: string
         custom: []
     responses:
@@ -446,7 +446,7 @@ endpoints:
         status: 200
         content: |-
           {
-             "token": "token",
+             "message": "Email confirmed successfully.",
           }
         headers: []
         description: '200'

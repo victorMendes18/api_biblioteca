@@ -332,7 +332,7 @@ class UserController extends Controller
      * @group Users
      * @header Authorization Bearer {token}
      * @response 200 {
-     *    "token": "token",
+     *    "message": "Email confirmed successfully.",
      * }
      * @response 422 {
      *   "message": "Validation Error",

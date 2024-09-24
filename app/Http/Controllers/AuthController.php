@@ -15,8 +15,10 @@ class AuthController extends Controller
      * @group Auth
      * @unauthenticated
      * @response 200 {
-     *     "email": "victorfran18@gmail.com",
-     *     "password": "12345678"
+     *     "message": "Login successfully.",
+     *     "access_token": "Token",
+     *     "token_type": "bearer",
+     *     "expires_in": 3600
      * }
      * @response 422 {
      *   "message": "Validation Error",

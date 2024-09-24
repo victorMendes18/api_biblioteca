@@ -30,21 +30,21 @@ endpoints:
         name: page_size
         description: 'Must be at least 1.'
         required: false
-        example: 0
+        example: 1
         type: integer
         custom: []
       search:
         name: search
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: wcdrxedzxlgoencffnnjoxtqyqskdncldvtwpzkbzdkdtccjvkzrdfnwejnvphjtzctbhxgfhjhrskzippklqiqkacahffkxnexocqmliquytzqhadzbdkmnmd
+        example: azqqqadyfwpzbeqxhabkpcnbeeylfiiqajhllfzkgjamdfvfdrzhosaclptgjiqmodalhpw
         type: string
         custom: []
       student:
         name: student
         description: ''
         required: false
-        example: doloremque
+        example: sequi
         type: string
         custom: []
       ordering:
@@ -132,21 +132,21 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: eos
+        example: quia
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: hic
+        example: dolorem
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2082-08-17'
+        example: '2036-09-15'
         type: string
         custom: []
       delivered:
@@ -206,7 +206,7 @@ endpoints:
         name: id
         description: 'The ID of the rent.'
         required: true
-        example: 4
+        example: 1
         type: integer
         custom: []
     queryParameters: []
@@ -215,21 +215,21 @@ endpoints:
         name: book_id
         description: ''
         required: true
-        example: laboriosam
+        example: est
         type: string
         custom: []
       student_id:
         name: student_id
         description: ''
         required: true
-        example: unde
+        example: dolore
         type: string
         custom: []
       delivery_date:
         name: delivery_date
         description: 'Must be a valid date. Must be a date after <code>today</code>.'
         required: true
-        example: '2036-05-07'
+        example: '2113-02-28'
         type: string
         custom: []
       delivered:
@@ -312,7 +312,7 @@ endpoints:
         name: id
         description: 'The ID of the rent.'
         required: true
-        example: 4
+        example: 1
         type: integer
         custom: []
     queryParameters: []
@@ -390,7 +390,7 @@ endpoints:
         name: id
         description: 'The ID of the rent.'
         required: true
-        example: 4
+        example: 1
         type: integer
         custom: []
     queryParameters: []

@@ -22,14 +22,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: erizkcubzjyhfzefjobljgqcvyhvrrzzrxqpyejvoztawqrszjlemqphsbjtkzwzqsbbrtygqtfxvbccjxrqkxfnmokei
+        example: etemwitwmbtopwdorhzagecgatrxttsbckuqazaxothmnkehljiqwxwcrqfodzzxccpphneqjxnggdktvjhworbxhqhhftezjdbycbbzboqhtkloholcqtdbniorqequalgwuffbrscnglujeuxeadrdalyozfghwlprdqqltgzeibixw
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: wynnmpum
+        example: fhpomgh
         type: string
         custom: []
     responses:
@@ -37,8 +37,10 @@ endpoints:
         status: 200
         content: |-
           {
-              "email": "victorfran18@gmail.com",
-              "password": "12345678"
+              "message": "Login successfully.",
+              "access_token": "Token",
+              "token_type": "bearer",
+              "expires_in": 3600
           }
         headers: []
         description: '200'
