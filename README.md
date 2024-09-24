@@ -84,3 +84,7 @@ Com todos esses passos concluídos, a aplicação estará rodando no servidor lo
      ```
 
 Com todos esses passos concluídos, a aplicação estará rodando no servidor local. Um usuário administrador foi criado automaticamente pelos seeders com o e-mail **admin@gmail.com** e a senha **12345678**. Esse usuário pode ser utilizado para acessar a aplicação e utilizar todas as rotas disponíveis. A documentação com todas as rotas estaram dispinível na rota **http://localhost:8000/docs**.
+
+## Observações
+
+Na raiz do projeto, você encontrará o arquivo **api-biblioteca.postman_collection.json**, que contém uma coleção do Postman com todas as rotas da API. Esse arquivo facilita o uso e a testagem das rotas disponíveis na aplicação.
